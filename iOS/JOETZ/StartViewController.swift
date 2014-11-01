@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartViewController.swift
 //  JOETZ
 //
 //  Created by Wim Van Renterghem on 10/20/14.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StartViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
-        self.navigationItem.hidesBackButton = true
+        println("StartViewController did load")
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

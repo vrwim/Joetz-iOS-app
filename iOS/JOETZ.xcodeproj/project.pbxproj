@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
-		AB138EE719F51B74007DB692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE619F51B74007DB692 /* ViewController.swift */; };
-		AB138EEA19F51B74007DB692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
+		AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE619F51B74007DB692 /* StartViewController.swift */; };
 		AB138EEC19F51B74007DB692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB138EEB19F51B74007DB692 /* Images.xcassets */; };
 		AB138EEF19F51B74007DB692 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB138EED19F51B74007DB692 /* LaunchScreen.xib */; };
 		AB138EFB19F51B74007DB692 /* JOETZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EFA19F51B74007DB692 /* JOETZTests.swift */; };
+		AB29D9811A0543730022E3B2 /* ContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29D9801A0543730022E3B2 /* ContentsViewController.swift */; };
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
-		AB4C15E81A0195320018876A /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E71A0195320018876A /* ContentViewController.swift */; };
+		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
+		ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776E91A05241C0063AEDB /* JSON.swift */; };
+		ABE776EC1A0524500063AEDB /* Kamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EB1A0524500063AEDB /* Kamp.swift */; };
+		ABE776EE1A0525820063AEDB /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = ABE776ED1A0525820063AEDB /* example.json */; };
+		ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EF1A052FE00063AEDB /* ConnectionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,15 +35,19 @@
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EE319F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB138EE419F51B74007DB692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB138EE619F51B74007DB692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB138EE619F51B74007DB692 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		AB138EE919F51B74007DB692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB138EEB19F51B74007DB692 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AB138EEE19F51B74007DB692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AB138EF419F51B74007DB692 /* JOETZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JOETZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EF919F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB138EFA19F51B74007DB692 /* JOETZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOETZTests.swift; sourceTree = "<group>"; };
+		AB29D9801A0543730022E3B2 /* ContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsViewController.swift; sourceTree = "<group>"; };
 		AB4C15E51A01948B0018876A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AB4C15E71A0195320018876A /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		ABE776E91A05241C0063AEDB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		ABE776EB1A0524500063AEDB /* Kamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kamp.swift; sourceTree = "<group>"; };
+		ABE776ED1A0525820063AEDB /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		ABE776EF1A052FE00063AEDB /* ConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +90,17 @@
 			isa = PBXGroup;
 			children = (
 				AB138EE419F51B74007DB692 /* AppDelegate.swift */,
-				AB138EE619F51B74007DB692 /* ViewController.swift */,
+				AB138EE619F51B74007DB692 /* StartViewController.swift */,
 				AB138EE819F51B74007DB692 /* Main.storyboard */,
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
-				AB4C15E71A0195320018876A /* ContentViewController.swift */,
 				AB138EEB19F51B74007DB692 /* Images.xcassets */,
 				AB138EED19F51B74007DB692 /* LaunchScreen.xib */,
 				AB138EE219F51B74007DB692 /* Supporting Files */,
+				ABE776E91A05241C0063AEDB /* JSON.swift */,
+				ABE776EB1A0524500063AEDB /* Kamp.swift */,
+				ABE776ED1A0525820063AEDB /* example.json */,
+				ABE776EF1A052FE00063AEDB /* ConnectionService.swift */,
+				AB29D9801A0543730022E3B2 /* ContentsViewController.swift */,
 			);
 			path = JOETZ;
 			sourceTree = "<group>";
@@ -198,7 +210,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB138EEA19F51B74007DB692 /* Main.storyboard in Resources */,
+				ABB339831A053CF100518CA2 /* Main.storyboard in Resources */,
+				ABE776EE1A0525820063AEDB /* example.json in Resources */,
 				AB138EEF19F51B74007DB692 /* LaunchScreen.xib in Resources */,
 				AB138EEC19F51B74007DB692 /* Images.xcassets in Resources */,
 			);
@@ -218,9 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4C15E81A0195320018876A /* ContentViewController.swift in Sources */,
+				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
+				AB29D9811A0543730022E3B2 /* ContentsViewController.swift in Sources */,
+				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
-				AB138EE719F51B74007DB692 /* ViewController.swift in Sources */,
+				AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */,
+				ABE776EC1A0524500063AEDB /* Kamp.swift in Sources */,
 				AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

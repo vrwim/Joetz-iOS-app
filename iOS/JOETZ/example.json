@@ -1,0 +1,51 @@
+{
+    "kampen" : [
+        {
+                "_id": "5454cfd7f693c7101956abe6",
+                "basicPrice": 16545,
+                "capacity": 20,
+                "destination": "Nieuwpoort",
+                "endDate": "2014-03-06T23:00:00.000Z",
+                "inclusives": [
+                               "Heen- en terugreis per autocar",
+                               "Verblijf in volpension, drank bij de maaltijden",
+                               "Dagelijks vieruurtje",
+                               "Kamers met eigen douche en toilet",
+                               "Begeleiding door ervaren, gebrevetteerde monitoren",
+                               "Volledig animatiepakket incl. spelmateriaal",
+                               "Ongevallenverzekering"
+                               ],
+                "location": "De Barkentijn, Nieuwpoort",
+                "logos": [
+                          "fiscaal aftrekbaar"
+                          ],
+                "maxAge": 16,
+                "minAge": 5,
+                "period": "Krokus",
+                "pictures": [
+                             "Krokusvakantie.jpg"
+                             ],
+                "prices": [
+                           {
+                           "_id": "5454cfd7f693c7101956abe8",
+                           "info": "E\u00c3\u00a9n ouder lid van Bond Moyson West-Vlaanderen",
+                           "price": 13500
+                           },
+                           {
+                           "_id": "5454cfd7f693c7101956abe7",
+                           "info": "Beide ouders lid van Bond Moyson West-Vlaanderen",
+                           "price": 10500
+                           }
+                           ],
+                "promo": "Verveling krijgt geen kans tijdens de krokusvakantie want op maandag 03 maart 2014 trekken we er met z\u00e2\u20ac\u2122n allen op uit! We logeren in het vakantiecentrum \"De Barkentijn\" te Nieuwpoort. Vijf dagen lang spelen we de leukste spelletjes, voor klein en groot. Samen met je vakantievriendjes beleef je het ene avontuur na het andere. Plezier gegarandeerd!",
+                "registration": [
+                                 "056/27.47.00",
+                                 "joetz.west@joetz.be"
+                                 ],
+                "remarks": "Lees de algemene voorwaarden achteraan in deze brochure",
+                "startDate": "2014-03-02T23:00:00.000Z",
+                "title": "Krokusvakantie aan zee",
+                "transport": "Busvervoer of eigen vervoer"
+                }
+        ]
+}
