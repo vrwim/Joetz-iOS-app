@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentsViewController: UIViewController {
+class ParentViewController: UIViewController {
     
     var trips: [Trip] = []
     @IBOutlet weak var contentTextView: UITextView! // TODO: weg
