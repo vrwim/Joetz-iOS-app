@@ -9,47 +9,50 @@
 import Foundation
 
 class JSON {
-    class func readKampen(data: NSData) -> [Kamp] {
+    class func readTrips(data: NSData) -> [Trip] {
         
-        let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
-        let jsonKampen = jsonData["kampen"] as NSArray
+        let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSArray
         
-        var kampen: [Kamp] = []
+        var trips: [Trip] = []
         
-        for jsonKamp in jsonKampen {
+        for jsonTrip in jsonData {
             
-            let id = jsonKamp["_id"] as String
-            let basicPrice = (jsonKamp["basicPrice"] as Float)/100
-            let capacity = jsonKamp["capacity"] as Int
-            let destination = jsonKamp["destination"] as String
-            let beginDate = jsonKamp["startDate"] as String
-            let endDate = jsonKamp["endDate"] as String
-            let inclusives = jsonKamp["inclusives"] as [String]
-            let location = jsonKamp["location"] as String
-            let logos = jsonKamp["logos"] as [String]
-            let minAge = jsonKamp["minAge"] as Int
-            let maxAge = jsonKamp["maxAge"] as Int
-            let period = jsonKamp["period"] as String
-            let pictures = jsonKamp["pictures"] as [String]
-            let promo = jsonKamp["promo"] as String
-            let registration = jsonKamp["registration"] as [String]
-            let remarks = jsonKamp["remarks"] as String
-            let title = jsonKamp["title"] as String
-            let transport = jsonKamp["transport"] as String
-            let pricesDict = jsonKamp["prices"] as [NSDictionary]
+            let id = jsonTrip["_id"] as String
+            var basicPrice = jsonTrip["basicPrice"] as Float?
+            let capacity = jsonTrip["capacity"] as Int?
+            let destination = jsonTrip["destination"] as String?
+            let beginDate = jsonTrip["startDate"] as String?
+            let endDate = jsonTrip["endDate"] as String?
+            let inclusives = jsonTrip["inclusives"] as [String]?
+            let location = jsonTrip["location"] as String?
+            let logos = jsonTrip["logos"] as [String]?
+            let minAge = jsonTrip["minAge"] as Int?
+            let maxAge = jsonTrip["maxAge"] as Int?
+            let period = jsonTrip["period"] as String?
+            let pictures = jsonTrip["pictures"] as [String]?
+            let promo = jsonTrip["promo"] as String?
+            let registration = jsonTrip["registration"] as [String]?
+            let remarks = jsonTrip["remarks"] as String?
+            let title = jsonTrip["title"] as String?
+            let transport = jsonTrip["transport"] as String?
+            let pricesDict = jsonTrip["prices"] as [NSDictionary]?
             
-            var prices: [(String, String, Float)] = []
+            basicPrice = basicPrice == nil ? nil : basicPrice!/100
             
-            for price in pricesDict {
-                prices.append(price["_id"] as String, price["info"] as String, (price["price"] as Float)/100)
+            var prices: [(String, Float)] = []
+            
+            if pricesDict != nil {
+                for price in pricesDict! {
+                    prices.append(price["info"] as String, (price["price"] as Float)/100)
+                }
             }
             
-            kampen.append(Kamp(id: id, basicPrice: basicPrice, capacity: capacity, destination: destination, beginDate: beginDate, endDate: endDate, inclusives: inclusives, location: location, logos: logos, minAge: minAge, maxAge: maxAge, period: period, pictures: pictures, prices: prices, promo: promo, registration: registration, remarks: remarks, title: title, transport: transport))
+            trips.append(Trip(id: id, basicPrice: basicPrice, capacity: capacity, destination: destination, beginDate: beginDate, endDate: endDate, inclusives: inclusives, location: location, logos: logos, minAge: minAge, maxAge: maxAge, period: period, pictures: pictures, prices: prices, promo: promo, registration: registration, remarks: remarks, title: title, transport: transport))
         }
-        kampen.sort{
-            kamp1, kamp2 in
-            return kamp1.title < kamp2.title
+        trips.sort{
+            trip1, trip2 in
+            return trip1.title < trip2.title
         }
-        return kampen
+        return trips
     }
 }

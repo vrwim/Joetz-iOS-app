@@ -10,22 +10,22 @@ import Foundation
 
 class ConnectionService {
     
-    let baseUrl = NSURL(string: "http://localhost:8000/example.json")!
+    let baseUrl = NSURL(string: "http://localhost:9000/api/trips/")!
     let session: NSURLSession
     
     init() {
         session = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
     }
     
-    func createFetchTask(#completionHandler: [Kamp] -> Void) -> NSURLSessionTask {
+    func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
         let request = NSMutableURLRequest(URL: baseUrl)
         return session.dataTaskWithRequest(request) {
             data, response, error in
             let response = response as NSHTTPURLResponse
             if response.statusCode == 200 {
-                let kampen = JSON.readKampen(data)
+                let trips = JSON.readTrips(data)
                 dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
-                    completionHandler(kampen)
+                    completionHandler(trips)
                 }
             }
         }

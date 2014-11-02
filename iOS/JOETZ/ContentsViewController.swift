@@ -10,15 +10,20 @@ import UIKit
 
 class ContentsViewController: UIViewController {
     
-    var kampen: [Kamp] = []
+    var trips: [Trip] = []
     @IBOutlet weak var contentTextView: UITextView! // TODO: weg
     
     override func viewDidLoad() {
         println("ContentsViewController did load")
         let task = connectionService.createFetchTask {
-            kampen in
-            self.kampen = kampen
-            self.contentTextView.text = kampen[0].title
+            trips in
+            self.trips = trips
+            // Dummy code to check link & JSON
+            var text = ""
+            for trip in trips {
+                text = text + trip.title! + "\n"
+            }
+            self.contentTextView.text = text
         }
         task.resume()
     }
