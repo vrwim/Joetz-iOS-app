@@ -55,4 +55,5 @@ class JSON {
         }
         return trips
     }
+
 }

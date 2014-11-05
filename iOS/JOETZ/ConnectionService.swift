@@ -10,7 +10,7 @@ import Foundation
 
 class ConnectionService {
     
-    let baseUrl = NSURL(string: "http://localhost:9000/api/trips/")!
+    let baseUrl = NSURL(string: "http://pastebin.com/raw.php?i=ijk8BDJx")!
     let session: NSURLSession
     
     init() {
@@ -45,6 +45,7 @@ class ConnectionService {
         }
     }
     */
+    
 }
 
 let connectionService = ConnectionService()

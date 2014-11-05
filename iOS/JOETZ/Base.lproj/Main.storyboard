@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7vh-kF-oS8" firstAttribute="centerX" secondItem="B37-gy-e2U" secondAttribute="centerX" id="Bc7-iK-9vi"/>
                             <constraint firstAttribute="centerX" secondItem="I9P-KT-gw0" secondAttribute="centerX" constant="-0.5" id="Ege-Hp-EH9"/>
@@ -163,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azI-QY-ENv">
-                                <rect key="frame" x="277" y="212" width="38" height="30"/>
+                                <rect key="frame" x="281" y="212" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -176,13 +176,13 @@
                         <constraints>
                             <constraint firstItem="REr-eX-wle" firstAttribute="width" secondItem="p4D-ug-UoS" secondAttribute="width" id="0ak-Nx-wd0"/>
                             <constraint firstItem="JH7-8d-1Tm" firstAttribute="top" secondItem="ZDi-os-hJC" secondAttribute="bottom" constant="8" symbolic="YES" id="2go-Bd-gja"/>
+                            <constraint firstAttribute="centerX" secondItem="azI-QY-ENv" secondAttribute="centerX" id="Ix6-f7-7cH"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="top" secondItem="Vdb-HB-jVo" secondAttribute="bottom" constant="60" id="JQu-08-hCF"/>
                             <constraint firstAttribute="centerX" secondItem="ZDi-os-hJC" secondAttribute="centerX" id="JgY-Ef-saR"/>
                             <constraint firstItem="azI-QY-ENv" firstAttribute="top" secondItem="p4D-ug-UoS" secondAttribute="bottom" constant="20" id="T7y-14-RyP"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" constant="96" id="Ze4-Z7-iSk"/>
                             <constraint firstItem="p4D-ug-UoS" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" constant="96" id="aBu-d8-bD4"/>
                             <constraint firstItem="p4D-ug-UoS" firstAttribute="top" secondItem="REr-eX-wle" secondAttribute="bottom" constant="8" symbolic="YES" id="esa-W9-7Kg"/>
-                            <constraint firstItem="azI-QY-ENv" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" constant="261" id="jSz-12-q7v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="REr-eX-wle" secondAttribute="trailing" constant="72" id="nq7-bR-WXm"/>
                         </constraints>
                     </view>
@@ -218,6 +218,9 @@
                                 <state key="normal" title="Vakanties">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="z6g-GB-oRL" kind="show" id="jOd-3I-J8a"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -282,6 +285,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9K-JW-acW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="567" y="-588"/>
+        </scene>
+        <!--Vakanties-->
+        <scene sceneID="L3G-bq-3nm">
+            <objects>
+                <tableViewController id="z6g-GB-oRL" customClass="TripsController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="i0L-qO-CgX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tripCell" textLabel="PjW-Dp-RgH" detailTextLabel="Cuz-mO-Gdu" style="IBUITableViewCellStyleValue1" id="lWH-WL-Vcx">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lWH-WL-Vcx" id="CIC-zD-vO1">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="VacationTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PjW-Dp-RgH">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cuz-mO-Gdu">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="z6g-GB-oRL" id="Ay5-2t-SWb"/>
+                            <outlet property="delegate" destination="z6g-GB-oRL" id="BYD-U6-7NO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Vakanties" id="K2f-u7-eV7"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="LUS-jG-ME2">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="z6g-GB-oRL" eventType="valueChanged" id="Pl2-f8-pvA"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcE-Jv-ysZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389" y="124"/>
         </scene>
     </scenes>
     <resources>

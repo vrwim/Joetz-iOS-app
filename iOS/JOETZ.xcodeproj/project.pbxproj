@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D182AB61A0A7BD000E3E59F /* TripsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB51A0A7BD000E3E59F /* TripsTableViewController.swift */; };
+		3D182AB81A0A828300E3E59F /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB71A0A828300E3E59F /* TripTableViewController.swift */; };
 		3D1EB9CF1A06992900C01F49 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9CE1A06992900C01F49 /* ChildViewController.swift */; };
 		3D1EB9D11A069DCB00C01F49 /* LoggedInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D182AB51A0A7BD000E3E59F /* TripsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsTableViewController.swift; sourceTree = "<group>"; };
+		3D182AB71A0A828300E3E59F /* TripTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		3D1EB9CE1A06992900C01F49 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInUserViewController.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +98,8 @@
 				AB138EE419F51B74007DB692 /* AppDelegate.swift */,
 				AB138EE619F51B74007DB692 /* StartViewController.swift */,
 				AB138EE819F51B74007DB692 /* Main.storyboard */,
+				3D182AB51A0A7BD000E3E59F /* TripsTableViewController.swift */,
+				3D182AB71A0A828300E3E59F /* TripTableViewController.swift */,
 				3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */,
 				3D1EB9CE1A06992900C01F49 /* ChildViewController.swift */,
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
@@ -234,9 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
+				3D182AB81A0A828300E3E59F /* TripTableViewController.swift in Sources */,
 				AB29D9811A0543730022E3B2 /* ParentViewController.swift in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
+				3D182AB61A0A7BD000E3E59F /* TripsTableViewController.swift in Sources */,
 				3D1EB9D11A069DCB00C01F49 /* LoggedInUserViewController.swift in Sources */,
 				AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */,
 				ABE776EC1A0524500063AEDB /* Trip.swift in Sources */,
