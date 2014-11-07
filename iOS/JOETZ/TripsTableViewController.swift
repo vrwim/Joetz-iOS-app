@@ -40,8 +40,8 @@ class TripsController: UITableViewController
         let cell = tableView.dequeueReusableCellWithIdentifier("tripCell") as UITableViewCell
         let trip = trips[indexPath.row]
         
-        cell.textLabel.text = trip.title
-        cell.detailTextLabel!.text = "€\(trip.basicPrice!)"
+        //cell.textLabel.text = trip.title
+        //cell.detailTextLabel!.text = "€\(trip.basicPrice!)"
         return cell
     }
 

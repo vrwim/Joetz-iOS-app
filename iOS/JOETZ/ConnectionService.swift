@@ -18,10 +18,12 @@ class ConnectionService {
     }
     
     func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
+        //check if internetconnection
         let request = NSMutableURLRequest(URL: baseUrl)
         return session.dataTaskWithRequest(request) {
             data, response, error in
             let response = response as NSHTTPURLResponse
+            //check other numbers...
             if response.statusCode == 200 {
                 let trips = JSON.readTrips(data)
                 dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
