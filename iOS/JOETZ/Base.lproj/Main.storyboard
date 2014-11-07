@@ -226,13 +226,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripCell" textLabel="PjW-Dp-RgH" detailTextLabel="Cuz-mO-Gdu" style="IBUITableViewCellStyleValue1" id="lWH-WL-Vcx">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="97" id="lWH-WL-Vcx" customClass="TripCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lWH-WL-Vcx" id="CIC-zD-vO1">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Halloween" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPL-fy-fJB">
-                                            <rect key="frame" x="8" y="8" width="96" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPL-fy-fJB">
+                                            <rect key="frame" x="8" y="8" width="85" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -283,6 +283,15 @@
                                         <constraint firstItem="KHM-L8-4Yc" firstAttribute="leading" secondItem="CIC-zD-vO1" secondAttribute="leadingMargin" id="vyY-46-3Se"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="regioLabel" destination="KHM-L8-4Yc" id="NJl-H9-Oh5"/>
+                                    <outlet property="titleLabel" destination="gPL-fy-fJB" id="h9M-EK-n01"/>
+                                    <outlet property="totLabel" destination="QA1-dj-WU0" id="jgJ-pS-ORq"/>
+                                    <outlet property="totLeeftijdLabel" destination="XCw-hL-qpd" id="1ji-vs-NhI"/>
+                                    <outlet property="vanLabel" destination="gTl-Qz-mnI" id="4Br-fZ-sAO"/>
+                                    <outlet property="vanLeeftijdLabel" destination="x2C-vf-Vg0" id="508-Yq-27p"/>
+                                    <segue destination="oZr-dK-3B1" kind="show" id="fqJ-Qe-boF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

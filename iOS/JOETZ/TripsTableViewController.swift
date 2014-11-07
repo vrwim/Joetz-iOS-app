@@ -37,11 +37,11 @@ class TripsController: UITableViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tripCell") as UITableViewCell
-        let trip = trips[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("tripCell") as TripCell
         
-        //cell.textLabel.text = trip.title
-        //cell.detailTextLabel!.text = "€\(trip.basicPrice!)"
+        let trip = trips[indexPath.row]
+        cell.setContent(trip)
+        
         return cell
     }
 
