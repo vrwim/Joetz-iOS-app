@@ -18,6 +18,7 @@
 		AB138EFB19F51B74007DB692 /* JOETZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EFA19F51B74007DB692 /* JOETZTests.swift */; };
 		AB29D9811A0543730022E3B2 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29D9801A0543730022E3B2 /* ParentViewController.swift */; };
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
+		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
 		ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776E91A05241C0063AEDB /* JSON.swift */; };
 		ABE776EC1A0524500063AEDB /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EB1A0524500063AEDB /* Trip.swift */; };
@@ -51,6 +52,8 @@
 		AB138EFA19F51B74007DB692 /* JOETZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOETZTests.swift; sourceTree = "<group>"; };
 		AB29D9801A0543730022E3B2 /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		AB4C15E51A01948B0018876A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		ABE776E91A05241C0063AEDB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		ABE776EB1A0524500063AEDB /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		ABE776EF1A052FE00063AEDB /* ConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 		AB138ED619F51B74007DB692 = {
 			isa = PBXGroup;
 			children = (
+				ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */,
 				AB138EE119F51B74007DB692 /* JOETZ */,
 				AB138EF719F51B74007DB692 /* JOETZTests */,
 				AB138EE019F51B74007DB692 /* Products */,
@@ -110,6 +115,7 @@
 				ABE776EB1A0524500063AEDB /* Trip.swift */,
 				ABE776EF1A052FE00063AEDB /* ConnectionService.swift */,
 				AB29D9801A0543730022E3B2 /* ParentViewController.swift */,
+				ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */,
 			);
 			path = JOETZ;
 			sourceTree = "<group>";
@@ -374,9 +380,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vrwim/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JOETZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JOETZ/Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -384,9 +396,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vrwim/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = JOETZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JOETZ/Bridge-Header.h";
 			};
 			name = Release;
 		};
