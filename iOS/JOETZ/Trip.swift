@@ -51,4 +51,8 @@ class Trip {
             self.transport = transport
     }
     
+//    let dateFormatter = NSDateFormatter()
+//    dateFormatter.dateFormat = /*find out and place date format from http://userguide.icu-project.org/formatparse/datetime*/
+//    let date = dateFormatter.dateFromString(/*your_date_string*/)
+    
 }
