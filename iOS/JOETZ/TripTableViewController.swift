@@ -31,6 +31,32 @@ class TripController: UITableViewController
         vanTotLabel.text = "Van \(trip.minAge!) tot \(trip.maxAge!) jaar"
         prijsLabel.text = "Prijs: €\(trip.basicPrice!)"
         beschrijvingLabel.text = trip.promo?
+        
+        let location = trip.destination
+        var geocoder:CLGeocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+            if ((error) != nil) {
+                
+                println("Error", error)
+            } else if let placemark = placemarks?[0] as? CLPlacemark {
+                
+                var placemark:CLPlacemark = placemarks[0] as CLPlacemark
+                var coordinates:CLLocationCoordinate2D = placemark.location.coordinate
+                
+                var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                pointAnnotation.coordinate = coordinates
+                //pointAnnotation.title = "Apple HQ"
+                
+                self.map.addAnnotation(pointAnnotation)
+                self.map.centerCoordinate = coordinates
+                self.map.selectAnnotation(pointAnnotation, animated: true)
+                
+                println("Center map on user location.")
+                let mapCenter = coordinates
+                var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1500)
+                self.map.setCamera(mapCamera, animated: true)
+            }
+        })
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
