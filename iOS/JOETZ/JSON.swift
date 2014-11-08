@@ -21,8 +21,8 @@ class JSON {
             var basicPrice = jsonTrip["basicPrice"] as Float?
             let capacity = jsonTrip["capacity"] as Int?
             let destination = jsonTrip["destination"] as String?
-            let beginDate = jsonTrip["startDate"] as String?
-            let endDate = jsonTrip["endDate"] as String?
+            var beginDate = jsonTrip["startDate"] as String?
+            var endDate = jsonTrip["endDate"] as String?
             let inclusives = jsonTrip["inclusives"] as [String]?
             let location = jsonTrip["location"] as String?
             let logos = jsonTrip["logos"] as [String]?
@@ -47,6 +47,9 @@ class JSON {
                 }
             }
             
+            beginDate = isoDateParser(beginDate!)
+            endDate = isoDateParser(endDate!)
+            
             trips.append(Trip(id: id, basicPrice: basicPrice, capacity: capacity, destination: destination, beginDate: beginDate, endDate: endDate, inclusives: inclusives, location: location, logos: logos, minAge: minAge, maxAge: maxAge, period: period, pictures: pictures, prices: prices, promo: promo, registration: registration, remarks: remarks, title: title, transport: transport))
         }
         trips.sort{
@@ -54,6 +57,19 @@ class JSON {
             return trip1.title < trip2.title
         }
         return trips
+    }
+    
+    class func isoDateParser(date: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        //original isoDate format to convert to NSDate
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let tmpDate = dateFormatter.dateFromString(date)!
+        //New dateformat to more readable date
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        //return date back as a string
+        return dateFormatter.stringFromDate(tmpDate)
     }
 
 }

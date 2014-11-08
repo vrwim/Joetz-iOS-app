@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class TripController: UITableViewController
+class ParentTripController: UITableViewController
 {
     @IBOutlet weak var vanLabel: UILabel!
     @IBOutlet weak var totLabel: UILabel!

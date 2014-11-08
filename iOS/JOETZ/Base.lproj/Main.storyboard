@@ -220,13 +220,13 @@
         <!--Vakanties-->
         <scene sceneID="L3G-bq-3nm">
             <objects>
-                <tableViewController id="z6g-GB-oRL" customClass="TripsController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="z6g-GB-oRL" customClass="ParentTripsController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="22" sectionFooterHeight="22" id="i0L-qO-CgX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="97" id="lWH-WL-Vcx" customClass="TripCell" customModule="JOETZ" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="parentTripCell" rowHeight="97" id="lWH-WL-Vcx" customClass="ParentTripCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lWH-WL-Vcx" id="CIC-zD-vO1">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -315,7 +315,7 @@
         <!--Trip-->
         <scene sceneID="MSe-pP-KiB">
             <objects>
-                <tableViewController id="oZr-dK-3B1" customClass="TripController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oZr-dK-3B1" customClass="ParentTripController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="quS-tS-yEw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripsController: UITableViewController
+class ParentTripsController: UITableViewController
 {
     var trips: [Trip] = []
     var task: NSURLSessionTask?
@@ -23,7 +23,7 @@ class TripsController: UITableViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let tripController = segue.destinationViewController as TripController
+        let tripController = segue.destinationViewController as ParentTripController
         let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
         tripController.trip = selectedTrip
     }
@@ -37,7 +37,7 @@ class TripsController: UITableViewController
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tripCell") as TripCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("parentTripCell") as ParentTripCell
         
         let trip = trips[indexPath.row]
         cell.setContent(trip)

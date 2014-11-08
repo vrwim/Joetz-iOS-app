@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripCell: UITableViewCell {
+class ParentTripCell: UITableViewCell {
     
     var trip: Trip!
     @IBOutlet weak var titleLabel: UILabel!
