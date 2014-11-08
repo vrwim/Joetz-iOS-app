@@ -10,7 +10,7 @@ import Foundation
 
 class ConnectionService {
     
-    let baseUrl = NSURL(string: "http://pastebin.com/raw.php?i=ijk8BDJx")!
+    let baseUrl = NSURL(string: "http://188.226.141.100:9000/api/trips")!
     let session: NSURLSession
     
     init() {

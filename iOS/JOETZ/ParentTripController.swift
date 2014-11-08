@@ -35,7 +35,7 @@ class ParentTripController: UITableViewController
         let location = trip.destination
         var geocoder:CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
-            if ((error) != nil) {
+            if error != nil {
                 
                 println("Error", error)
             } else if let placemark = placemarks?[0] as? CLPlacemark {
@@ -45,7 +45,7 @@ class ParentTripController: UITableViewController
                 
                 var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
                 pointAnnotation.coordinate = coordinates
-                //pointAnnotation.title = "Apple HQ"
+                // pointAnnotation.title = trip.destination
                 
                 self.map.addAnnotation(pointAnnotation)
                 self.map.centerCoordinate = coordinates
