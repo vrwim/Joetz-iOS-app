@@ -17,6 +17,8 @@
 		AB138EEC19F51B74007DB692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB138EEB19F51B74007DB692 /* Images.xcassets */; };
 		AB138EEF19F51B74007DB692 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB138EED19F51B74007DB692 /* LaunchScreen.xib */; };
 		AB138EFB19F51B74007DB692 /* JOETZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EFA19F51B74007DB692 /* JOETZTests.swift */; };
+		AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */; };
+		AB384AF51A12C48C005C597A /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB384AF41A12C48C005C597A /* ModelController.swift */; };
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
 		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		AB138EF419F51B74007DB692 /* JOETZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JOETZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EF919F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB138EFA19F51B74007DB692 /* JOETZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JOETZTests.swift; sourceTree = "<group>"; };
+		AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildTripViewController.swift; sourceTree = "<group>"; };
+		AB384AF41A12C48C005C597A /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		AB4C15E51A01948B0018876A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				3D182AB71A0A828300E3E59F /* ParentTripController.swift */,
 				3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */,
 				3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */,
+				AB384AF41A12C48C005C597A /* ModelController.swift */,
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
 				AB138EEB19F51B74007DB692 /* Images.xcassets */,
 				AB138EED19F51B74007DB692 /* LaunchScreen.xib */,
@@ -116,6 +121,7 @@
 				ABE776EF1A052FE00063AEDB /* ConnectionService.swift */,
 				ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */,
 				AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */,
+				AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */,
 			);
 			path = JOETZ;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
+				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
 				3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */,
+				AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */,
 				3D1EB9D11A069DCB00C01F49 /* LoggedInUserViewController.swift in Sources */,
 				AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */,
 				ABE776EC1A0524500063AEDB /* Trip.swift in Sources */,

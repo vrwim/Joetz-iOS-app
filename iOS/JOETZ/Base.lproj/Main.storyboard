@@ -202,20 +202,45 @@
                     <view key="view" contentMode="scaleToFill" id="Ap9-DJ-UA3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNv-v6-uKb">
-                                <rect key="frame" x="16" y="72" width="132" height="30"/>
-                                <state key="normal" title="Ik wil op vakantie...">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9K-JW-acW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="567" y="-588"/>
+        </scene>
+        <!--Child Trip View Controller-->
+        <scene sceneID="3Xd-js-DUE">
+            <objects>
+                <viewController storyboardIdentifier="ChildTripViewController" id="b6K-h3-xdf" customClass="ChildTripViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AFh-VV-1Hm"/>
+                        <viewControllerLayoutGuide type="bottom" id="g46-T5-MX8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ODm-Jo-SCV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYn-4C-laY">
+                                <rect key="frame" x="279" y="290" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="vYn-4C-laY" secondAttribute="centerY" id="5D3-EM-dhl"/>
+                            <constraint firstAttribute="centerX" secondItem="vYn-4C-laY" secondAttribute="centerX" id="NTc-VT-vgw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testLabel" destination="vYn-4C-laY" id="If7-5m-Boh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p1s-Zs-151" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1233" y="-588"/>
         </scene>
         <!--Vakanties-->
         <scene sceneID="L3G-bq-3nm">
