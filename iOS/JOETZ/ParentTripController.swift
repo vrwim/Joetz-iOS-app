@@ -19,6 +19,8 @@ class ParentTripController: UITableViewController
     @IBOutlet weak var beschrijvingLabel: UILabel!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var beschrijvingCell: UITableViewCell!
+    @IBOutlet weak var capaciteitLabel: UILabel!
+    @IBOutlet weak var transportLabel: UILabel!
     
     var trip: Trip!
     
@@ -30,11 +32,14 @@ class ParentTripController: UITableViewController
         regioLabel.text = "Regio \(trip.location!)"
         vanTotLabel.text = "Van \(trip.minAge!) tot \(trip.maxAge!) jaar"
         prijsLabel.text = "Prijs: €\(trip.basicPrice!)"
+        capaciteitLabel.text = "Capaciteit: \(trip.capacity!)"
+        transportLabel.text = "Transport: \(trip.transport!)"
         beschrijvingLabel.text = trip.promo?
         
         let location = trip.destination
         var geocoder:CLGeocoder = CLGeocoder()
-        geocoder.geocodeAddressString(location, {(placemarks: [AnyObject]!, error: NSError!) -> Void in
+        geocoder.geocodeAddressString(location) {
+            placemarks, error in
             if error != nil {
                 
                 println("Error", error)
@@ -51,21 +56,53 @@ class ParentTripController: UITableViewController
                 self.map.centerCoordinate = coordinates
                 self.map.selectAnnotation(pointAnnotation, animated: true)
                 
-                println("Center map on user location.")
                 let mapCenter = coordinates
                 var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1500)
                 self.map.setCamera(mapCamera, animated: true)
             }
-        })
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return trip.promo == nil ? 5 : super.tableView(tableView, numberOfRowsInSection: section)
-        } else {
+        switch section {
+        case 0:
+            return trip.promo == nil ? 7 : super.tableView(tableView, numberOfRowsInSection: section)
+        case 1:
+            return trip.inclusives?.count ?? 0
+        case 3:
+            return trip.prices?.count ?? 0
+        default:
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
     }
     
-    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 1:
+            let inclusive = trip.inclusives![indexPath.row]
+            
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+            
+            cell.textLabel.text = inclusive
+            cell.textLabel.lineBreakMode = .ByWordWrapping
+            cell.textLabel.numberOfLines = 0
+            
+            return cell
+        case 3:
+            let price = trip.prices![indexPath.row]
+            
+            let cell = UITableViewCell(style: .Value1, reuseIdentifier: nil)
+            
+            cell.textLabel.text = price.0
+            cell.detailTextLabel?.text = "\(price.1)"
+            cell.textLabel.lineBreakMode = .ByWordWrapping
+            cell.textLabel.numberOfLines = 0
+            
+            return cell
+        default:
+            return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
+        }
+        
+    }
 }
+

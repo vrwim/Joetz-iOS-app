@@ -14,11 +14,11 @@ class ChildViewController: UIViewController, UIPageViewControllerDelegate {
         self.pageViewController!.delegate = self
         
         modelController = ModelController() {
-            self.onViewLoaded()
+            self.onDataLoaded()
         }
     }
     
-    func onViewLoaded() {
+    func onDataLoaded() {
     
         let startingViewController: ChildTripViewController = self.modelController!.viewControllerAtIndex(0, storyboard: self.storyboard!)!
         let viewControllers: NSArray = [startingViewController]

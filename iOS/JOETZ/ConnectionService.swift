@@ -10,7 +10,7 @@ import Foundation
 
 class ConnectionService {
     
-    let baseUrl = NSURL(string: "http://188.226.141.100:9000/api/trips")!
+    let baseUrl = NSURL(string: "http://188.226.141.100:9000")!
     let session: NSURLSession
     
     init() {
@@ -19,7 +19,7 @@ class ConnectionService {
     
     func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
         //check if internetconnection
-        let request = NSMutableURLRequest(URL: baseUrl)
+        let request = NSMutableURLRequest(URL: baseUrl.URLByAppendingPathComponent("api/trips"))
         return session.dataTaskWithRequest(request) {
             data, response, error in
             let response = response as NSHTTPURLResponse
