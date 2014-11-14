@@ -11,6 +11,7 @@
 		3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB71A0A828300E3E59F /* ParentTripController.swift */; };
 		3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */; };
 		3D1EB9D11A069DCB00C01F49 /* LoggedInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */; };
+		AB0387461A16B3A600F11FCF /* Vragen.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB0387451A16B3A600F11FCF /* Vragen.txt */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
 		AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE619F51B74007DB692 /* StartViewController.swift */; };
@@ -42,6 +43,7 @@
 		3D182AB71A0A828300E3E59F /* ParentTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripController.swift; sourceTree = "<group>"; };
 		3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildTripController.swift; sourceTree = "<group>"; };
 		3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInUserViewController.swift; sourceTree = "<group>"; };
+		AB0387451A16B3A600F11FCF /* Vragen.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vragen.txt; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EE319F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */,
 				AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */,
 				AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */,
+				AB0387451A16B3A600F11FCF /* Vragen.txt */,
 			);
 			path = JOETZ;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				ABB339831A053CF100518CA2 /* Main.storyboard in Resources */,
 				AB138EEF19F51B74007DB692 /* LaunchScreen.xib in Resources */,
 				AB138EEC19F51B74007DB692 /* Images.xcassets in Resources */,
+				AB0387461A16B3A600F11FCF /* Vragen.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

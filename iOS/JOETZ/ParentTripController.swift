@@ -34,7 +34,7 @@ class ParentTripController: UITableViewController
         prijsLabel.text = "Prijs: €\(trip.basicPrice!)"
         capaciteitLabel.text = "Capaciteit: \(trip.capacity!)"
         transportLabel.text = "Transport: \(trip.transport!)"
-        beschrijvingLabel.text = trip.promo?
+        beschrijvingLabel.text = trip.promo
         
         let location = trip.destination
         var geocoder:CLGeocoder = CLGeocoder()
@@ -91,10 +91,10 @@ class ParentTripController: UITableViewController
         case 3:
             let price = trip.prices![indexPath.row]
             
-            let cell = UITableViewCell(style: .Value1, reuseIdentifier: nil)
+            let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: nil)
             
             cell.textLabel.text = price.0
-            cell.detailTextLabel?.text = "\(price.1)"
+            cell.detailTextLabel?.text = "€\(price.1)"
             cell.textLabel.lineBreakMode = .ByWordWrapping
             cell.textLabel.numberOfLines = 0
             
@@ -103,6 +103,18 @@ class ParentTripController: UITableViewController
             return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
         }
         
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 1: // Inclusives
+            return trip.inclusives![indexPath.row].utf16Count > 36 ? 60 : 44 // SLECHT; vragen aan Van Impe
+        //case 2: // Images
+        case 3:
+            return trip.prices![indexPath.row].0.utf16Count > 36 ? 66 : 44
+        default:
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
     }
 }
 
