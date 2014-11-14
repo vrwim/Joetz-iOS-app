@@ -1,0 +1,3 @@
+* Parents detailview moeten veel rijen staan; omdat tableview static is en anders probeert hij rijen te plaatsen waar da ni past.
+* tableView:heightForRowAtIndexPath: hoogte bepalen van een cell?
+* korte intro core data?
