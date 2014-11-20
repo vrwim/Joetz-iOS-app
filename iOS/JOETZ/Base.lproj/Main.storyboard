@@ -427,34 +427,14 @@
                                     <subviews>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eBX-tr-QDk">
                                             <rect key="frame" x="8" y="8" width="584" height="168"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="184" id="jwS-Q1-ERf"/>
-                                                <constraint firstAttribute="width" constant="600" id="oRy-K4-HRf"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="jwS-Q1-ERf"/>
-                                                    <exclude reference="oRy-K4-HRf"/>
-                                                </mask>
-                                            </variation>
                                         </mapView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="eBX-tr-QDk" secondAttribute="trailing" id="Csp-Gz-oiX"/>
                                         <constraint firstItem="eBX-tr-QDk" firstAttribute="leading" secondItem="UY0-xS-tNy" secondAttribute="leadingMargin" id="DGc-69-Mwk"/>
                                         <constraint firstItem="eBX-tr-QDk" firstAttribute="top" secondItem="UY0-xS-tNy" secondAttribute="topMargin" id="PFK-kA-4yu"/>
-                                        <constraint firstAttribute="centerY" secondItem="eBX-tr-QDk" secondAttribute="centerY" id="PrO-es-EkC"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eBX-tr-QDk" secondAttribute="trailing" constant="95" id="ZYI-Av-G9F"/>
-                                        <constraint firstAttribute="centerX" secondItem="eBX-tr-QDk" secondAttribute="centerX" id="cBf-j7-ssf"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="eBX-tr-QDk" secondAttribute="bottom" id="zfF-qb-zga"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="PrO-es-EkC"/>
-                                            <exclude reference="ZYI-Av-G9F"/>
-                                            <exclude reference="cBf-j7-ssf"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="mapView" destination="eBX-tr-QDk" id="sTd-eN-91g"/>
