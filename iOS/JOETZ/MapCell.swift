@@ -15,6 +15,10 @@ class MapCell: UITableViewCell {
     
     var locationString: String! {
         didSet {
+            println("didSet: \(locationString)")
+            println("height: \(mapView.bounds.height)")
+            println("width: \(mapView.bounds.width)")
+            
             var geocoder:CLGeocoder = CLGeocoder()
             geocoder.geocodeAddressString(locationString) {
                 placemarks, error in

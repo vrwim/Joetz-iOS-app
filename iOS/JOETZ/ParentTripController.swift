@@ -37,7 +37,7 @@ class ParentTripController: UITableViewController
         case 1:
             return trip.inclusives?.count ?? 0
         case 2:
-            return trip.pictures?.count ?? 0
+            return images.count
         case 3:
             return trip.prices?.count ?? 0
         case 4:
@@ -108,6 +108,7 @@ class ParentTripController: UITableViewController
             return cell
         case 2:
             // images
+            // Maybe while trip.pictures.count > images.count { add(loadingMoreImages) } ?
             let cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
             
             cell.pictureView.image = images[trip.pictures![indexPath.row]]
