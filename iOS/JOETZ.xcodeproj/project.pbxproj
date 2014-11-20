@@ -11,6 +11,7 @@
 		3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB71A0A828300E3E59F /* ParentTripController.swift */; };
 		3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */; };
 		3D1EB9D11A069DCB00C01F49 /* LoggedInUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */; };
+		874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874113AC1A1E7D600032BC6B /* MapKit.framework */; };
 		AB0387461A16B3A600F11FCF /* Vragen.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB0387451A16B3A600F11FCF /* Vragen.txt */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		3D182AB71A0A828300E3E59F /* ParentTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripController.swift; sourceTree = "<group>"; };
 		3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildTripController.swift; sourceTree = "<group>"; };
 		3D1EB9D01A069DCB00C01F49 /* LoggedInUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInUserViewController.swift; sourceTree = "<group>"; };
+		874113AC1A1E7D600032BC6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB0387451A16B3A600F11FCF /* Vragen.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vragen.txt; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */,
 				ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +94,7 @@
 		AB138ED619F51B74007DB692 = {
 			isa = PBXGroup;
 			children = (
+				874113AC1A1E7D600032BC6B /* MapKit.framework */,
 				ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */,
 				AB138EE119F51B74007DB692 /* JOETZ */,
 				AB138EF719F51B74007DB692 /* JOETZTests */,
@@ -209,6 +213,11 @@
 				TargetAttributes = {
 					AB138EDE19F51B74007DB692 = {
 						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					AB138EF319F51B74007DB692 = {
 						CreatedOnToolsVersion = 6.0.1;

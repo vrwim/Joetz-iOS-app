@@ -9,16 +9,12 @@
 import UIKit
 import MapKit
 
-class MapCell: UITableViewCell {
+class MapCell: UITableViewCell, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
     var locationString: String! {
         didSet {
-            println("didSet: \(locationString)")
-            println("height: \(mapView.bounds.height)")
-            println("width: \(mapView.bounds.width)")
-            
             var geocoder:CLGeocoder = CLGeocoder()
             geocoder.geocodeAddressString(locationString) {
                 placemarks, error in
@@ -32,6 +28,9 @@ class MapCell: UITableViewCell {
                     var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
                     pointAnnotation.coordinate = coordinates
                     // pointAnnotation.title = trip.destination
+                    
+                    //self.mapView.delegate = self
+                    self.mapView.mapType = MKMapType.Satellite
                     
                     self.mapView.addAnnotation(pointAnnotation)
                     self.mapView.centerCoordinate = coordinates

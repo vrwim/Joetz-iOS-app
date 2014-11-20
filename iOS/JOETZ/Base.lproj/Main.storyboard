@@ -374,26 +374,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="1ZG-Pn-JFH" secondAttribute="trailing" id="57a-2N-YKl"/>
-                                        <constraint firstAttribute="centerX" secondItem="1ZG-Pn-JFH" secondAttribute="centerX" id="FgM-q3-vRa"/>
-                                        <constraint firstItem="1ZG-Pn-JFH" firstAttribute="leading" secondItem="2lY-Kr-efF" secondAttribute="leadingMargin" id="Jij-k2-Skl"/>
-                                        <constraint firstAttribute="centerY" secondItem="1ZG-Pn-JFH" secondAttribute="centerY" id="K7H-f4-Tmk"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="1ZG-Pn-JFH" secondAttribute="trailing" id="Tf1-Em-qei"/>
                                         <constraint firstItem="1ZG-Pn-JFH" firstAttribute="leading" secondItem="2lY-Kr-efF" secondAttribute="leadingMargin" id="abc-xa-Vq4"/>
-                                        <constraint firstItem="1ZG-Pn-JFH" firstAttribute="top" secondItem="2lY-Kr-efF" secondAttribute="topMargin" id="bTs-IO-6qF"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="1ZG-Pn-JFH" secondAttribute="bottom" id="kmj-T2-6lD"/>
                                         <constraint firstItem="1ZG-Pn-JFH" firstAttribute="top" secondItem="2lY-Kr-efF" secondAttribute="topMargin" id="wHx-TF-MhE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="1ZG-Pn-JFH" secondAttribute="bottom" id="yHk-VH-p0z"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="FgM-q3-vRa"/>
-                                            <exclude reference="Jij-k2-Skl"/>
-                                            <exclude reference="K7H-f4-Tmk"/>
-                                            <exclude reference="Tf1-Em-qei"/>
-                                            <exclude reference="bTs-IO-6qF"/>
-                                            <exclude reference="yHk-VH-p0z"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="pictureView" destination="1ZG-Pn-JFH" id="grK-d2-crA"/>
@@ -420,13 +404,16 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="185" id="wF0-GD-VXj" customClass="MapCell" customModule="JOETZ" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="321" id="wF0-GD-VXj" customClass="MapCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wF0-GD-VXj" id="UY0-xS-tNy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eBX-tr-QDk">
-                                            <rect key="frame" x="8" y="8" width="584" height="168"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="304"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="304" id="Nvl-gk-Na7"/>
+                                            </constraints>
                                         </mapView>
                                     </subviews>
                                     <constraints>
@@ -450,7 +437,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8f-yB-0Ss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263" y="123"/>
+            <point key="canvasLocation" x="1263" y="121"/>
         </scene>
     </scenes>
     <resources>
