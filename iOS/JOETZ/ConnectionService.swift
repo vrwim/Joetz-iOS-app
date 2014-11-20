@@ -22,12 +22,16 @@ class ConnectionService {
         let request = NSMutableURLRequest(URL: baseUrl.URLByAppendingPathComponent("api/trips"))
         return session.dataTaskWithRequest(request) {
             data, response, error in
-            let response = response as NSHTTPURLResponse
-            //check other numbers...
-            if response.statusCode == 200 {
-                let trips = JSON.readTrips(data)
-                dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
-                    completionHandler(trips)
+            if error != nil {
+                println(error)
+            } else {
+                let response = response as NSHTTPURLResponse
+                //check other numbers...
+                if response.statusCode == 200 {
+                    let trips = JSON.readTrips(data)
+                    dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
+                        completionHandler(trips)
+                    }
                 }
             }
         }
@@ -47,6 +51,32 @@ class ConnectionService {
         }
     }
     */
+    
+    func createFetchTask(imagePath: String, completionHandler: UIImage -> Void) -> NSURLSessionTask {
+        
+        let url = baseUrl.URLByAppendingPathComponent("images/\(imagePath)")
+        let request = NSMutableURLRequest(URL: url)
+        
+        println("Executing image request: \(url)")
+        
+        return session.dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                println("\tGET request failed: \(error!)")
+            } else {
+                println("\tGET request succeeded!")
+                let response = response as NSHTTPURLResponse
+                if response.statusCode == 200 {
+                    let image = UIImage(data: data)
+                    if image != nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            completionHandler(image!)
+                        }
+                    }
+                }
+            }
+        }
+    }
     
 }
 
