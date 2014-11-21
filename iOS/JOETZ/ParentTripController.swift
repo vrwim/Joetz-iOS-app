@@ -37,7 +37,7 @@ class ParentTripController: UITableViewController
         case 1:
             return trip.inclusives?.count ?? 0
         case 2:
-            return images.count
+            return trip.pictures?.count ?? 0
         case 3:
             return trip.prices?.count ?? 0
         case 4:
@@ -108,11 +108,18 @@ class ParentTripController: UITableViewController
             return cell
         case 2:
             // images
-            // Maybe while trip.pictures.count > images.count { add(loadingMoreImages) } ?
-            let cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
+            var cell: UITableViewCell
             
-            cell.pictureView.image = images[trip.pictures![indexPath.row]]
-            
+            if images[trip.pictures![indexPath.row]] == nil {
+                cell = tableView.dequeueReusableCellWithIdentifier("basicCell") as UITableViewCell
+                
+                cell.textLabel.text = "Loading image..."
+            }
+            else {
+                cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
+                
+                (cell as ImageCell).pictureView.image = images[trip.pictures![indexPath.row]]
+            }
             return cell
         case 3:
             // prices
@@ -154,7 +161,7 @@ class ParentTripController: UITableViewController
                 
                 return imageHeight/(imageWidth/screenWidth)
             }
-            return 0
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }

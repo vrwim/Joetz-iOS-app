@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbD-Vk-Bh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1077" y="-165"/>
+            <point key="canvasLocation" x="-924" y="-30"/>
         </scene>
         <!--Welkom!-->
         <scene sceneID="tne-QT-ifu">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXK-wj-yDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="652"/>
+            <point key="canvasLocation" x="-176" y="744"/>
         </scene>
         <!--Child View Controller-->
         <scene sceneID="ZYA-mO-Nuf">
@@ -359,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="basicCell" textLabel="ZdM-2h-oiJ" style="IBUITableViewCellStyleDefault" id="Cxk-hU-qwN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="basicCell" textLabel="ZdM-2h-oiJ" style="IBUITableViewCellStyleDefault" id="Cxk-hU-qwN">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cxk-hU-qwN" id="zKE-wT-880">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -373,7 +373,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="200" id="L88-4N-XpS" customClass="ImageCell" customModule="JOETZ" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="200" id="L88-4N-XpS" customClass="ImageCell" customModule="JOETZ" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L88-4N-XpS" id="2lY-Kr-efF">
@@ -394,7 +394,7 @@
                                     <outlet property="pictureView" destination="1ZG-Pn-JFH" id="grK-d2-crA"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtitleCell" textLabel="0cc-r1-UXs" detailTextLabel="fCZ-60-rNA" style="IBUITableViewCellStyleSubtitle" id="enS-wE-vin">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="subtitleCell" textLabel="0cc-r1-UXs" detailTextLabel="fCZ-60-rNA" style="IBUITableViewCellStyleSubtitle" id="enS-wE-vin">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="enS-wE-vin" id="E0e-Hr-nUe">
@@ -415,7 +415,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="321" id="wF0-GD-VXj" customClass="MapCell" customModule="JOETZ" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mapCell" rowHeight="321" id="wF0-GD-VXj" customClass="MapCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wF0-GD-VXj" id="UY0-xS-tNy">
                                     <autoresizingMask key="autoresizingMask"/>
