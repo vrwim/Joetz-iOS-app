@@ -8,10 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: MenuSetupUIViewController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         println("LoginViewController did load")
     }
     
+    @IBAction func menuButton(sender: UIBarButtonItem) {
+        setupMenuButton()
+    }
 }

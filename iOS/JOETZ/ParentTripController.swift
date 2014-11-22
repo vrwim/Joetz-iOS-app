@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 
-class ParentTripController: UITableViewController
+class ParentTripController: MenuSetupUITableViewController
 {
     
     var trip: Trip!
     var images: [String : UIImage] = [:]
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         navigationItem.title = trip.title!
         for imagePath in trip.pictures! {
             connectionService.createFetchTask(imagePath) {

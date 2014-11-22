@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ParentTripsController: UITableViewController
+class ParentTripsController: MenuSetupUITableViewController
 {
     var trips: [Trip] = []
     var task: NSURLSessionTask?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         task = connectionService.createFetchTask {
             trips in
             self.trips = trips
@@ -53,5 +54,9 @@ class ParentTripsController: UITableViewController
             sender.endRefreshing()
         }
         task.resume()
+    }
+    
+    @IBAction func menuButton(sender: UIBarButtonItem) {
+        setupMenuButton()
     }
 }
