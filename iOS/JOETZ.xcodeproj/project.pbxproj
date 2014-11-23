@@ -22,6 +22,7 @@
 		3DF675EE1A20CEBB00B8387A /* MenuSetupUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */; };
 		3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */; };
 		874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874113AC1A1E7D600032BC6B /* MapKit.framework */; };
+		8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */; };
 		AB0387461A16B3A600F11FCF /* Vragen.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB0387451A16B3A600F11FCF /* Vragen.txt */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUITableViewController.swift; sourceTree = "<group>"; };
 		3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUIViewController.swift; sourceTree = "<group>"; };
 		874113AC1A1E7D600032BC6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JOETZ.xcdatamodel; sourceTree = "<group>"; };
 		AB0387451A16B3A600F11FCF /* Vragen.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vragen.txt; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +242,7 @@
 				AB138EE819F51B74007DB692 /* Main.storyboard */,
 				AB138EED19F51B74007DB692 /* LaunchScreen.xib */,
 				AB138EEB19F51B74007DB692 /* Images.xcassets */,
+				8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */,
 				AB138EE219F51B74007DB692 /* Supporting Files */,
 				ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */,
 				AB0387451A16B3A600F11FCF /* Vragen.txt */,
@@ -392,6 +395,7 @@
 				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
 				3DF675EA1A20CC3D00B8387A /* UIViewController+ECSlidingViewController.m in Sources */,
 				3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */,
+				8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */,
 				3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */,
 				3DF675E71A20CC3D00B8387A /* ECSlidingSegue.m in Sources */,
 				AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */,
@@ -533,6 +537,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = JOETZ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JOETZ/Bridge-Header.h";
@@ -549,6 +554,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = JOETZ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "JOETZ/Bridge-Header.h";
@@ -620,6 +626,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */,
+			);
+			currentVersion = 8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */;
+			path = JOETZ.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB138ED719F51B74007DB692 /* Project object */;
 }
