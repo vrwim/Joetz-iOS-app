@@ -23,7 +23,7 @@ class ParentTripCell: UITableViewCell {
         titleLabel.text = trip.title!
         vanLabel.text = "Van \(trip.beginDate!)"
         totLabel.text = "Tot \(trip.endDate!)"
-        regioLabel.text = "Regio \(trip.location!)"
+        regioLabel.text = trip.location
         vanLeeftijdLabel.text = "Van \(trip.minAge!) jaar"
         totLeeftijdLabel.text = "Tot \(trip.maxAge!) jaar"
         

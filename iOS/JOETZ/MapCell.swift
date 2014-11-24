@@ -30,7 +30,7 @@ class MapCell: UITableViewCell, MKMapViewDelegate {
                     // pointAnnotation.title = trip.destination
                     
                     //self.mapView.delegate = self
-                    self.mapView.mapType = MKMapType.Satellite
+                    self.mapView.mapType = MKMapType.Hybrid
                     
                     self.mapView.addAnnotation(pointAnnotation)
                     self.mapView.centerCoordinate = coordinates
