@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Init View Controller-->
@@ -122,13 +123,13 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSp-yA-yC2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LzM-Wm-1ZR"/>
@@ -186,35 +187,38 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mailadres" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REr-eX-wle">
-                                <rect key="frame" x="112" y="124" width="400" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4D-ug-UoS">
-                                <rect key="frame" x="112" y="162" width="400" height="30"/>
+                                <rect key="frame" x="24" y="224" width="552" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azI-QY-ENv">
-                                <rect key="frame" x="281" y="212" width="38" height="30"/>
+                                <rect key="frame" x="281" y="274" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mailadres" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REr-eX-wle">
+                                <rect key="frame" x="24" y="186" width="552" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="750" id="IRU-NI-aC4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="REr-eX-wle" firstAttribute="width" secondItem="p4D-ug-UoS" secondAttribute="width" id="0ak-Nx-wd0"/>
                             <constraint firstItem="JH7-8d-1Tm" firstAttribute="top" secondItem="ZDi-os-hJC" secondAttribute="bottom" constant="8" symbolic="YES" id="2go-Bd-gja"/>
+                            <constraint firstItem="REr-eX-wle" firstAttribute="centerY" secondItem="Qnp-5q-VsP" secondAttribute="bottom" multiplier="1/3" constant="1" id="IGf-pE-D7Q"/>
                             <constraint firstAttribute="centerX" secondItem="azI-QY-ENv" secondAttribute="centerX" id="Ix6-f7-7cH"/>
-                            <constraint firstItem="REr-eX-wle" firstAttribute="top" secondItem="Vdb-HB-jVo" secondAttribute="bottom" constant="60" id="JQu-08-hCF"/>
                             <constraint firstAttribute="centerX" secondItem="ZDi-os-hJC" secondAttribute="centerX" id="JgY-Ef-saR"/>
+                            <constraint firstAttribute="centerX" secondItem="REr-eX-wle" secondAttribute="centerX" id="SEr-hW-kJz"/>
                             <constraint firstItem="azI-QY-ENv" firstAttribute="top" secondItem="p4D-ug-UoS" secondAttribute="bottom" constant="20" id="T7y-14-RyP"/>
-                            <constraint firstItem="REr-eX-wle" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" constant="96" id="Ze4-Z7-iSk"/>
-                            <constraint firstItem="p4D-ug-UoS" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" constant="96" id="aBu-d8-bD4"/>
+                            <constraint firstAttribute="centerX" secondItem="p4D-ug-UoS" secondAttribute="centerX" id="XbA-zs-KdB"/>
                             <constraint firstItem="p4D-ug-UoS" firstAttribute="top" secondItem="REr-eX-wle" secondAttribute="bottom" constant="8" symbolic="YES" id="esa-W9-7Kg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="REr-eX-wle" secondAttribute="trailing" constant="72" id="nq7-bR-WXm"/>
+                            <constraint firstItem="REr-eX-wle" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" priority="999" constant="8" id="ln5-RQ-xIm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="PQm-Sc-sD2">
@@ -641,7 +645,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="3000" height="1429"/>
+        <image name="Logo" width="650" height="311"/>
         <image name="MenuIcon" width="32" height="32"/>
     </resources>
 </document>
