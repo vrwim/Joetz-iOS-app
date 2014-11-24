@@ -9,38 +9,46 @@
 import UIKit
 import MapKit
 
-class MapCell: UITableViewCell, MKMapViewDelegate {
+class MapCell: UITableViewCell {
     
     @IBOutlet weak var mapView: MKMapView!
     
     var locationString: String! {
         didSet {
-            var geocoder:CLGeocoder = CLGeocoder()
-            geocoder.geocodeAddressString(locationString) {
-                placemarks, error in
-                if error != nil {
-                    println("Error: \(error)")
-                } else if let placemark = placemarks?[0] as? CLPlacemark {
-                    
-                    var placemark:CLPlacemark = placemarks[0] as CLPlacemark
-                    var coordinates:CLLocationCoordinate2D = placemark.location.coordinate
-                    
-                    var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
-                    pointAnnotation.coordinate = coordinates
-                    // pointAnnotation.title = trip.destination
-                    
-                    //self.mapView.delegate = self
-                    self.mapView.mapType = MKMapType.Hybrid
-                    
-                    self.mapView.addAnnotation(pointAnnotation)
-                    self.mapView.centerCoordinate = coordinates
-                    self.mapView.selectAnnotation(pointAnnotation, animated: true)
-                    
-                    let mapCenter = coordinates
-                    var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1500)
-                    self.mapView.setCamera(mapCamera, animated: true)
+            var gp = GooglePlaces()
+            gp.search(locationString.componentsSeparatedByString(", ")[0]) { (items, errorDescription) -> Void in
+                if items != nil && items!.count > 0{
+                    self.setMap(items![0])
+                } else {
+                    var geocoder:CLGeocoder = CLGeocoder()
+                    geocoder.geocodeAddressString(self.locationString.componentsSeparatedByString(", ")[1]) {
+                        placemarks, error in
+                        if error != nil {
+                            println("Error: \(error)")
+                        } else if let placemark = placemarks?[0] as? CLPlacemark {
+                            self.setMap(placemark)
+                        }
+                    }
                 }
             }
         }
+    }
+    
+    func setMap(pm : CLPlacemark){
+        var coordinates:CLLocationCoordinate2D = pm.location.coordinate
+        
+        var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+        pointAnnotation.coordinate = coordinates
+        // pointAnnotation.title = trip.destination
+        
+        mapView.mapType = MKMapType.Hybrid
+        
+        mapView.addAnnotation(pointAnnotation)
+        mapView.centerCoordinate = coordinates
+        mapView.selectAnnotation(pointAnnotation, animated: true)
+        
+        let mapCenter = coordinates
+        var mapCamera = MKMapCamera(lookingAtCenterCoordinate: mapCenter, fromEyeCoordinate: mapCenter, eyeAltitude: 1500)
+        mapView.setCamera(mapCamera, animated: true)
     }
 }

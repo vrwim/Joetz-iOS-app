@@ -79,7 +79,7 @@ class ParentTripController: MenuSetupUITableViewController
             case 1:
                 cell.textLabel.text = "Tot \(trip.endDate!)"
             case 2:
-                cell.textLabel.text = "Regio \(trip.location!)"
+                cell.textLabel.text = trip.location
             case 3:
                 cell.textLabel.text = "Van \(trip.minAge!) tot \(trip.maxAge!) jaar"
             case 4:
@@ -138,7 +138,7 @@ class ParentTripController: MenuSetupUITableViewController
             // map
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell") as MapCell
             
-            cell.locationString = trip.destination
+            cell.locationString = trip.location
             
             return cell
         default:
