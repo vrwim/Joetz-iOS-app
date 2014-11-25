@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pbb-8e-I9L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pbb-8e-I9L">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -123,16 +123,16 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSp-yA-yC2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LzM-Wm-1ZR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -146,7 +146,7 @@
                             <constraint firstAttribute="centerX" secondItem="7vh-kF-oS8" secondAttribute="centerX" id="KiS-Ft-l1v"/>
                             <constraint firstItem="I9P-KT-gw0" firstAttribute="top" secondItem="7vh-kF-oS8" secondAttribute="bottom" constant="8" symbolic="YES" id="OC8-JH-L6a"/>
                             <constraint firstAttribute="centerX" secondItem="cCh-os-A9J" secondAttribute="centerX" id="Ont-RF-dLP"/>
-                            <constraint firstAttribute="centerX" secondItem="ccS-6h-D4g" secondAttribute="centerX" constant="281" id="Pko-2U-3zc"/>
+                            <constraint firstAttribute="centerX" secondItem="ccS-6h-D4g" secondAttribute="centerX" id="Pko-2U-3zc"/>
                             <constraint firstItem="7vh-kF-oS8" firstAttribute="top" secondItem="QAp-EK-qIc" secondAttribute="bottom" constant="8" symbolic="YES" id="SUu-DI-5EJ"/>
                             <constraint firstItem="D3H-cD-Rge" firstAttribute="height" secondItem="ccS-6h-D4g" secondAttribute="height" id="XaW-rc-WLN"/>
                             <constraint firstAttribute="centerY" secondItem="QAp-EK-qIc" secondAttribute="centerY" constant="-50" id="Xnf-2u-ycO"/>
@@ -549,10 +549,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="1252"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="lGE-8u-YEY">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HEz-hn-edv" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HEz-hn-edv" customClass="SettingsViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uAw-6c-naC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -571,7 +571,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="P48-lB-cZx">
-                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="afl-cD-aDP"/>
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="afl-cD-aDP">
+                            <connections>
+                                <action selector="menuButton:" destination="HEz-hn-edv" id="u1s-GV-Wmx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hr6-RA-lVt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -596,10 +600,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="1966"/>
         </scene>
-        <!--Table View Controller-->
+        <!--News View Controller-->
         <scene sceneID="x1J-AV-Hml">
             <objects>
-                <tableViewController storyboardIdentifier="NewsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XYP-48-Odw" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XYP-48-Odw" customClass="NewsViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CdE-2h-tWk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -618,7 +622,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZbE-xH-OyX">
-                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="7Aw-jZ-hi7"/>
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="7Aw-jZ-hi7">
+                            <connections>
+                                <action selector="menuButton:" destination="XYP-48-Odw" id="FAL-ei-dmh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkL-CH-yUd" userLabel="First Responder" sceneMemberID="firstResponder"/>

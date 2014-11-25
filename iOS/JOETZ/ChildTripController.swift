@@ -1,13 +1,18 @@
 import UIKit
 
-class ChildViewController: UIViewController, UIPageViewControllerDelegate {
+class ChildViewController: MenuSetupUITableViewController, UIPageViewControllerDelegate {
     
     var pageViewController: UIPageViewController?
     
     var modelController: ModelController? = nil
     
+    @IBAction func menuButton(sender: UIBarButtonItem) {
+        setupMenuButton()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("ChildViewController did load")
         
         // Configure the page view controller and add it as a child view controller.
         self.pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
