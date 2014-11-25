@@ -37,8 +37,6 @@ class JSON {
             let transport = jsonTrip["transport"] as String?
             let pricesDict = jsonTrip["prices"] as [NSDictionary]?
             
-            var tmpDate: NSDate = NSDate()
-            
             basicPrice = basicPrice == nil ? nil : basicPrice!/100
             
             var prices: [(String, Float)] = []
@@ -85,5 +83,24 @@ class JSON {
         
         return tmpDate
     }
+    
+    class func parseToken(data: NSData) -> String{
+        
+        let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+        
+        return jsonData["token"] as String
+    }
+    
+    class func parseUser(data: NSData, token: String) -> User{
+        
+        let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
+        
+        let id = jsonData["_id"] as String
+        let provider = jsonData["provider"] as String
+        let name = jsonData["name"] as String
+        let email = jsonData["email"] as String
+        let role = jsonData["role"] as String
 
+        return User(id: id, provider: provider, name: name, email: email, role: role, token: token)
+    }
 }

@@ -19,13 +19,18 @@ class ConnectionService {
     
     func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
         //check if internetconnection
-        let request = NSMutableURLRequest(URL: baseUrl.URLByAppendingPathComponent("api/trips"))
+        let url = baseUrl.URLByAppendingPathComponent("api/trips")
+        let request = NSMutableURLRequest(URL: url)
+        
+        println("Executing image request: \(url)")
+        
         return session.dataTaskWithRequest(request) {
             data, response, error in
             if error != nil {
-                println(error)
+                println("\tGET request failed: \(error!)")
             } else {
                 let response = response as NSHTTPURLResponse
+                println("\tGET request succeeded: \(response.statusCode)")
                 //check other numbers...
                 if response.statusCode == 200 {
                     let trips = JSON.readTrips(data)
@@ -36,21 +41,6 @@ class ConnectionService {
             }
         }
     }
-    /* Retrieve single kamp
-    func createFetchTask(kamp: String, completionHandler: Kamp -> Void) -> NSURLSessionTask {
-        let request = NSMutableURLRequest(URL: baseUrl.URLByAppendingPathComponent("example.json"))
-        return session.dataTaskWithRequest(request) {
-            data, response, error in
-            let response = response as NSHTTPURLResponse
-            if response.statusCode == 200 {
-                let kamp = JSON.readKamp(kamp, data: data)
-                dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
-                    completionHandler(kamp!)
-                }
-            }
-        }
-    }
-    */
     
     func createFetchTask(imagePath: String, completionHandler: UIImage -> Void) -> NSURLSessionTask {
         
@@ -64,8 +54,8 @@ class ConnectionService {
             if error != nil {
                 println("\tGET request failed: \(error!)")
             } else {
-                println("\tGET request succeeded!")
                 let response = response as NSHTTPURLResponse
+                println("\tGET request succeeded: \(response.statusCode)")
                 if response.statusCode == 200 {
                     let image = UIImage(data: data)
                     if image != nil {
@@ -78,6 +68,63 @@ class ConnectionService {
         }
     }
     
+    func authenticate(email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
+        
+        let url = baseUrl.URLByAppendingPathComponent("auth/local")
+        let request = NSMutableURLRequest(URL: url)
+        let payload = "{\"email\":\"\(email)\",\"password\":\"\(password)\"}"
+        
+        request.HTTPMethod = "POST"
+        request.HTTPBody = payload.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(countElements(payload))", forHTTPHeaderField: "Content-Length")
+        
+        println("Executing POST request: \(url)")
+        
+        return session.dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                println("\tPOST request failed: \(error!)")
+            } else {
+                let response = response as NSHTTPURLResponse
+                // Check other numbers...
+                println("\tPOST request succeeded: \(response.statusCode)")
+                if response.statusCode == 200 {
+                    let token = JSON.parseToken(data)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completionHandler(token)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getUserData(token: String, completionHandler: User -> Void) -> NSURLSessionTask {
+        
+        let url = baseUrl.URLByAppendingPathComponent("api/users/me")
+        let request = NSMutableURLRequest(URL: url)
+        
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        println("Executing GET request: \(url)")
+        
+        return session.dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                println("\tGET request failed: \(error!)")
+            } else {
+                println("\tGET request succeeded!")
+                let response = response as NSHTTPURLResponse
+                if response.statusCode == 200 {
+                    let token = JSON.parseUser(data, token: token)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completionHandler(token)
+                    }
+                }
+            }
+        }
+    }
 }
 
 let connectionService = ConnectionService()

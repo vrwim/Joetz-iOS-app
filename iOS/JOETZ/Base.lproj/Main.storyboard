@@ -197,6 +197,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPress:" destination="wjM-pD-5ff" eventType="touchUpInside" id="n5T-fh-7hc"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mailadres" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REr-eX-wle">
                                 <rect key="frame" x="24" y="186" width="552" height="30"/>
@@ -229,6 +232,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="email" destination="REr-eX-wle" id="5r2-Ni-sHJ"/>
+                        <outlet property="password" destination="p4D-ug-UoS" id="Ltm-kU-ZN5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXK-wj-yDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,9 @@ import UIKit
 
 class LoginViewController: MenuSetupUIViewController {
     
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         println("LoginViewController did load")
@@ -17,5 +20,22 @@ class LoginViewController: MenuSetupUIViewController {
     
     @IBAction func menuButton(sender: UIBarButtonItem) {
         setupMenuButton()
+    }
+    
+    @IBAction func loginButtonPress(sender: UIButton) {        
+        connectionService.authenticate(email.text, password: password.text) {
+            token in
+            println("Token: \(token)")
+            
+            connectionService.getUserData(token) {
+                user in
+                // insert CoreData here
+                println("Email: \(user.email)")
+                println("Name: \(user.name)")
+                println("Provider: \(user.provider)")
+                println("Role: \(user.role)")
+                println("Token: \(user.token)")
+            }.resume()
+        }.resume()
     }
 }
