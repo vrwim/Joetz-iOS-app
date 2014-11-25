@@ -24,9 +24,11 @@ class ParentTripsController: MenuSetupUITableViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let tripController = segue.destinationViewController as ParentTripController
+        //let tripController = segue.destinationViewController as ParentTripController
+        let parentTripTabVC = segue.destinationViewController as ParentTripTabVC
         let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
-        tripController.trip = selectedTrip
+        //tripController.trip = selectedTrip
+        parentTripTabVC.trip = selectedTrip
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

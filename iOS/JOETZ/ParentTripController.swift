@@ -17,18 +17,20 @@ class ParentTripController: MenuSetupUITableViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = trip.title!
-        for imagePath in trip.pictures! {
-            connectionService.createFetchTask(imagePath) {
-                image in
-                self.images[imagePath] = image
-                self.tableView.reloadData()
-                }.resume()
-        }
+        let parentTripTabVC: ParentTripTabVC = self.parentViewController as ParentTripTabVC
+        trip = parentTripTabVC.trip
+        self.parentViewController?.navigationItem.title = trip.title
+
+        //Fix om table niet onder statusbar/navbar te laten beginnen
+        let navBarHeight = self.navigationController?.navigationBar.bounds.height
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
+        let inset: UIEdgeInsets = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = inset
+        self.tableView.scrollIndicatorInsets = inset
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5 // Basic Info, Inclusives, Afbeeldingen, Prijzen, Kaart
+        return 4 // Basic Info, Inclusives, Prijzen, Kaart
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,10 +40,8 @@ class ParentTripController: MenuSetupUITableViewController
         case 1:
             return trip.inclusives?.count ?? 0
         case 2:
-            return trip.pictures?.count ?? 0
-        case 3:
             return trip.prices?.count ?? 0
-        case 4:
+        case 3:
             return 1
         default:
             println("Error: Asking for #cells in section \(section)")
@@ -56,10 +56,8 @@ class ParentTripController: MenuSetupUITableViewController
         case 1:
             return "INCLUSIVES"
         case 2:
-            return "AFBEELDINGEN"
-        case 3:
             return "PRIJZEN"
-        case 4:
+        case 3:
             return "KAART"
         default:
             println("Error: Asking for #cells in section \(section)")
@@ -108,21 +106,6 @@ class ParentTripController: MenuSetupUITableViewController
             
             return cell
         case 2:
-            // images
-            var cell: UITableViewCell
-            
-            if images[trip.pictures![indexPath.row]] == nil {
-                cell = tableView.dequeueReusableCellWithIdentifier("basicCell") as UITableViewCell
-                
-                cell.textLabel.text = "Loading image..."
-            }
-            else {
-                cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
-                
-                (cell as ImageCell).pictureView.image = images[trip.pictures![indexPath.row]]
-            }
-            return cell
-        case 3:
             // prices
             let price = trip.prices![indexPath.row]
             
@@ -134,7 +117,7 @@ class ParentTripController: MenuSetupUITableViewController
             cell.textLabel.numberOfLines = 0
             
             return cell
-        case 4:
+        case 3:
             // map
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell") as MapCell
             
@@ -146,26 +129,6 @@ class ParentTripController: MenuSetupUITableViewController
             return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
         }
         
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 2:
-            var image = images[trip.pictures![indexPath.row]]
-            
-            if image != nil {
-                var screenRect = UIScreen.mainScreen().bounds
-                var screenWidth = screenRect.size.width
-                
-                var imageHeight = image!.size.height
-                var imageWidth = image!.size.width
-                
-                return imageHeight/(imageWidth/screenWidth)
-            }
-            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-        default:
-            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-        }
     }
 }
 
