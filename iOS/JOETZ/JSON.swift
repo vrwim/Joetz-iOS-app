@@ -37,6 +37,8 @@ class JSON {
             let transport = jsonTrip["transport"] as String?
             let pricesDict = jsonTrip["prices"] as [NSDictionary]?
             
+            var tmpDate: NSDate = NSDate()
+            
             basicPrice = basicPrice == nil ? nil : basicPrice!/100
             
             var prices: [(String, Float)] = []
@@ -54,7 +56,10 @@ class JSON {
         }
         trips.sort{
             trip1, trip2 in
-            return trip1.title < trip2.title
+            let date1 = self.stringToDate(trip1.beginDate!)
+            let date2 = self.stringToDate(trip2.beginDate!)
+            //return trip1.beginDate < trip2.beginDate
+            return date1.compare(date2) == NSComparisonResult.OrderedAscending
         }
         return trips
     }
@@ -70,6 +75,15 @@ class JSON {
         
         //return date back as a string
         return dateFormatter.stringFromDate(tmpDate)
+    }
+    
+    class func stringToDate(date: String) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        let tmpDate = dateFormatter.dateFromString(date)!
+        
+        return tmpDate
     }
 
 }

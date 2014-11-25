@@ -189,6 +189,7 @@
 		3DF675F41A20D9A100B8387A /* ChildTrip */ = {
 			isa = PBXGroup;
 			children = (
+				AB384AF41A12C48C005C597A /* ModelController.swift */,
 				3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */,
 				AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */,
 			);
@@ -244,12 +245,11 @@
 		AB138EE119F51B74007DB692 /* JOETZ */ = {
 			isa = PBXGroup;
 			children = (
-				879136DF1A22AE790074892A /* Services */,
 				3DF675F11A20D93600B8387A /* Controllers */,
 				3DF675F31A20D98900B8387A /* Views */,
 				3DF675F61A20D9E700B8387A /* Model */,
+				879136DF1A22AE790074892A /* Services */,
 				AB138EE419F51B74007DB692 /* AppDelegate.swift */,
-				AB384AF41A12C48C005C597A /* ModelController.swift */,
 				AB138EE819F51B74007DB692 /* Main.storyboard */,
 				AB138EED19F51B74007DB692 /* LaunchScreen.xib */,
 				AB138EEB19F51B74007DB692 /* Images.xcassets */,
