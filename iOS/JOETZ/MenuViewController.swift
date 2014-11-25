@@ -11,9 +11,9 @@ class MenuViewController: UITableViewController
     let menuItems: [(storyBoardId: String, tI: (titel: String, image: String))] = [
         ("NewsNavVC", ("Joetz Nieuws", "NewsIcon")),
         ("ParentTripsNavVC", ("Reizen", "TripsIcon")),
-        ("ContactNavVC", ("Contact", "ContactIcon")),
+        //("ContactNavVC", ("Contact", "ContactIcon")),
         ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
-        ("AccountNavVC", ("Account", "AccountIcon"))
+        //("AccountNavVC", ("Account", "AccountIcon"))
     ]
     
     override func viewDidLoad() {
@@ -41,8 +41,7 @@ class MenuViewController: UITableViewController
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.menu.count
-        return 5
+        return self.menuItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
