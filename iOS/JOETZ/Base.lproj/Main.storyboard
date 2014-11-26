@@ -124,13 +124,13 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSp-yA-yC2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LzM-Wm-1ZR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
@@ -210,16 +210,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nog geen account? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6m-XX-KlW">
+                                <rect key="frame" x="178" y="316" width="139" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFS-2p-cAJ">
+                                <rect key="frame" x="325" y="310" width="98" height="30"/>
+                                <state key="normal" title="registreer hier!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="REr-eX-wle" firstAttribute="width" secondItem="p4D-ug-UoS" secondAttribute="width" id="0ak-Nx-wd0"/>
+                            <constraint firstItem="l6m-XX-KlW" firstAttribute="baseline" secondItem="gFS-2p-cAJ" secondAttribute="baseline" id="2N2-hV-CO0"/>
                             <constraint firstItem="JH7-8d-1Tm" firstAttribute="top" secondItem="ZDi-os-hJC" secondAttribute="bottom" constant="8" symbolic="YES" id="2go-Bd-gja"/>
+                            <constraint firstAttribute="centerX" secondItem="gFS-2p-cAJ" secondAttribute="centerX" constant="-74" id="EG7-wA-esh"/>
+                            <constraint firstAttribute="centerX" secondItem="l6m-XX-KlW" secondAttribute="centerX" constant="52.5" id="G4J-GW-r7w"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="centerY" secondItem="Qnp-5q-VsP" secondAttribute="bottom" multiplier="1/3" constant="1" id="IGf-pE-D7Q"/>
                             <constraint firstAttribute="centerX" secondItem="azI-QY-ENv" secondAttribute="centerX" id="Ix6-f7-7cH"/>
                             <constraint firstAttribute="centerX" secondItem="ZDi-os-hJC" secondAttribute="centerX" id="JgY-Ef-saR"/>
+                            <constraint firstItem="l6m-XX-KlW" firstAttribute="top" secondItem="azI-QY-ENv" secondAttribute="bottom" constant="12" id="NNb-C9-INy"/>
                             <constraint firstAttribute="centerX" secondItem="REr-eX-wle" secondAttribute="centerX" id="SEr-hW-kJz"/>
                             <constraint firstItem="azI-QY-ENv" firstAttribute="top" secondItem="p4D-ug-UoS" secondAttribute="bottom" constant="20" id="T7y-14-RyP"/>
+                            <constraint firstItem="gFS-2p-cAJ" firstAttribute="leading" secondItem="l6m-XX-KlW" secondAttribute="trailing" constant="8" id="XWp-Dd-17n"/>
                             <constraint firstAttribute="centerX" secondItem="p4D-ug-UoS" secondAttribute="centerX" id="XbA-zs-KdB"/>
                             <constraint firstItem="p4D-ug-UoS" firstAttribute="top" secondItem="REr-eX-wle" secondAttribute="bottom" constant="8" symbolic="YES" id="esa-W9-7Kg"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" priority="999" constant="8" id="ln5-RQ-xIm"/>
