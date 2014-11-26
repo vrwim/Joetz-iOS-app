@@ -10,9 +10,50 @@ import UIKit
 
 class NewsViewController: MenuSetupUITableViewController {
     
+    var news: [NewsItem] = []
+    var task: NSURLSessionTask?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("NewsViewController did load")
+        task = connectionService.createNewsFetchTask {
+            newsItems in
+            self.news = newsItems
+            self.tableView.reloadData()
+        }
+        task!.resume()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let newsItemController = segue.destinationViewController as NewsItemViewController
+        let newsItem = news[tableView.indexPathForSelectedRow()!.row]
+        newsItemController.newsItem = newsItem
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("newsCell") as NewsCell
+        
+        let newsItems = news[indexPath.row]
+        cell.setContent(newsItems)
+        
+        return cell
+    }
+    
+    @IBAction func refresh(sender: UIRefreshControl) {
+        let task = connectionService.createNewsFetchTask {
+            newsItems in
+            self.news = newsItems
+            self.tableView.reloadData()
+            sender.endRefreshing()
+        }
+        task.resume()
     }
     
     @IBAction func menuButton(sender: UIBarButtonItem) {

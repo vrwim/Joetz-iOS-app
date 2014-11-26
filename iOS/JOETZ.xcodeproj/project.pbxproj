@@ -27,6 +27,9 @@
 		874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874113AC1A1E7D600032BC6B /* MapKit.framework */; };
 		87853D001A24E76900EA4DB9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */; };
 		87853D021A24E86300EA4DB9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D011A24E86300EA4DB9 /* NewsViewController.swift */; };
+		87853D041A2527D900EA4DB9 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D031A2527D900EA4DB9 /* NewsItem.swift */; };
+		87853D071A252D6A00EA4DB9 /* NewsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D061A252D6A00EA4DB9 /* NewsItemViewController.swift */; };
+		87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D081A252FE800EA4DB9 /* NewsCell.swift */; };
 		879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879136E01A22AEA00074892A /* GooglePlaces.swift */; };
 		8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
@@ -85,6 +88,9 @@
 		874113AC1A1E7D600032BC6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		87853D011A24E86300EA4DB9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		87853D031A2527D900EA4DB9 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		87853D061A252D6A00EA4DB9 /* NewsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemViewController.swift; sourceTree = "<group>"; };
+		87853D081A252FE800EA4DB9 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		879136E01A22AEA00074892A /* GooglePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaces.swift; sourceTree = "<group>"; };
 		8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JOETZ.xcdatamodel; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
@@ -167,12 +173,12 @@
 			children = (
 				3DF675D31A20CC0400B8387A /* InitViewController.swift */,
 				AB138EE619F51B74007DB692 /* StartViewController.swift */,
-				3DF675D21A20CBE600B8387A /* Menu */,
 				3DF675F51A20D9BE00B8387A /* Login */,
 				3DF675F21A20D95E00B8387A /* ParentTrip */,
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
+				87853D051A252D1C00EA4DB9 /* News */,
+				3DF675D21A20CBE600B8387A /* Menu */,
 				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
-				87853D011A24E86300EA4DB9 /* NewsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 				AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */,
 				AB9FAA9A1A1E241100B857CE /* MapCell.swift */,
 				3D635BCC1A25399A00E3A8DF /* ImageCell.swift */,
+				87853D081A252FE800EA4DB9 /* NewsCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -221,8 +228,18 @@
 			children = (
 				ABE776EB1A0524500063AEDB /* Trip.swift */,
 				ABFEBA9A1A250D0F00FF4EA8 /* User.swift */,
+				87853D031A2527D900EA4DB9 /* NewsItem.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		87853D051A252D1C00EA4DB9 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				87853D011A24E86300EA4DB9 /* NewsViewController.swift */,
+				87853D061A252D6A00EA4DB9 /* NewsItemViewController.swift */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		879136DF1A22AE790074892A /* Services */ = {
@@ -410,13 +427,17 @@
 				3DF675E81A20CC3D00B8387A /* ECSlidingViewController.m in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				ABFEBA9B1A250D0F00FF4EA8 /* User.swift in Sources */,
+				87853D041A2527D900EA4DB9 /* NewsItem.swift in Sources */,
 				AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */,
 				3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
+				3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */,
+				87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */,
+				AB9FAA991A1E23C200B857CE /* ImageCell.swift in Sources */,
 				3DF675E61A20CC3D00B8387A /* ECSlidingInteractiveTransition.m in Sources */,
 				3DF675D41A20CC0400B8387A /* InitViewController.swift in Sources */,
 				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
-				3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */,
+				87853D071A252D6A00EA4DB9 /* NewsItemViewController.swift in Sources */,
 				87853D021A24E86300EA4DB9 /* NewsViewController.swift in Sources */,
 				3DF675EA1A20CC3D00B8387A /* UIViewController+ECSlidingViewController.m in Sources */,
 				3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */,

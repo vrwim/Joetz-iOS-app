@@ -1,14 +1,10 @@
 import UIKit
 
-class ChildViewController: MenuSetupUITableViewController, UIPageViewControllerDelegate {
+class ChildViewController: UIViewController, UIPageViewControllerDelegate {
     
     var pageViewController: UIPageViewController?
     
     var modelController: ModelController? = nil
-    
-    @IBAction func menuButton(sender: UIBarButtonItem) {
-        setupMenuButton()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

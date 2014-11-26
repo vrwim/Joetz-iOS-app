@@ -62,6 +62,35 @@ class JSON {
         return trips
     }
     
+    class func readNews(data: NSData) -> [NewsItem] {
+        
+        let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSArray
+        
+        var news: [NewsItem] = []
+        
+        for jsonNewsItem in jsonData {
+            
+            let id = jsonNewsItem["_id"] as String
+            let title = jsonNewsItem["title"] as String
+            var date = jsonNewsItem["date"] as String
+            let thumbnail = jsonNewsItem["thumbnail"] as String
+            let content = jsonNewsItem["content"] as String
+            
+            var tmpDate: NSDate = NSDate()
+            
+            date = isoDateParser(date)
+            
+            news.append(NewsItem(id: id, title: title, date: date, thumbnail: thumbnail, content: content))
+        }
+        news.sort{
+            newsItem1, newsItem2 in
+            let date1 = self.stringToDate(newsItem1.date)
+            let date2 = self.stringToDate(newsItem2.date)
+            return date1.compare(date2) == NSComparisonResult.OrderedAscending
+        }
+        return news
+    }
+    
     class func isoDateParser(date: String) -> String {
         let dateFormatter = NSDateFormatter()
         //original isoDate format to convert to NSDate

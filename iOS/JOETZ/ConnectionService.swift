@@ -99,6 +99,26 @@ class ConnectionService {
             }
         }
     }
+
+    func createNewsFetchTask(#completionHandler: [NewsItem] -> Void) -> NSURLSessionTask {
+        //check if internetconnection
+        let request = NSMutableURLRequest(URL: baseUrl.URLByAppendingPathComponent("api/news"))
+        return session.dataTaskWithRequest(request) {
+            data, response, error in
+            if error != nil {
+                println(error)
+            } else {
+                let response = response as NSHTTPURLResponse
+                //check other numbers...
+                if response.statusCode == 200 {
+                    let news = JSON.readNews(data)
+                    dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
+                        completionHandler(news)
+                    }
+                }
+            }
+        }
+    }
     
     func getUserData(token: String, completionHandler: User -> Void) -> NSURLSessionTask {
         
