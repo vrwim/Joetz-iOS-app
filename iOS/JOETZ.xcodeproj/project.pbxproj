@@ -10,6 +10,7 @@
 		3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB51A0A7BD000E3E59F /* ParentTripsController.swift */; };
 		3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB71A0A828300E3E59F /* ParentTripController.swift */; };
 		3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */; };
+		3D3D0E701A2570AB00F51247 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D0E6F1A2570AB00F51247 /* GlobalSettings.swift */; };
 		3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D635BCC1A25399A00E3A8DF /* ImageCell.swift */; };
 		3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */; };
 		3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */; };
@@ -64,6 +65,7 @@
 		3D182AB51A0A7BD000E3E59F /* ParentTripsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripsController.swift; sourceTree = "<group>"; };
 		3D182AB71A0A828300E3E59F /* ParentTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripController.swift; sourceTree = "<group>"; };
 		3D1EB9CE1A06992900C01F49 /* ChildTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildTripController.swift; sourceTree = "<group>"; };
+		3D3D0E6F1A2570AB00F51247 /* GlobalSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
 		3D635BCC1A25399A00E3A8DF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripTabVC.swift; sourceTree = "<group>"; };
 		3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripImageTabViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				ABE776EB1A0524500063AEDB /* Trip.swift */,
 				ABFEBA9A1A250D0F00FF4EA8 /* User.swift */,
 				87853D031A2527D900EA4DB9 /* NewsItem.swift */,
+				3D3D0E6F1A2570AB00F51247 /* GlobalSettings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
 				3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */,
 				3DF675EE1A20CEBB00B8387A /* MenuSetupUITableViewController.swift in Sources */,
+				3D3D0E701A2570AB00F51247 /* GlobalSettings.swift in Sources */,
 				3DF675E81A20CC3D00B8387A /* ECSlidingViewController.m in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				ABFEBA9B1A250D0F00FF4EA8 /* User.swift in Sources */,
@@ -433,7 +437,6 @@
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
 				3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */,
 				87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */,
-				AB9FAA991A1E23C200B857CE /* ImageCell.swift in Sources */,
 				3DF675E61A20CC3D00B8387A /* ECSlidingInteractiveTransition.m in Sources */,
 				3DF675D41A20CC0400B8387A /* InitViewController.swift in Sources */,
 				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
