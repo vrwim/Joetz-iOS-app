@@ -33,6 +33,10 @@ class TripImageTabViewController: MenuSetupUITableViewController
         let inset: UIEdgeInsets = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
         self.tableView.contentInset = inset
         self.tableView.scrollIndicatorInsets = inset
+        
+        if self.respondsToSelector(Selector("edgesForExtendedLayout")){
+            self.edgesForExtendedLayout = UIRectEdge.None
+        }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
