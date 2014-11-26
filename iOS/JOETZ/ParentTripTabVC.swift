@@ -9,4 +9,9 @@
 class ParentTripTabVC: UITabBarController
 {
     var trip: Trip!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tabBar.translucent = false
+    }
 }
