@@ -42,6 +42,15 @@ class ConnectionService {
         }
     }
     
+    func authenticate(token: String, completionHandler: String -> Void) -> NSURLSessionTask {
+        let payload = "{\"FBtoken\":\"\(token)\"}"
+        return request(true, appendage: "auth/local", values: ["Content-Type":"application/json", "Content-Length":"\(countElements(payload))"], payload: payload) {
+            data in
+            let token = JSON.parseToken(data)
+            completionHandler(token)
+        }
+    }
+    
     func createNewsFetchTask(completionHandler: [NewsItem] -> Void) -> NSURLSessionTask {
         return request(false, appendage: "api/news", values: nil, payload: nil) {
             data in

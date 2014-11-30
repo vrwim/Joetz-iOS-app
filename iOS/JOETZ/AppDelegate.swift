@@ -14,10 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+        let wasHandled = FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication)
+        
+        if wasHandled {
+            // Perform POST Request to authenticate
+            let token = FBSession.activeSession().accessTokenData
+            connectionService.authenticate("", password: "") {
+                token in
+                println(token) // Node server token
+            }.resume()
+        }
+        
+        return wasHandled
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        // FBLoginView() // to load class before storyboard
         return true
     }
 
@@ -37,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        FBLoginView.description()
+        // Logs 'install' and 'app activate' App Events.
+        FBAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
