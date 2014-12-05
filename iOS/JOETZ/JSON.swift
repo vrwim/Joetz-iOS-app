@@ -129,7 +129,41 @@ class JSON {
         let name = jsonData["name"] as String
         let email = jsonData["email"] as String
         let role = jsonData["role"] as String
-
+        
         return User(id: id, provider: provider, name: name, email: email, role: role, token: token)
+    }
+    
+    class func toJSON(dict: [String: AnyObject]) -> String { // currently only Int, NSDate and String supported
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let lastKey = dict.keys.last!
+        let lastValue: AnyObject = dict.values.last!
+        
+        var json = "{"
+        
+        for kvPair in dict {
+            
+            json += "\t\"\(kvPair.0)\": "
+            
+            if let val = kvPair.1 as? String {
+                json += "\"\(val)\""
+            } else if let val = kvPair.1 as? NSDate {
+                json += "\"\(dateFormatter.stringFromDate(val))\""
+            } else if let val = kvPair.1 as? Int {
+                json += "\(val)"
+            } else {
+                println("Unknown type in parsing JSON: \(kvPair.1), skipping")
+            }
+            
+            if kvPair.0 != lastKey {
+                json+=",\n"
+            }
+        }
+        
+        json += "}"
+        
+        return json
     }
 }

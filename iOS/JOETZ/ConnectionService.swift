@@ -35,7 +35,7 @@ class ConnectionService {
     
     func authenticate(email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"email\":\"\(email)\",\"password\":\"\(password)\"}"
-        return request(true, appendage: "auth/local", values: ["Content-Type":"application/json", "Content-Length":"\(countElements(payload))"], payload: payload) {
+        return request(true, appendage: "auth/local", values: nil, payload: payload) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -44,7 +44,7 @@ class ConnectionService {
     
     func authenticate(token: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"FBtoken\":\"\(token)\"}"
-        return request(true, appendage: "auth/local", values: ["Content-Type":"application/json", "Content-Length":"\(countElements(payload))"], payload: payload) {
+        return request(true, appendage: "auth/local", values: nil, payload: payload) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -67,6 +67,23 @@ class ConnectionService {
         }
     }
     
+    func register(street: String, streetNumber: Int, bus: String, postalCode: String, city: String,
+        firstName: String, lastName: String,
+        gsm: String, phone: String, birthday: NSDate,
+        smn: String, ssn: String,
+        email: String, password: String) -> NSURLSessionTask {
+            
+            var payloadDict: [String:AnyObject] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode":postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
+            
+            var payload = JSON.toJSON(payloadDict)
+            
+            return request(true, appendage: "api/users", values: nil, payload: payload) {
+                data in
+                println(data)
+                // Todo receive data
+            }
+    }
+    
     private func request(post: Bool, appendage: String, values: [String: String]?, payload: String?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection
@@ -77,8 +94,10 @@ class ConnectionService {
             request.HTTPMethod = "POST"
         }
         
-        if payload != nil {
-            request.HTTPBody = payload!.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        if let payload = payload {
+            request.HTTPBody = payload.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+            request.setValue("\(countElements(payload))", forHTTPHeaderField: "Content-Length")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
         if values != nil {
