@@ -72,7 +72,7 @@ class TripImageTabViewController: MenuSetupUITableViewController
             if images[trip.pictures![indexPath.row]] == nil {
                 cell = tableView.dequeueReusableCellWithIdentifier("imageLoadingCell") as UITableViewCell
                 
-                cell.textLabel.text = "Loading image..."
+                cell.textLabel!.text = "Loading image..."
             }
             else {
                 cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
