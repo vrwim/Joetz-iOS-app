@@ -22,6 +22,7 @@ class InitViewController: ECSlidingViewController
         
         if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil) as? [GlobalSettings]
         {
+            println("before count if")
             if fetchResults.count > 0
             {
                 //check if viewType is parent view --> if not check if childView --> if not empty string

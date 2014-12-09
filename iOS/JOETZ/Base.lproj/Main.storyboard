@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pbb-8e-I9L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pbb-8e-I9L">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -216,11 +216,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hRt-Nh-brD" customClass="FBLoginView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="REr-eX-wle" firstAttribute="width" secondItem="p4D-ug-UoS" secondAttribute="width" id="0ak-Nx-wd0"/>
                             <constraint firstItem="l6m-XX-KlW" firstAttribute="baseline" secondItem="gFS-2p-cAJ" secondAttribute="baseline" id="2N2-hV-CO0"/>
+                            <constraint firstAttribute="centerX" secondItem="hRt-Nh-brD" secondAttribute="centerX" id="4ha-7D-2AR"/>
                             <constraint firstAttribute="centerX" secondItem="gFS-2p-cAJ" secondAttribute="centerX" constant="-74" id="EG7-wA-esh"/>
                             <constraint firstAttribute="centerX" secondItem="l6m-XX-KlW" secondAttribute="centerX" constant="52.5" id="G4J-GW-r7w"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="centerY" secondItem="Qnp-5q-VsP" secondAttribute="bottom" multiplier="1/3" constant="1" id="IGf-pE-D7Q"/>
@@ -232,6 +236,7 @@
                             <constraint firstAttribute="centerX" secondItem="p4D-ug-UoS" secondAttribute="centerX" id="XbA-zs-KdB"/>
                             <constraint firstItem="p4D-ug-UoS" firstAttribute="top" secondItem="REr-eX-wle" secondAttribute="bottom" constant="8" symbolic="YES" id="esa-W9-7Kg"/>
                             <constraint firstItem="REr-eX-wle" firstAttribute="leading" secondItem="Qnp-5q-VsP" secondAttribute="leadingMargin" priority="999" constant="8" id="ln5-RQ-xIm"/>
+                            <constraint firstItem="JH7-8d-1Tm" firstAttribute="top" secondItem="hRt-Nh-brD" secondAttribute="bottom" constant="8" symbolic="YES" id="uYm-mj-pUQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="PQm-Sc-sD2">
