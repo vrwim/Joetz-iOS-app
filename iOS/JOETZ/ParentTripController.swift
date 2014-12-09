@@ -77,23 +77,23 @@ class ParentTripController: MenuSetupUITableViewController
             
             switch indexPath.row {
             case 0:
-                cell.textLabel.text = "Van \(trip.beginDate!)"
+                cell.textLabel!.text = "Van \(trip.beginDate!)"
             case 1:
-                cell.textLabel.text = "Tot \(trip.endDate!)"
+                cell.textLabel!.text = "Tot \(trip.endDate!)"
             case 2:
-                cell.textLabel.text = trip.location
+                cell.textLabel!.text = trip.location
             case 3:
-                cell.textLabel.text = "Van \(trip.minAge!) tot \(trip.maxAge!) jaar"
+                cell.textLabel!.text = "Van \(trip.minAge!) tot \(trip.maxAge!) jaar"
             case 4:
-                cell.textLabel.text = "Prijs: €\(trip.basicPrice!)"
+                cell.textLabel!.text = "Prijs: €\(trip.basicPrice!)"
             case 5:
-                cell.textLabel.text = "Capaciteit: \(trip.capacity!)"
+                cell.textLabel!.text = "Capaciteit: \(trip.capacity!)"
             case 6:
-                cell.textLabel.text = "Transport: \(trip.transport!)"
+                cell.textLabel!.text = "Transport: \(trip.transport!)"
             case 7:
-                cell.textLabel.text = trip.promo
-                cell.textLabel.lineBreakMode = .ByWordWrapping
-                cell.textLabel.numberOfLines = 0
+                cell.textLabel!.text = trip.promo
+                cell.textLabel!.lineBreakMode = .ByWordWrapping
+                cell.textLabel!.numberOfLines = 0
             default:
                 println("Error: Asking for content of cell \(indexPath.row) in section \(indexPath.section)")
             }
@@ -104,9 +104,9 @@ class ParentTripController: MenuSetupUITableViewController
             
             let cell = tableView.dequeueReusableCellWithIdentifier("basicCell") as UITableViewCell
             
-            cell.textLabel.text = inclusive
-            cell.textLabel.lineBreakMode = .ByWordWrapping
-            cell.textLabel.numberOfLines = 0
+            cell.textLabel!.text = inclusive
+            cell.textLabel!.lineBreakMode = .ByWordWrapping
+            cell.textLabel!.numberOfLines = 0
             
             return cell
         case 2:
@@ -115,10 +115,10 @@ class ParentTripController: MenuSetupUITableViewController
             
             let cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell") as UITableViewCell
             
-            cell.textLabel.text = price.0
+            cell.textLabel!.text = price.0
             cell.detailTextLabel?.text = "€\(price.1)"
-            cell.textLabel.lineBreakMode = .ByWordWrapping
-            cell.textLabel.numberOfLines = 0
+            cell.textLabel!.lineBreakMode = .ByWordWrapping
+            cell.textLabel!.numberOfLines = 0
             
             return cell
         case 3:

@@ -51,19 +51,19 @@ class MenuViewController: UITableViewController
         cell.backgroundColor = UIColor(white: 0.2, alpha: 1.0)
         
         //cell.textLabel.text = self.menu[indexPath.row]
-        cell.textLabel.text = self.menuItems[indexPath.row].tI.titel
-        cell.textLabel.textColor = UIColor(hue: CGFloat(359/360), saturation: 0.0, brightness: 0.85, alpha: 1.0)
+        cell.textLabel!.text = self.menuItems[indexPath.row].tI.titel
+        cell.textLabel!.textColor = UIColor(hue: CGFloat(359/360), saturation: 0.0, brightness: 0.85, alpha: 1.0)
         
         //Menu icon
         let imageName = self.menuItems[indexPath.row].tI.image
-        cell.imageView.image = UIImage(named: imageName)
+        cell.imageView!.image = UIImage(named: imageName)
         
         //Start menu icon scaling (tmp)
         let itemSize: CGSize = CGSizeMake(35, 35)
         UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.mainScreen().scale)
         let imageRect: CGRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height)
-        cell.imageView.image?.drawInRect(imageRect)
-        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        cell.imageView!.image?.drawInRect(imageRect)
+        cell.imageView!.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         //Background colour for selected cell
