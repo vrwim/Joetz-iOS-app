@@ -17,20 +17,26 @@ class TripImageTabViewController: MenuSetupUITableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         let parentTripTabVC: ParentTripTabVC = self.parentViewController as ParentTripTabVC
-        println(parentTripTabVC)
         trip = parentTripTabVC.trip
-        self.parentViewController?.navigationItem.title = trip.title
-        for imagePath in trip.pictures! {
-            connectionService.createFetchTask(imagePath) {
-                image in
-                self.images[imagePath] = image
-                self.tableView.reloadData()
-                }.resume()
+        if trip != nil {
+            self.parentViewController?.navigationItem.title = trip.title
+            for imagePath in trip.pictures! {
+                connectionService.createFetchTask(imagePath) {
+                    image in
+                    self.images[imagePath] = image
+                    self.tableView.reloadData()
+                    }.resume()
+            }
         }
         //Fix om table niet onder statusbar/navbar te laten beginnen
-        let navBarHeight = self.navigationController?.navigationBar.bounds.height
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
-        let inset: UIEdgeInsets = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
+        var inset: UIEdgeInsets
+        if self.navigationController != nil {
+            let navBarHeight = self.navigationController?.navigationBar.bounds.height
+            inset = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
+        } else {
+            inset = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        }
         self.tableView.contentInset = inset
         self.tableView.scrollIndicatorInsets = inset
         
@@ -46,7 +52,7 @@ class TripImageTabViewController: MenuSetupUITableViewController
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return trip.pictures?.count ?? 0
+            return trip?.pictures?.count ?? 0
         default:
             println("Error: Asking for #cells in section \(section)")
             return 0

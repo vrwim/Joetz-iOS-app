@@ -26,7 +26,7 @@ class InitViewController: ECSlidingViewController
             if fetchResults.count > 0
             {
                 //check if viewType is parent view --> if not check if childView --> if not empty string
-                viewType = fetchResults[0].viewType == "parentView" ? "ParentTripsNavVC" : (fetchResults[0].viewType == "childView" ? "ChildTripsNavVC" : "")
+                viewType = fetchResults[0].viewType == "parentView" ? "ParentTripsSplitVC" : (fetchResults[0].viewType == "childView" ? "ChildTripsNavVC" : "")
                 println(viewType)
             }
         }

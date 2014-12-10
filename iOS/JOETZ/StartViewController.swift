@@ -45,7 +45,7 @@ class StartViewController: UIViewController {
         
         context.save(nil)
         
-        let newTopViewController: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsNavVC") as UIViewController
+        let newTopViewController: UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsSplitVC") as UIViewController
         self.slidingViewController().topViewController = newTopViewController
     }
     

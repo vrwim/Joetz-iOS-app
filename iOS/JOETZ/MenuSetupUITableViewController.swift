@@ -28,7 +28,7 @@ class MenuSetupUITableViewController: UITableViewController
         super.viewWillAppear(animated)
         
         //When going back from other view in navigationcontroller setup
-        self.navigationController?.view.addGestureRecognizer(self.slidingViewController().panGesture)
+        //self.navigationController?.view.addGestureRecognizer(self.slidingViewController().panGesture)
         
         //if there is a navigationcontroller apply shadow to it instead of this view
         if self.navigationController != nil {

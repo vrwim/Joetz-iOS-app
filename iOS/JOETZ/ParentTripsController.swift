@@ -12,6 +12,7 @@ class ParentTripsController: MenuSetupUITableViewController
 {
     var trips: [Trip] = []
     var task: NSURLSessionTask?
+    private var collapseDetailViewController = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,5 +61,13 @@ class ParentTripsController: MenuSetupUITableViewController
     
     @IBAction func menuButton(sender: UIBarButtonItem) {
         setupMenuButton()
+    }
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+        return collapseDetailViewController
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        collapseDetailViewController = false
     }
 }

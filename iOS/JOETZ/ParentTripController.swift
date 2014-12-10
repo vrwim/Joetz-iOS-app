@@ -19,12 +19,17 @@ class ParentTripController: MenuSetupUITableViewController
         super.viewDidLoad()
         let parentTripTabVC: ParentTripTabVC = self.parentViewController as ParentTripTabVC
         trip = parentTripTabVC.trip
-        self.parentViewController?.navigationItem.title = trip.title
+        //self.parentViewController?.navigationItem.title = trip.title todo vanaf titelbalk in orde is
 
         //Fix om table niet onder statusbar/navbar te laten beginnen
-        let navBarHeight = self.navigationController?.navigationBar.bounds.height
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height
-        let inset: UIEdgeInsets = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
+        var inset: UIEdgeInsets
+        if self.navigationController != nil {
+            let navBarHeight = self.navigationController?.navigationBar.bounds.height
+            inset = UIEdgeInsets(top: navBarHeight! + statusBarHeight, left: 0, bottom: 0, right: 0)
+        } else {
+            inset = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        }
         self.tableView.contentInset = inset
         self.tableView.scrollIndicatorInsets = inset
         
@@ -34,6 +39,10 @@ class ParentTripController: MenuSetupUITableViewController
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if trip == nil {
+            navigationController?.popViewControllerAnimated(true)//dees moe properder(geeft warning!)
+            return 0
+        }
         return 4 // Basic Info, Inclusives, Prijzen, Kaart
     }
     
