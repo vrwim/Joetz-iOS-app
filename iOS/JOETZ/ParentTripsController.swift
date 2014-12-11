@@ -12,7 +12,7 @@ class ParentTripsController: MenuSetupUITableViewController
 {
     var trips: [Trip] = []
     var task: NSURLSessionTask?
-    private var collapseDetailViewController = true
+    var sidebar: UIPopoverController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,10 @@ class ParentTripsController: MenuSetupUITableViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let tripController = segue.destinationViewController as ParentTripController
         let parentTripTabVC = segue.destinationViewController as ParentTripTabVC
         let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
-        //tripController.trip = selectedTrip
         parentTripTabVC.trip = selectedTrip
+        parentTripTabVC.sidebar = sidebar
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,13 +60,5 @@ class ParentTripsController: MenuSetupUITableViewController
     
     @IBAction func menuButton(sender: UIBarButtonItem) {
         setupMenuButton()
-    }
-    
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
-        return collapseDetailViewController
-    }
-    
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        collapseDetailViewController = false
     }
 }

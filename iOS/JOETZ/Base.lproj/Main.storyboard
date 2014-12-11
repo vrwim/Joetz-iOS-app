@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pbb-8e-I9L">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -780,10 +781,10 @@
             </objects>
             <point key="canvasLocation" x="-140" y="-246"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Parent Split View Controller-->
         <scene sceneID="DKU-Ly-7sT">
             <objects>
-                <splitViewController storyboardIdentifier="ParentTripsSplitVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Fo-qo-ieG" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="ParentTripsSplitVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Fo-qo-ieG" customClass="ParentSplitViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="2i9-lR-2E9" kind="relationship" relationship="masterViewController" id="ZNr-p9-VG0"/>
                         <segue destination="npv-aQ-lse" kind="relationship" relationship="detailViewController" id="MAY-PR-gvk"/>

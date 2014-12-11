@@ -9,9 +9,13 @@
 class ParentTripTabVC: UITabBarController
 {
     var trip: Trip!
+    var sidebar: UIPopoverController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.translucent = false
+        if trip != nil {
+            sidebar?.dismissPopoverAnimated(true)
+        }
     }
 }

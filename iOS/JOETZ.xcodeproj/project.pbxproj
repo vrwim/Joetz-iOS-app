@@ -25,6 +25,7 @@
 		3DF675EC1A20CDBD00B8387A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675EB1A20CDBD00B8387A /* MenuViewController.swift */; };
 		3DF675EE1A20CEBB00B8387A /* MenuSetupUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */; };
 		3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */; };
+		872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872F6E581A39194800949C8A /* ParentSplitViewController.swift */; };
 		874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874113AC1A1E7D600032BC6B /* MapKit.framework */; };
 		87853D001A24E76900EA4DB9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */; };
 		87853D021A24E86300EA4DB9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D011A24E86300EA4DB9 /* NewsViewController.swift */; };
@@ -87,6 +88,7 @@
 		3DF675EB1A20CDBD00B8387A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUITableViewController.swift; sourceTree = "<group>"; };
 		3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUIViewController.swift; sourceTree = "<group>"; };
+		872F6E581A39194800949C8A /* ParentSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentSplitViewController.swift; sourceTree = "<group>"; };
 		874113AC1A1E7D600032BC6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		87853D011A24E86300EA4DB9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */,
 				3D182AB71A0A828300E3E59F /* ParentTripController.swift */,
 				3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */,
+				872F6E581A39194800949C8A /* ParentSplitViewController.swift */,
 			);
 			name = ParentTrip;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				3DF675E41A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m in Sources */,
 				AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */,
 				3DF675E51A20CC3D00B8387A /* ECSlidingAnimationController.m in Sources */,
+				872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */,
 				ABE776EC1A0524500063AEDB /* Trip.swift in Sources */,
 				AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */,
 				3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */,

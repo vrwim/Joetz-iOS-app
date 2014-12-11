@@ -40,7 +40,6 @@ class ParentTripController: MenuSetupUITableViewController
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if trip == nil {
-            navigationController?.popViewControllerAnimated(true)//dees moe properder(geeft warning!)
             return 0
         }
         return 4 // Basic Info, Inclusives, Prijzen, Kaart
