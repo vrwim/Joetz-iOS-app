@@ -77,6 +77,13 @@ class ParentTripController: MenuSetupUITableViewController
         }
     }
     
+    override func tableView(derp: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 3 {
+            return 320.5
+        }
+        return 44
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -132,7 +139,6 @@ class ParentTripController: MenuSetupUITableViewController
         case 3:
             // map
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell") as MapCell
-            
             cell.locationString = trip.location
             
             return cell

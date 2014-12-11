@@ -1,5 +1,5 @@
 //
-//  TmpTabVC.swift
+//  ParentTripTabVC.swift
 //  JOETZ
 //
 //  Created by Jan Vanhulle on 25/11/14.
@@ -14,8 +14,23 @@ class ParentTripTabVC: UITabBarController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.translucent = false
+        dismissSidebar()
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        dismissSidebar()
+    }
+    
+    func dismissSidebar() {
+        println(trip)
+        println(sidebar)
         if trip != nil {
+            println("deleting")
+            println(sidebar?.popoverVisible)
             sidebar?.dismissPopoverAnimated(true)
+            println(sidebar?.popoverVisible)
+                        println("should be gone now")
         }
     }
 }
