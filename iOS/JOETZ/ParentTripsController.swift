@@ -13,6 +13,7 @@ class ParentTripsController: MenuSetupUITableViewController
     var trips: [Trip] = []
     var task: NSURLSessionTask?
     var sidebar: UIPopoverController?
+    var parentTripTabVC: ParentTripTabVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +25,16 @@ class ParentTripsController: MenuSetupUITableViewController
         task!.resume()
     }
     
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        parentTripTabVC?.sidebar = sidebar
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let parentTripTabVC = segue.destinationViewController as ParentTripTabVC
+        parentTripTabVC = segue.destinationViewController as? ParentTripTabVC
         let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
-        parentTripTabVC.trip = selectedTrip
-        parentTripTabVC.sidebar = sidebar
+        parentTripTabVC?.trip = selectedTrip
+        parentTripTabVC?.sidebar = sidebar
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

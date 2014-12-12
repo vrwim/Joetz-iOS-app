@@ -14,23 +14,16 @@ class ParentTripTabVC: UITabBarController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.translucent = false
-        dismissSidebar()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.BlackOpaque, animated: true)
+        if trip != nil {
+            sidebar?.dismissPopoverAnimated(true)
+        }
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
-        dismissSidebar()
-    }
-    
-    func dismissSidebar() {
-        println(trip)
-        println(sidebar)
         if trip != nil {
-            println("deleting")
-            println(sidebar?.popoverVisible)
-            sidebar?.dismissPopoverAnimated(true)
-            println(sidebar?.popoverVisible)
-                        println("should be gone now")
+            sidebar?.dismissPopoverAnimated(false)
         }
     }
 }

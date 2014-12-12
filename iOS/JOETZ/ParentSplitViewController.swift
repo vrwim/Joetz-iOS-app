@@ -14,8 +14,8 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         orientationCheck()
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
     }
     
     func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController) {
