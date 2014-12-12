@@ -16,6 +16,7 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         orientationCheck()
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        orientationCheck()
     }
     
     func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController) {
@@ -28,8 +29,7 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
     
     func orientationCheck(){
         if UIDevice.currentDevice().model == "iPad" {
-            let orientation = UIApplication.sharedApplication().statusBarOrientation
-            if orientation.isPortrait {
+            if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
             } else {
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible

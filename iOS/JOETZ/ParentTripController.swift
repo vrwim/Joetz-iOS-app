@@ -77,12 +77,14 @@ class ParentTripController: MenuSetupUITableViewController
         }
     }
     
-    override func tableView(derp: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.section == 3 {
-            return 320.5
+    /*override func tableView(derp: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat { //todo fix mapcell resizing
+        switch indexPath.section {
+        case 0,1: return 44
+        case 2: return 54
+        case 3: return 320.5
+        default: return 44
         }
-        return 44
-    }
+    }*/
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
