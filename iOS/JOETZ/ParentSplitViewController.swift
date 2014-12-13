@@ -21,6 +21,7 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
     
     func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController) {
         (svc.viewControllers[0].topViewController as ParentTripsController).sidebar = pc
+        
     }
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
@@ -36,4 +37,17 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
             }
         }
     }
+    
+    /*
+    //Keeping this just in case ...
+    func hideMaster(pHideMaster: Bool) {
+        self.hideMaster = pHideMaster
+        
+        self.view.setNeedsLayout()
+        self.delegate = nil
+        self.delegate = self
+        
+        self.willRotateToInterfaceOrientation(UIApplication.sharedApplication().statusBarOrientation, duration: 0)
+        self.view.setNeedsDisplay()
+    }*/
 }

@@ -36,6 +36,26 @@ class MenuViewController: UITableViewController
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Dirty fix (problem with UISplitViewControllers): hide and show the master view of the splitviewcontroller when we're going to show the menu
+        //also make the master view 'static' (unhidable) for as long as the menu is visible
+        if let svc = slidingViewController().topViewController as? UISplitViewController {
+            svc.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+            svc.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        //Let the system handle the display mode of the splitviewcontroller after the menu is hidden
+        if let svc = slidingViewController().topViewController as? UISplitViewController {
+            svc.preferredDisplayMode = UISplitViewControllerDisplayMode.Automatic
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }

@@ -21,7 +21,6 @@ class MenuSetupUITableViewController: UITableViewController
         
         //Tmp fix for gesture + scrolling in Table view
         self.navigationController?.view.addGestureRecognizer(self.slidingViewController().panGesture)
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,14 +45,31 @@ class MenuSetupUITableViewController: UITableViewController
     }
     
     func setupMenuButton() {
-        let slidingViewController = self.slidingViewController()
+        var slidingViewController = self.slidingViewController()
         
-        //Menu button toggle
+        //if there is a splitviewcontroller than take the slidingviewcontroller from that instead
+        if self.splitViewController != nil {
+            slidingViewController = self.splitViewController?.slidingViewController()
+        }
+        
+        //Menu toggle
+        //if: the menu is shown --> hide the menu
         if slidingViewController.currentTopViewPosition == ECSlidingViewControllerTopViewPosition.AnchoredRight {
             slidingViewController.resetTopViewAnimated(true)
         }
+        //else: show the menu
         else {
             slidingViewController.anchorTopViewToRightAnimated(true)
         }
+        
+        //will probably be removed but just in case leaving it here for now
+        /*if self.splitViewController != nil {
+            println("Trying to hide the masterview")
+            self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
+            self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+            //let svc = self.splitViewController as ParentSplitViewController
+            //svc.hideMaster(true)
+            //svc.hideMaster(false)
+        }*/
     }
 }
