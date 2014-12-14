@@ -31,7 +31,7 @@ class ParentTripsController: MenuSetupUITableViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        parentTripTabVC = segue.destinationViewController as? ParentTripTabVC
+        parentTripTabVC = (segue.destinationViewController as UINavigationController).topViewController as? ParentTripTabVC
         let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
         parentTripTabVC?.trip = selectedTrip
         parentTripTabVC?.sidebar = sidebar

@@ -19,7 +19,7 @@ class ParentTripController: MenuSetupUITableViewController
         super.viewDidLoad()
         let parentTripTabVC: ParentTripTabVC = self.parentViewController as ParentTripTabVC
         trip = parentTripTabVC.trip
-        //self.parentViewController?.navigationItem.title = trip.title todo vanaf titelbalk in orde is
+        self.parentViewController?.navigationItem.title = trip?.title
 
         //Fix om table niet onder statusbar/navbar te laten beginnen
         let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.size.height

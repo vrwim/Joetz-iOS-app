@@ -582,7 +582,7 @@
                                     <outlet property="totLeeftijdLabel" destination="XCw-hL-qpd" id="1ji-vs-NhI"/>
                                     <outlet property="vanLabel" destination="gTl-Qz-mnI" id="4Br-fZ-sAO"/>
                                     <outlet property="vanLeeftijdLabel" destination="x2C-vf-Vg0" id="508-Yq-27p"/>
-                                    <segue destination="npv-aQ-lse" kind="showDetail" id="UVC-U3-QzD"/>
+                                    <segue destination="jTu-tz-bEw" kind="showDetail" id="wOB-9A-cAt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -787,12 +787,28 @@
                 <splitViewController storyboardIdentifier="ParentTripsSplitVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Fo-qo-ieG" customClass="ParentSplitViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="2i9-lR-2E9" kind="relationship" relationship="masterViewController" id="ZNr-p9-VG0"/>
-                        <segue destination="npv-aQ-lse" kind="relationship" relationship="detailViewController" id="MAY-PR-gvk"/>
+                        <segue destination="jTu-tz-bEw" kind="relationship" relationship="detailViewController" id="w15-kd-qaJ"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdw-pc-4bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="1236"/>
+            <point key="canvasLocation" x="-896" y="1236"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ubA-Gw-peq">
+            <objects>
+                <navigationController id="jTu-tz-bEw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GuL-Mn-XNM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="npv-aQ-lse" kind="relationship" relationship="rootViewController" id="B4u-ru-tyH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRT-8n-AVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="1236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ixZ-sK-jVN">
@@ -1089,6 +1105,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="npv-aQ-lse" customClass="ParentTripTabVC" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kv2-FV-EwM"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="HbZ-g0-GdG">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1111,6 +1128,6 @@
         <image name="PictureIcon" width="33" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MAY-PR-gvk"/>
+        <segue reference="w15-kd-qaJ"/>
     </inferredMetricsTieBreakers>
 </document>
