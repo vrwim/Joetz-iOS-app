@@ -108,7 +108,7 @@ class MenuViewController: UITableViewController
         super.viewDidDisappear(animated)
         //Let the system handle the display mode of the splitviewcontroller after the menu is hidden
         if let svc = slidingViewController().topViewController as? UISplitViewController {
-            if UIDevice.currentDevice().model == "iPad" {
+            if (UIDevice.currentDevice().model as NSString).containsString("iPad") {
                 if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
                     svc.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
                 } else {

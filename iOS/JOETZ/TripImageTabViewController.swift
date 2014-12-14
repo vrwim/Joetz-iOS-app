@@ -102,7 +102,7 @@ class TripImageTabViewController: MenuSetupUITableViewController
             if image != nil {
                 var screenRect = UIScreen.mainScreen().bounds
                 var screenWidth: CGFloat
-                if UIDevice.currentDevice().model == "iPad" && UIApplication.sharedApplication().statusBarOrientation.isLandscape {
+                if (UIDevice.currentDevice().model as NSString).containsString("iPad") && UIApplication.sharedApplication().statusBarOrientation.isLandscape {
                     screenWidth = screenRect.size.width * 0.7
                 } else {
                     screenWidth = screenRect.size.width

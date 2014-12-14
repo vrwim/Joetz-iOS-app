@@ -28,7 +28,7 @@ class NewsSplitViewController: UISplitViewController, UISplitViewControllerDeleg
     }
     
     func orientationCheck(){
-        if UIDevice.currentDevice().model == "iPad" {
+        if (UIDevice.currentDevice().model as NSString).containsString("iPad") {
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
             } else {
