@@ -49,6 +49,23 @@
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
 		AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9FAA9A1A1E241100B857CE /* MapCell.swift */; };
 		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
+		ABB174BE1A3E3AD900250514 /* FormBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174AB1A3E3AD900250514 /* FormBaseCell.swift */; };
+		ABB174BF1A3E3AD900250514 /* FormTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174AC1A3E3AD900250514 /* FormTitleCell.swift */; };
+		ABB174C01A3E3AD900250514 /* FormValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174AD1A3E3AD900250514 /* FormValueCell.swift */; };
+		ABB174C11A3E3AD900250514 /* FormButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174AE1A3E3AD900250514 /* FormButtonCell.swift */; };
+		ABB174C21A3E3AD900250514 /* FormCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174AF1A3E3AD900250514 /* FormCheckCell.swift */; };
+		ABB174C31A3E3AD900250514 /* FormDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B01A3E3AD900250514 /* FormDateCell.swift */; };
+		ABB174C41A3E3AD900250514 /* FormPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B11A3E3AD900250514 /* FormPickerCell.swift */; };
+		ABB174C51A3E3AD900250514 /* FormSegmentedControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B21A3E3AD900250514 /* FormSegmentedControlCell.swift */; };
+		ABB174C61A3E3AD900250514 /* FormSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B31A3E3AD900250514 /* FormSelectorCell.swift */; };
+		ABB174C71A3E3AD900250514 /* FormSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B41A3E3AD900250514 /* FormSwitchCell.swift */; };
+		ABB174C81A3E3AD900250514 /* FormTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B51A3E3AD900250514 /* FormTextFieldCell.swift */; };
+		ABB174C91A3E3AD900250514 /* FormOptionsSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B71A3E3AD900250514 /* FormOptionsSelectorController.swift */; };
+		ABB174CA1A3E3AD900250514 /* FormSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B81A3E3AD900250514 /* FormSelector.swift */; };
+		ABB174CB1A3E3AD900250514 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174B91A3E3AD900250514 /* FormViewController.swift */; };
+		ABB174CC1A3E3AD900250514 /* FormDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BB1A3E3AD900250514 /* FormDescriptor.swift */; };
+		ABB174CD1A3E3AD900250514 /* FormRowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BC1A3E3AD900250514 /* FormRowDescriptor.swift */; };
+		ABB174CE1A3E3AD900250514 /* FormSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BD1A3E3AD900250514 /* FormSectionDescriptor.swift */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
 		ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776E91A05241C0063AEDB /* JSON.swift */; };
 		ABE776EC1A0524500063AEDB /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EB1A0524500063AEDB /* Trip.swift */; };
@@ -122,6 +139,23 @@
 		AB9FAA9A1A1E241100B857CE /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		ABB174AB1A3E3AD900250514 /* FormBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBaseCell.swift; sourceTree = "<group>"; };
+		ABB174AC1A3E3AD900250514 /* FormTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTitleCell.swift; sourceTree = "<group>"; };
+		ABB174AD1A3E3AD900250514 /* FormValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormValueCell.swift; sourceTree = "<group>"; };
+		ABB174AE1A3E3AD900250514 /* FormButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButtonCell.swift; sourceTree = "<group>"; };
+		ABB174AF1A3E3AD900250514 /* FormCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCheckCell.swift; sourceTree = "<group>"; };
+		ABB174B01A3E3AD900250514 /* FormDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDateCell.swift; sourceTree = "<group>"; };
+		ABB174B11A3E3AD900250514 /* FormPickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormPickerCell.swift; sourceTree = "<group>"; };
+		ABB174B21A3E3AD900250514 /* FormSegmentedControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSegmentedControlCell.swift; sourceTree = "<group>"; };
+		ABB174B31A3E3AD900250514 /* FormSelectorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSelectorCell.swift; sourceTree = "<group>"; };
+		ABB174B41A3E3AD900250514 /* FormSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSwitchCell.swift; sourceTree = "<group>"; };
+		ABB174B51A3E3AD900250514 /* FormTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextFieldCell.swift; sourceTree = "<group>"; };
+		ABB174B71A3E3AD900250514 /* FormOptionsSelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormOptionsSelectorController.swift; sourceTree = "<group>"; };
+		ABB174B81A3E3AD900250514 /* FormSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSelector.swift; sourceTree = "<group>"; };
+		ABB174B91A3E3AD900250514 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		ABB174BB1A3E3AD900250514 /* FormDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDescriptor.swift; sourceTree = "<group>"; };
+		ABB174BC1A3E3AD900250514 /* FormRowDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowDescriptor.swift; sourceTree = "<group>"; };
+		ABB174BD1A3E3AD900250514 /* FormSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSectionDescriptor.swift; sourceTree = "<group>"; };
 		ABE776E91A05241C0063AEDB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		ABE776EB1A0524500063AEDB /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		ABE776EF1A052FE00063AEDB /* ConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
@@ -301,6 +335,7 @@
 		AB138EE119F51B74007DB692 /* JOETZ */ = {
 			isa = PBXGroup;
 			children = (
+				ABB174A81A3E3AD900250514 /* SwiftForms */,
 				3DF675F11A20D93600B8387A /* Controllers */,
 				3DF675F31A20D98900B8387A /* Views */,
 				3DF675F61A20D9E700B8387A /* Model */,
@@ -339,6 +374,62 @@
 				AB138EF919F51B74007DB692 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABB174A81A3E3AD900250514 /* SwiftForms */ = {
+			isa = PBXGroup;
+			children = (
+				ABB174A91A3E3AD900250514 /* cells */,
+				ABB174B61A3E3AD900250514 /* controllers */,
+				ABB174BA1A3E3AD900250514 /* descriptors */,
+			);
+			path = SwiftForms;
+			sourceTree = "<group>";
+		};
+		ABB174A91A3E3AD900250514 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				ABB174AA1A3E3AD900250514 /* base */,
+				ABB174AE1A3E3AD900250514 /* FormButtonCell.swift */,
+				ABB174AF1A3E3AD900250514 /* FormCheckCell.swift */,
+				ABB174B01A3E3AD900250514 /* FormDateCell.swift */,
+				ABB174B11A3E3AD900250514 /* FormPickerCell.swift */,
+				ABB174B21A3E3AD900250514 /* FormSegmentedControlCell.swift */,
+				ABB174B31A3E3AD900250514 /* FormSelectorCell.swift */,
+				ABB174B41A3E3AD900250514 /* FormSwitchCell.swift */,
+				ABB174B51A3E3AD900250514 /* FormTextFieldCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		ABB174AA1A3E3AD900250514 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				ABB174AB1A3E3AD900250514 /* FormBaseCell.swift */,
+				ABB174AC1A3E3AD900250514 /* FormTitleCell.swift */,
+				ABB174AD1A3E3AD900250514 /* FormValueCell.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		ABB174B61A3E3AD900250514 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ABB174B71A3E3AD900250514 /* FormOptionsSelectorController.swift */,
+				ABB174B81A3E3AD900250514 /* FormSelector.swift */,
+				ABB174B91A3E3AD900250514 /* FormViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		ABB174BA1A3E3AD900250514 /* descriptors */ = {
+			isa = PBXGroup;
+			children = (
+				ABB174BB1A3E3AD900250514 /* FormDescriptor.swift */,
+				ABB174BC1A3E3AD900250514 /* FormRowDescriptor.swift */,
+				ABB174BD1A3E3AD900250514 /* FormSectionDescriptor.swift */,
+			);
+			path = descriptors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,34 +538,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB174C21A3E3AD900250514 /* FormCheckCell.swift in Sources */,
+				ABB174C81A3E3AD900250514 /* FormTextFieldCell.swift in Sources */,
 				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
 				3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */,
 				3DF675EE1A20CEBB00B8387A /* MenuSetupUITableViewController.swift in Sources */,
 				3D3D0E701A2570AB00F51247 /* GlobalSettings.swift in Sources */,
+				ABB174BF1A3E3AD900250514 /* FormTitleCell.swift in Sources */,
 				3DF675E81A20CC3D00B8387A /* ECSlidingViewController.m in Sources */,
+				ABB174C61A3E3AD900250514 /* FormSelectorCell.swift in Sources */,
+				ABB174C31A3E3AD900250514 /* FormDateCell.swift in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
+				ABB174C41A3E3AD900250514 /* FormPickerCell.swift in Sources */,
+				ABB174C51A3E3AD900250514 /* FormSegmentedControlCell.swift in Sources */,
+				ABB174CD1A3E3AD900250514 /* FormRowDescriptor.swift in Sources */,
 				ABFEBA9B1A250D0F00FF4EA8 /* User.swift in Sources */,
 				87853D041A2527D900EA4DB9 /* NewsItem.swift in Sources */,
+				ABB174CA1A3E3AD900250514 /* FormSelector.swift in Sources */,
 				AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */,
 				3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
 				87554E5C1A3D3F140093E1A4 /* NewsSplitViewController.swift in Sources */,
 				3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */,
+				ABB174C71A3E3AD900250514 /* FormSwitchCell.swift in Sources */,
 				87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */,
 				3DF675E61A20CC3D00B8387A /* ECSlidingInteractiveTransition.m in Sources */,
 				3DF675D41A20CC0400B8387A /* InitViewController.swift in Sources */,
 				3D1AB2DE1A3DB32900FA1126 /* LocksmithRequest.swift in Sources */,
 				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
+				ABB174C01A3E3AD900250514 /* FormValueCell.swift in Sources */,
 				87853D071A252D6A00EA4DB9 /* NewsItemViewController.swift in Sources */,
 				87853D021A24E86300EA4DB9 /* NewsViewController.swift in Sources */,
 				3DF675EA1A20CC3D00B8387A /* UIViewController+ECSlidingViewController.m in Sources */,
 				3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */,
+				ABB174CE1A3E3AD900250514 /* FormSectionDescriptor.swift in Sources */,
+				ABB174BE1A3E3AD900250514 /* FormBaseCell.swift in Sources */,
 				8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */,
 				3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */,
 				3DF675E71A20CC3D00B8387A /* ECSlidingSegue.m in Sources */,
+				ABB174CB1A3E3AD900250514 /* FormViewController.swift in Sources */,
 				AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */,
 				3D1AB2E01A3DDA1200FA1126 /* AccountViewController.swift in Sources */,
 				3DF675E41A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m in Sources */,
+				ABB174CC1A3E3AD900250514 /* FormDescriptor.swift in Sources */,
+				ABB174C11A3E3AD900250514 /* FormButtonCell.swift in Sources */,
 				AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */,
 				3DF675E51A20CC3D00B8387A /* ECSlidingAnimationController.m in Sources */,
 				872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */,
@@ -483,6 +590,7 @@
 				3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */,
 				879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */,
 				3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */,
+				ABB174C91A3E3AD900250514 /* FormOptionsSelectorController.swift in Sources */,
 				AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */,
 				3DF675EC1A20CDBD00B8387A /* MenuViewController.swift in Sources */,
 				3D1AB2DD1A3DB32900FA1126 /* Locksmith.swift in Sources */,
