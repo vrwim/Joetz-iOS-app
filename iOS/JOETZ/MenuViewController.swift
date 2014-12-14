@@ -6,14 +6,17 @@
 //  Copyright (c) 2014 Groep 3D07. All rights reserved.
 //
 
+import CoreData
+
 class MenuViewController: UITableViewController
 {
-    let menuItems: [(storyBoardId: String, tI: (titel: String, image: String))] = [
+    var menuItems: [(storyBoardId: String, tI: (titel: String, image: String))] = [
         ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
         ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+        //("UserTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
         //("ContactNavVC", ("Contact", "ContactIcon")),
-        ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
-        //("AccountNavVC", ("Account", "AccountIcon"))
+        ("LoginNavVC", ("Aanmelden", "AccountIcon")),
+        ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
     ]
     
     override func viewDidLoad() {
@@ -43,6 +46,54 @@ class MenuViewController: UITableViewController
         //also make the master view 'static' (unhidable) for as long as the menu is visible
         if let svc = slidingViewController().topViewController as? UISplitViewController {
             svc.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
+        }
+        
+        var globalSettings: GlobalSettings?
+        var userEmail = ""
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "GlobalSettings")
+        
+        if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil) as? [GlobalSettings]
+        {
+            if fetchResults.count > 0
+            {
+                globalSettings = fetchResults[0]
+                println(globalSettings)
+                if let globalSettingsTmp = globalSettings {
+                    if let userEmailTmp = globalSettingsTmp.loggedInUser as String? {
+                        userEmail = userEmailTmp
+                    }
+                }
+                
+            }
+        }
+        
+        userEmail.isEmpty ? setUpMenu(false) : setUpMenu(true)
+        
+    }
+    
+    func setUpMenu(loggedInUser: Bool) {
+        if loggedInUser {
+            menuItems = [
+                ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
+                ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
+                ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
+                //("ContactNavVC", ("Contact", "ContactIcon")),
+                ("AccountNavVC", ("Account", "AccountIcon")),
+                ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+            ]
+        }
+        else {
+            menuItems = [
+                ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
+                ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                //("ContactNavVC", ("Contact", "ContactIcon")),
+                ("LoginNavVC", ("Aanmelden", "AccountIcon")),
+                ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+            ]
         }
     }
     

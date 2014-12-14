@@ -12,6 +12,6 @@ import CoreData
 class GlobalSettings: NSManagedObject {
 
     @NSManaged var viewType: String
-    @NSManaged var loggedInUser: String
+    @NSManaged var loggedInUser: String?
 
 }
