@@ -12,6 +12,9 @@ class LoginViewController: MenuSetupUIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    var userAccount = ""
+    let service = "Locksmith"
+    let key = "details"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +33,25 @@ class LoginViewController: MenuSetupUIViewController {
             connectionService.getUserData(token) {
                 user in
                 // insert CoreData here
-                println("Email: \(user.email)")
-                println("Name: \(user.name)")
-                println("Provider: \(user.provider)")
-                println("Role: \(user.role)")
-                println("Token: \(user.token)")
+                self.userAccount = user.email
+                self.save(user.name, provider: user.provider, role: user.role, token: user.token)
             }.resume()
         }.resume()
+    }
+    
+    //save the userdetails in keychain
+    func save(name: String, provider: String, role: String, token: String) {
+        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token]
+        let error = Locksmith.saveData(dict, forKey: self.key, inService: service, forUserAccount: userAccount)
+        //if there is an error, userAccount already exists --> update instead
+        if error != nil {
+            update(name, provider: provider, role: role, token: token)
+        }
+    }
+    
+    //update existing userdata in keychain
+    func update(name: String, provider: String, role: String, token: String) {
+        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token]
+        let error = Locksmith.updateData(dict, forKey: key, inService: service, forUserAccount: userAccount)
     }
 }
