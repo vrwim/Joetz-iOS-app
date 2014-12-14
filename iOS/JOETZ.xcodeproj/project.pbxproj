@@ -66,6 +66,7 @@
 		ABB174CC1A3E3AD900250514 /* FormDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BB1A3E3AD900250514 /* FormDescriptor.swift */; };
 		ABB174CD1A3E3AD900250514 /* FormRowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BC1A3E3AD900250514 /* FormRowDescriptor.swift */; };
 		ABB174CE1A3E3AD900250514 /* FormSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174BD1A3E3AD900250514 /* FormSectionDescriptor.swift */; };
+		ABB174D01A3E419500250514 /* RegisterUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB174CF1A3E419500250514 /* RegisterUserController.swift */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
 		ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776E91A05241C0063AEDB /* JSON.swift */; };
 		ABE776EC1A0524500063AEDB /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EB1A0524500063AEDB /* Trip.swift */; };
@@ -156,6 +157,7 @@
 		ABB174BB1A3E3AD900250514 /* FormDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDescriptor.swift; sourceTree = "<group>"; };
 		ABB174BC1A3E3AD900250514 /* FormRowDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowDescriptor.swift; sourceTree = "<group>"; };
 		ABB174BD1A3E3AD900250514 /* FormSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSectionDescriptor.swift; sourceTree = "<group>"; };
+		ABB174CF1A3E419500250514 /* RegisterUserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserController.swift; sourceTree = "<group>"; };
 		ABE776E91A05241C0063AEDB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		ABE776EB1A0524500063AEDB /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		ABE776EF1A052FE00063AEDB /* ConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
 				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
 				3D1AB2DF1A3DDA1200FA1126 /* AccountViewController.swift */,
+				ABB174CF1A3E419500250514 /* RegisterUserController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				ABB174C41A3E3AD900250514 /* FormPickerCell.swift in Sources */,
 				ABB174C51A3E3AD900250514 /* FormSegmentedControlCell.swift in Sources */,
+				ABB174D01A3E419500250514 /* RegisterUserController.swift in Sources */,
 				ABB174CD1A3E3AD900250514 /* FormRowDescriptor.swift in Sources */,
 				ABFEBA9B1A250D0F00FF4EA8 /* User.swift in Sources */,
 				87853D041A2527D900EA4DB9 /* NewsItem.swift in Sources */,
