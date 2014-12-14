@@ -23,7 +23,7 @@ class ParentTripTabVC: UITabBarController
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         if trip != nil {
-            sidebar?.dismissPopoverAnimated(false)
+            sidebar?.dismissPopoverAnimated(true)//this should be without animation but strangly only works with animation
         }
     }
 }

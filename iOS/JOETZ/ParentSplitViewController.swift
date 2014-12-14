@@ -21,7 +21,6 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
     
     func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController) {
         (svc.viewControllers[0].topViewController as ParentTripsController).sidebar = pc
-        
     }
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
@@ -33,6 +32,7 @@ class ParentSplitViewController: UISplitViewController, UISplitViewControllerDel
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
             } else {
+                self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay//no clue why, but without this the masterview might show up as a gray field
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
             }
         }
