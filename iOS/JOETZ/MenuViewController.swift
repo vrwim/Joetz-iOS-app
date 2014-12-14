@@ -9,7 +9,7 @@
 class MenuViewController: UITableViewController
 {
     let menuItems: [(storyBoardId: String, tI: (titel: String, image: String))] = [
-        ("NewsNavVC", ("Joetz Nieuws", "NewsIcon")),
+        ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
         ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
         //("ContactNavVC", ("Contact", "ContactIcon")),
         ("SettingsNavVC", ("Instellingen", "SettingsIcon")),

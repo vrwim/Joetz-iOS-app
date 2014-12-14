@@ -124,13 +124,13 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSp-yA-yC2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LzM-Wm-1ZR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
@@ -1021,7 +1021,7 @@
                                     <outlet property="dateLabel" destination="gfO-PV-Vnc" id="r8K-Ut-7Sv"/>
                                     <outlet property="thumbnail" destination="bie-bc-NUz" id="Oq0-In-veM"/>
                                     <outlet property="titleLabel" destination="boE-IZ-RdF" id="OIZ-9J-mI4"/>
-                                    <segue destination="EzZ-Sy-B2p" kind="show" id="k4r-Kx-GGy"/>
+                                    <segue destination="GJk-nJ-hEO" kind="showDetail" id="OVq-ed-ygA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1047,6 +1047,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkL-CH-yUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="582" y="3884"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HB8-D2-kEL">
+            <objects>
+                <navigationController id="GJk-nJ-hEO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f6d-4t-G2c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="EzZ-Sy-B2p" kind="relationship" relationship="rootViewController" id="b5m-pS-mG4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pg-Dh-S1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="587" y="4598"/>
         </scene>
         <!--Artikel-->
         <scene sceneID="oxI-F5-1BU">
@@ -1100,6 +1116,19 @@
             </objects>
             <point key="canvasLocation" x="-184" y="3886"/>
         </scene>
+        <!--News Split View Controller-->
+        <scene sceneID="AhU-m5-cdR">
+            <objects>
+                <splitViewController storyboardIdentifier="NewsSplitVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M5W-zf-KcC" customClass="NewsSplitViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="HGC-5U-9ND" kind="relationship" relationship="masterViewController" id="AzU-Wn-7Ie"/>
+                        <segue destination="GJk-nJ-hEO" kind="relationship" relationship="detailViewController" id="ENg-d4-jcR"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9n-8i-WQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-896" y="4598"/>
+        </scene>
         <!--Parent Trip TabVC-->
         <scene sceneID="pLV-3S-ZnN">
             <objects>
@@ -1129,5 +1158,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w15-kd-qaJ"/>
+        <segue reference="ENg-d4-jcR"/>
     </inferredMetricsTieBreakers>
 </document>

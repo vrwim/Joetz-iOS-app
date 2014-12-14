@@ -14,7 +14,6 @@ class ParentTripTabVC: UITabBarController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.translucent = false
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.BlackOpaque, animated: true)
         if trip != nil {
             sidebar?.dismissPopoverAnimated(true)
         }

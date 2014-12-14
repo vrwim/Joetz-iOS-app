@@ -11,11 +11,23 @@ import UIKit
 class NewsItemViewController : UIViewController {
     
     var newsItem: NewsItem!
+    var sidebar: UIPopoverController?
     @IBOutlet weak var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.title = newsItem.title
-        webView.loadHTMLString(newsItem.content, baseURL: nil)
+        if newsItem != nil {
+            sidebar?.dismissPopoverAnimated(true)
+            navigationItem.title = newsItem.title
+            webView.loadHTMLString(newsItem.content, baseURL: nil)
+        }
+        
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        if newsItem != nil {
+            sidebar?.dismissPopoverAnimated(true)//this should be without animation but strangly only works with animation
+        }
     }
 }

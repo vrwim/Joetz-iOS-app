@@ -12,6 +12,8 @@ class NewsViewController: MenuSetupUITableViewController {
     
     var news: [NewsItem] = []
     var task: NSURLSessionTask?
+    var sidebar: UIPopoverController?
+    var newsItemController: NewsItemViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +26,15 @@ class NewsViewController: MenuSetupUITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let newsItemController = segue.destinationViewController as NewsItemViewController
+        newsItemController = (segue.destinationViewController as UINavigationController).topViewController as? NewsItemViewController
         let newsItem = news[tableView.indexPathForSelectedRow()!.row]
-        newsItemController.newsItem = newsItem
+        newsItemController?.newsItem = newsItem
+        newsItemController?.sidebar = sidebar
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        newsItemController?.sidebar = sidebar
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
