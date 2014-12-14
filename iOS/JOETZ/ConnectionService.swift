@@ -71,7 +71,7 @@ class ConnectionService {
         firstName: String, lastName: String,
         gsm: String, phone: String, birthday: NSDate,
         smn: String, ssn: String,
-        email: String, password: String) -> NSURLSessionTask {
+        email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
             
             var payloadDict: [String:AnyObject] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode":postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
             
@@ -79,8 +79,8 @@ class ConnectionService {
             
             return request(true, appendage: "api/users", values: nil, payload: payload) {
                 data in
-                println(data)
-                // Todo receive data
+                println("Register successful, now we login, to give the user a token: ") // Deze lijn wegdoen geeft een fout :o
+                self.authenticate(email, password: password, completionHandler: completionHandler).resume()
             }
     }
     
