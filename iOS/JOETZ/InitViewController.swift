@@ -26,14 +26,12 @@ class InitViewController: ECSlidingViewController
             {
                 //check if viewType is parent view --> if not check if childView --> if not empty string
                 viewType = fetchResults[0].viewType == "parentView" ? "ParentTripsSplitVC" : (fetchResults[0].viewType == "childView" ? "ChildTripsNavVC" : "")
-                println(viewType)
             }
         }
+        
         if viewType.isEmpty {
             viewType = "StartVC"
         }
-        
-        println(viewType)
         
         self.topViewController = self.storyboard?.instantiateViewControllerWithIdentifier(viewType) as UIViewController
         super.viewDidLoad()

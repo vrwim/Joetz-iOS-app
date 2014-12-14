@@ -190,10 +190,9 @@
 		3DF675F11A20D93600B8387A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
 				3DF675D31A20CC0400B8387A /* InitViewController.swift */,
 				AB138EE619F51B74007DB692 /* StartViewController.swift */,
-				3DF675F51A20D9BE00B8387A /* Login */,
+				3DF675F51A20D9BE00B8387A /* Account */,
 				3DF675F21A20D95E00B8387A /* ParentTrip */,
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
 				87853D051A252D1C00EA4DB9 /* News */,
@@ -235,12 +234,13 @@
 			name = ChildTrip;
 			sourceTree = "<group>";
 		};
-		3DF675F51A20D9BE00B8387A /* Login */ = {
+		3DF675F51A20D9BE00B8387A /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
+				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
 			);
-			name = Login;
+			name = Account;
 			sourceTree = "<group>";
 		};
 		3DF675F61A20D9E700B8387A /* Model */ = {

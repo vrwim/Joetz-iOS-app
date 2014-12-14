@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: MenuSetupUIViewController {
     
@@ -32,9 +33,10 @@ class LoginViewController: MenuSetupUIViewController {
             
             connectionService.getUserData(token) {
                 user in
-                // insert CoreData here
+                // insert KeyChain here
                 self.userAccount = user.email
                 self.save(user.name, provider: user.provider, role: user.role, token: user.token)
+                self.changeLoggedInUser(user.email)
             }.resume()
         }.resume()
     }
@@ -53,5 +55,28 @@ class LoginViewController: MenuSetupUIViewController {
     func update(name: String, provider: String, role: String, token: String) {
         let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token]
         let error = Locksmith.updateData(dict, forKey: key, inService: service, forUserAccount: userAccount)
+    }
+    
+    //change logged in used in CoreData
+    func changeLoggedInUser(pEmail: String) {
+        var globalSettings: GlobalSettings?
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "GlobalSettings")
+        
+        if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil) as? [GlobalSettings]
+        {
+            if fetchResults.count > 0
+            {
+                globalSettings = fetchResults[0]
+
+                if let globalSettingsTmp = globalSettings {
+                    globalSettings!.loggedInUser = pEmail
+                }
+                
+                context.save(nil)
+            }
+        }
     }
 }
