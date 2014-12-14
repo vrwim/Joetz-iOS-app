@@ -70,38 +70,21 @@ class MenuViewController: UITableViewController
             }
         }
         
-        userEmail.isEmpty ? setUpMenu(false, pEmail: userEmail) : setUpMenu(true, pEmail: userEmail)
+        userEmail.isEmpty ? setUpMenu(false) : setUpMenu(true)
         
     }
     
-    func setUpMenu(loggedInUser: Bool, pEmail: String) {
+    func setUpMenu(loggedInUser: Bool) {
         if loggedInUser {
-            let role = loadUserRoleFromKeychain(pEmail)
-            if role == "user" || role == "" {
-                menuItems = [
-                    ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
-                    //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
-                    ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-                    //("ContactNavVC", ("Contact", "ContactIcon")),
-                    ("AccountNavVC", ("Account", "AccountIcon")),
-                    ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
-                ]
-            }
-            else if role == "monitor" {
-                menuItems = [
-                    ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
-                    //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
-                    ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-                    //("PlanningNavVC", ("Planning", "calendaricon TBD")),
-                    //("MonitorsNavVC", ("Monitoren", "TBD")),
-                    //("ContactNavVC", ("Contact", "ContactIcon")),
-                    ("AccountNavVC", ("Account", "AccountIcon")),
-                    ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
-                ]
-            }
-            
+            menuItems = [
+                ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
+                ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
+                ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
+                //("ContactNavVC", ("Contact", "ContactIcon")),
+                ("AccountNavVC", ("Account", "AccountIcon")),
+                ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+            ]
         }
         else {
             menuItems = [
@@ -112,23 +95,6 @@ class MenuViewController: UITableViewController
                 ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
             ]
         }
-    }
-    
-    func loadUserRoleFromKeychain(pEmail: String) -> String {
-        let key = "details"
-        let service = "Locksmith"
-        
-        let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: pEmail)
-        
-        if let dictionary = dictionary {
-            return dictionary["role"] as String
-        }
-        
-        if let error = error {
-            println("Error: \(error)")
-        }
-        
-        return ""
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
