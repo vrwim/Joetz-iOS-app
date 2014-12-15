@@ -14,13 +14,20 @@ class User {
     let email: String
     let role: String
     let token: String
+    let children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)]
+    let tripsHistory: [(childId: String, tripId: String)]
+    let reservations: [( childId: String, tripId: String, registrationId: String)]
     
-    init(id: String, provider: String, name: String, email: String, role: String, token: String) {
+    
+    init(id: String, provider: String, name: String, email: String, role: String, token: String, children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)], tripsHistory: [(childId: String, tripId: String)], reservations: [( childId: String, tripId: String, registrationId: String)]) {
         self.id = id
         self.provider = provider
         self.name = name
         self.email = email
         self.role = role
         self.token = token
+        self.children = children
+        self.tripsHistory = tripsHistory
+        self.reservations = reservations
     }
 }

@@ -160,6 +160,8 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
                     // do something with user
                     }.resume()
                 }.resume()
+            
+            // send user to Trips Controller
         } else {
             showAlert("\n".join(error))
         }

@@ -126,11 +126,36 @@ class JSON {
         
         let id = jsonData["_id"] as String
         let provider = jsonData["provider"] as String
-        let name = (jsonData["firstName"] as String? ?? "")  + " " + (jsonData["lastName"] as String? ?? "")
+        let name = (jsonData["firstname"] as String? ?? "")  + " " + (jsonData["lastname"] as String? ?? "")
         let email = jsonData["email"] as String
         let role = jsonData["role"] as String
         
-        return User(id: id, provider: provider, name: name, email: email, role: role, token: token)
+        var children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)] = []
+        var tripsHistory: [(childId: String, tripId: String)] = []
+        var reservations: [( childId: String, tripId: String, registrationId: String)] = []
+        
+        let jsonChildren = jsonData["children"] as NSArray?
+        if let jsonChildren = jsonChildren {
+            for jsonChild in jsonChildren {
+                children.append(isMemberOfSocialMutuality: jsonData["isMemberOfSocialMutuality"] as Bool, firstname: jsonData["firstname"] as String, lastname: jsonData["lastname"] as String, socialSecurityNumber: jsonData["socialSecurityNumber"] as String, birthday: jsonData["birthday"] as NSDate, street: jsonData["street"] as String, streetNumber: jsonData["streetNumber"] as String, zipcode: jsonData["zipcode"] as String, bus: jsonData["bus"] as String, city: jsonData["city"] as String)
+            }
+        }
+        
+        let jsonTrips = jsonData["tripsHistory"] as NSArray?
+        if let jsonTrips = jsonTrips {
+            for jsonTrip in jsonTrips {
+                tripsHistory.append(childId: jsonData["childId"] as String, tripId: jsonData["tripId"] as String)
+            }
+        }
+        
+        let jsonReservations = jsonData["reservations"] as NSArray?
+        if let jsonReservations = jsonReservations {
+            for jsonReservation in jsonReservations {
+                reservations.append(childId: jsonData["childId"] as String, tripId: jsonData["tripId"] as String, registrationId: jsonData["registrationId"] as String)
+            }
+        }
+        
+        return User(id: id, provider: provider, name: name, email: email, role: role, token: token, children: children, tripsHistory: tripsHistory, reservations: reservations)
     }
     
     class func toJSON(dict: [String: AnyObject?]) -> String { // currently only Int, NSDate and String supported
@@ -160,6 +185,13 @@ class JSON {
             println("Nil or unknown type in parsing JSON: \(input.debugDescription), skipping")
         }
         return "\"\""
+    }
+    
+    private class func toDate(date: String) -> NSDate {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        return dateFormatter.dateFromString(date)!
     }
 }
 
