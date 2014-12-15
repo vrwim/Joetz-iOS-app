@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D16EC3A1A3EE4B5004C008D /* AddChildToParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC351A3EE4B5004C008D /* AddChildToParentViewController.swift */; };
-		3D16EC3B1A3EE4B5004C008D /* ChangeAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC361A3EE4B5004C008D /* ChangeAccountDetailsViewController.swift */; };
-		3D16EC3C1A3EE4B5004C008D /* ChangeChildDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC371A3EE4B5004C008D /* ChangeChildDetailsViewController.swift */; };
 		3D16EC3D1A3EE4B5004C008D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC381A3EE4B5004C008D /* ChangePasswordViewController.swift */; };
-		3D16EC3E1A3EE4B5004C008D /* ChildrenFromParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC391A3EE4B5004C008D /* ChildrenFromParentViewController.swift */; };
 		3D16EC551A3EE4F2004C008D /* FormButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC411A3EE4F1004C008D /* FormButtonCell.swift */; };
 		3D16EC561A3EE4F2004C008D /* FormCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC421A3EE4F1004C008D /* FormCheckCell.swift */; };
 		3D16EC571A3EE4F2004C008D /* FormDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC431A3EE4F1004C008D /* FormDateCell.swift */; };
@@ -29,6 +25,9 @@
 		3D16EC631A3EE4F2004C008D /* FormDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC521A3EE4F2004C008D /* FormDescriptor.swift */; };
 		3D16EC641A3EE4F2004C008D /* FormRowDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC531A3EE4F2004C008D /* FormRowDescriptor.swift */; };
 		3D16EC651A3EE4F2004C008D /* FormSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC541A3EE4F2004C008D /* FormSectionDescriptor.swift */; };
+		3D16EC671A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC661A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift */; };
+		3D16EC691A3EEA6A004C008D /* ChildrenFromParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC681A3EEA6A004C008D /* ChildrenFromParentViewController.swift */; };
+		3D16EC6B1A3EEA97004C008D /* ChangeChildDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16EC6A1A3EEA97004C008D /* ChangeChildDetailsViewController.swift */; };
 		3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB51A0A7BD000E3E59F /* ParentTripsController.swift */; };
 		3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D182AB71A0A828300E3E59F /* ParentTripController.swift */; };
 		3D1AB2DD1A3DB32900FA1126 /* Locksmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1AB2DB1A3DB32900FA1126 /* Locksmith.swift */; };
@@ -39,6 +38,7 @@
 		3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D635BCC1A25399A00E3A8DF /* ImageCell.swift */; };
 		3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */; };
 		3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */; };
+		3DCC8F311A3EF10700F4CEE5 /* AddChildToParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC8F301A3EF10700F4CEE5 /* AddChildToParentViewController.swift */; };
 		3DF675D41A20CC0400B8387A /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675D31A20CC0400B8387A /* InitViewController.swift */; };
 		3DF675E41A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675D71A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m */; };
 		3DF675E51A20CC3D00B8387A /* ECSlidingAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675D91A20CC3D00B8387A /* ECSlidingAnimationController.m */; };
@@ -91,11 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D16EC351A3EE4B5004C008D /* AddChildToParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChildToParentViewController.swift; sourceTree = "<group>"; };
-		3D16EC361A3EE4B5004C008D /* ChangeAccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountDetailsViewController.swift; sourceTree = "<group>"; };
-		3D16EC371A3EE4B5004C008D /* ChangeChildDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeChildDetailsViewController.swift; sourceTree = "<group>"; };
 		3D16EC381A3EE4B5004C008D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
-		3D16EC391A3EE4B5004C008D /* ChildrenFromParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenFromParentViewController.swift; sourceTree = "<group>"; };
 		3D16EC411A3EE4F1004C008D /* FormButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormButtonCell.swift; sourceTree = "<group>"; };
 		3D16EC421A3EE4F1004C008D /* FormCheckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCheckCell.swift; sourceTree = "<group>"; };
 		3D16EC431A3EE4F1004C008D /* FormDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDateCell.swift; sourceTree = "<group>"; };
@@ -113,6 +109,9 @@
 		3D16EC521A3EE4F2004C008D /* FormDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDescriptor.swift; sourceTree = "<group>"; };
 		3D16EC531A3EE4F2004C008D /* FormRowDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRowDescriptor.swift; sourceTree = "<group>"; };
 		3D16EC541A3EE4F2004C008D /* FormSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormSectionDescriptor.swift; sourceTree = "<group>"; };
+		3D16EC661A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeAccountDetailsViewController.swift; sourceTree = "<group>"; };
+		3D16EC681A3EEA6A004C008D /* ChildrenFromParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenFromParentViewController.swift; sourceTree = "<group>"; };
+		3D16EC6A1A3EEA97004C008D /* ChangeChildDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeChildDetailsViewController.swift; sourceTree = "<group>"; };
 		3D182AB51A0A7BD000E3E59F /* ParentTripsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripsController.swift; sourceTree = "<group>"; };
 		3D182AB71A0A828300E3E59F /* ParentTripController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripController.swift; sourceTree = "<group>"; };
 		3D1AB2DB1A3DB32900FA1126 /* Locksmith.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locksmith.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		3D635BCC1A25399A00E3A8DF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripTabVC.swift; sourceTree = "<group>"; };
 		3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripImageTabViewController.swift; sourceTree = "<group>"; };
+		3DCC8F301A3EF10700F4CEE5 /* AddChildToParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChildToParentViewController.swift; sourceTree = "<group>"; };
 		3DF675D31A20CC0400B8387A /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		3DF675D61A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
 		3DF675D71A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
@@ -348,11 +348,11 @@
 				8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */,
 				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
 				3D1AB2DF1A3DDA1200FA1126 /* AccountViewController.swift */,
-				3D16EC351A3EE4B5004C008D /* AddChildToParentViewController.swift */,
-				3D16EC361A3EE4B5004C008D /* ChangeAccountDetailsViewController.swift */,
-				3D16EC371A3EE4B5004C008D /* ChangeChildDetailsViewController.swift */,
 				3D16EC381A3EE4B5004C008D /* ChangePasswordViewController.swift */,
-				3D16EC391A3EE4B5004C008D /* ChildrenFromParentViewController.swift */,
+				3DCC8F301A3EF10700F4CEE5 /* AddChildToParentViewController.swift */,
+				3D16EC661A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift */,
+				3D16EC681A3EEA6A004C008D /* ChildrenFromParentViewController.swift */,
+				3D16EC6A1A3EEA97004C008D /* ChangeChildDetailsViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -560,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D16EC561A3EE4F2004C008D /* FormCheckCell.swift in Sources */,
+				3D16EC671A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift in Sources */,
 				3D16EC5C1A3EE4F2004C008D /* FormTextFieldCell.swift in Sources */,
 				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
 				3D182AB81A0A828300E3E59F /* ParentTripController.swift in Sources */,
@@ -580,9 +581,9 @@
 				3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */,
 				3D16EC621A3EE4F2004C008D /* FormViewController.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
-				3D16EC3A1A3EE4B5004C008D /* AddChildToParentViewController.swift in Sources */,
 				87554E5C1A3D3F140093E1A4 /* NewsSplitViewController.swift in Sources */,
 				3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */,
+				3D16EC691A3EEA6A004C008D /* ChildrenFromParentViewController.swift in Sources */,
 				3D16EC571A3EE4F2004C008D /* FormDateCell.swift in Sources */,
 				87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */,
 				3DF675E61A20CC3D00B8387A /* ECSlidingInteractiveTransition.m in Sources */,
@@ -591,12 +592,12 @@
 				AB384AF51A12C48C005C597A /* ModelController.swift in Sources */,
 				87853D071A252D6A00EA4DB9 /* NewsItemViewController.swift in Sources */,
 				87853D021A24E86300EA4DB9 /* NewsViewController.swift in Sources */,
+				3DCC8F311A3EF10700F4CEE5 /* AddChildToParentViewController.swift in Sources */,
 				3DF675EA1A20CC3D00B8387A /* UIViewController+ECSlidingViewController.m in Sources */,
 				3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */,
 				3D16EC591A3EE4F2004C008D /* FormSegmentedControlCell.swift in Sources */,
 				8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */,
 				3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */,
-				3D16EC3B1A3EE4B5004C008D /* ChangeAccountDetailsViewController.swift in Sources */,
 				3DF675E71A20CC3D00B8387A /* ECSlidingSegue.m in Sources */,
 				AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */,
 				3D1AB2E01A3DDA1200FA1126 /* AccountViewController.swift in Sources */,
@@ -606,16 +607,15 @@
 				3D16EC5A1A3EE4F2004C008D /* FormSelectorCell.swift in Sources */,
 				872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */,
 				ABE776EC1A0524500063AEDB /* Trip.swift in Sources */,
+				3D16EC6B1A3EEA97004C008D /* ChangeChildDetailsViewController.swift in Sources */,
 				AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */,
 				3D16EC5F1A3EE4F2004C008D /* FormValueCell.swift in Sources */,
-				3D16EC3E1A3EE4B5004C008D /* ChildrenFromParentViewController.swift in Sources */,
 				3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */,
 				879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */,
 				3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */,
 				AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */,
 				3D16EC5B1A3EE4F2004C008D /* FormSwitchCell.swift in Sources */,
 				3D16EC581A3EE4F2004C008D /* FormPickerCell.swift in Sources */,
-				3D16EC3C1A3EE4B5004C008D /* ChangeChildDetailsViewController.swift in Sources */,
 				3D16EC641A3EE4F2004C008D /* FormRowDescriptor.swift in Sources */,
 				3DF675EC1A20CDBD00B8387A /* MenuViewController.swift in Sources */,
 				AB3C88971A3E70CC004BBF9F /* RegisterViewController.swift in Sources */,

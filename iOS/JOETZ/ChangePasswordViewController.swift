@@ -92,4 +92,8 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
         
     }
     
+    
+    @IBAction func cancelBtn(sender: UIBarButtonItem) {
+    }
+    
 }

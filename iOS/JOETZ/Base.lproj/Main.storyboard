@@ -1119,8 +1119,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Wachtwoord wijzigen" id="RPd-QD-Lxh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wtM-2O-jRi"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="x8e-6U-Vm4"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wtM-2O-jRi">
+                            <connections>
+                                <action selector="cancelBtn:" destination="xFf-bN-jjR" id="WE2-6S-4wD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="x8e-6U-Vm4">
+                            <connections>
+                                <action selector="savePassword:" destination="xFf-bN-jjR" id="C9V-Pc-Qzj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r46-ee-JZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1178,8 +1186,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account gegevens" id="wRI-Jm-mke">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kBp-tD-523"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ddg-sE-qfc"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kBp-tD-523">
+                            <connections>
+                                <action selector="cancelBtn:" destination="3gh-GO-VVR" id="MVr-qz-Bde"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ddg-sE-qfc">
+                            <connections>
+                                <action selector="saveAccountDetails:" destination="3gh-GO-VVR" id="c42-SI-A3D"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRg-Mc-1FN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1213,7 +1229,7 @@
                     <navigationItem key="navigationItem" title="Kinderen" id="VIT-UY-CzO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hAD-T0-h9n">
                             <connections>
-                                <segue destination="r8x-jT-his" kind="show" id="N4l-aX-Usx"/>
+                                <segue destination="kXZ-ob-yKT" kind="show" id="rHa-88-v6E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1223,32 +1239,40 @@
             <point key="canvasLocation" x="1397" y="6158"/>
         </scene>
         <!--Voeg kind toe-->
-        <scene sceneID="Ua7-9s-0Ni">
+        <scene sceneID="ta4-5l-3Ck">
             <objects>
-                <tableViewController id="r8x-jT-his" customClass="AddChildToParentViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4Sa-G9-z8c">
+                <tableViewController id="kXZ-ob-yKT" customClass="AddChildToParentViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HYF-b3-v39">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="X1F-Rk-SZS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kgq-mE-2ON">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X1F-Rk-SZS" id="biX-hv-JSe">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kgq-mE-2ON" id="ahu-hD-2jt">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="r8x-jT-his" id="vhy-7i-G9Q"/>
-                            <outlet property="delegate" destination="r8x-jT-his" id="W4t-kT-gKg"/>
+                            <outlet property="dataSource" destination="kXZ-ob-yKT" id="B6j-Y6-WCZ"/>
+                            <outlet property="delegate" destination="kXZ-ob-yKT" id="8wj-7V-sSt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Voeg kind toe" id="WIc-DT-l6J">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PGI-1Y-KSj"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5Nb-ET-FKy"/>
+                    <navigationItem key="navigationItem" title="Voeg kind toe" id="bxP-w6-Dhu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OPZ-j2-njv">
+                            <connections>
+                                <action selector="cancenBtn:" destination="kXZ-ob-yKT" id="MU9-sZ-LBT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="p9z-if-FOV">
+                            <connections>
+                                <action selector="saveChild:" destination="kXZ-ob-yKT" id="BfZ-Qu-ztE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YXk-dF-8xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggG-fP-FzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2209" y="6158"/>
         </scene>
@@ -1274,8 +1298,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kind" id="3ZV-T3-Ob2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GRe-vq-SkY"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XMy-np-ci1"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GRe-vq-SkY">
+                            <connections>
+                                <action selector="cancelBtn:" destination="C8p-rV-Ogq" id="Mwp-vE-iyC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XMy-np-ci1">
+                            <connections>
+                                <action selector="saveChildDetails:" destination="C8p-rV-Ogq" id="b5h-Nh-x1l"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4UU-ff-YBs" userLabel="First Responder" sceneMemberID="firstResponder"/>

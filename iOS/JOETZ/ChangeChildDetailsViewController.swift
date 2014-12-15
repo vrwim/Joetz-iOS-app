@@ -11,4 +11,10 @@ import UIKit
 class ChangeChildDetailsViewController: FormViewController, FormViewControllerDelegate
 {
     
+    @IBAction func saveChildDetails(sender: UIBarButtonItem) {
+    }
+    
+    
+    @IBAction func cancelBtn(sender: UIBarButtonItem) {
+    }
 }

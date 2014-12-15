@@ -11,4 +11,10 @@ import UIKit
 class AddChildToParentViewController: FormViewController, FormViewControllerDelegate
 {
     
+    @IBAction func saveChild(sender: UIBarButtonItem) {
+    }
+    
+    
+    @IBAction func cancenBtn(sender: UIBarButtonItem) {
+    }
 }

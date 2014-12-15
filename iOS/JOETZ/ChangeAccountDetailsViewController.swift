@@ -118,4 +118,13 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
         
         self.form = form
     }
+    
+    
+    @IBAction func saveAccountDetails(sender: UIBarButtonItem) {
+    }
+    
+    
+    @IBAction func cancelBtn(sender: UIBarButtonItem) {
+    }
+    
 }
