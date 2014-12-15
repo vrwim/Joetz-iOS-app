@@ -605,8 +605,19 @@
                             <action selector="refresh:" destination="z6g-GB-oRL" eventType="valueChanged" id="Pl2-f8-pvA"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="QF6-cB-mJC" id="M2F-oX-YJx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcE-Jv-ysZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="QF6-cB-mJC">
+                    <connections>
+                        <outlet property="delegate" destination="z6g-GB-oRL" id="dko-pG-eYc"/>
+                        <outlet property="searchContentsController" destination="z6g-GB-oRL" id="BhT-y0-dxX"/>
+                        <outlet property="searchResultsDataSource" destination="z6g-GB-oRL" id="HOw-2h-ovI"/>
+                        <outlet property="searchResultsDelegate" destination="z6g-GB-oRL" id="qyj-Lb-BEF"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="626" y="502"/>
         </scene>
@@ -979,6 +990,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="RLu-EH-NvC">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="XYP-48-Odw" id="Unh-km-QDJ"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="90" id="qD7-ka-TRb" customClass="NewsCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1043,8 +1062,20 @@
                             <action selector="refresh:" destination="XYP-48-Odw" eventType="valueChanged" id="tOp-Tx-5nf"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Suq-X0-TYK" id="dyh-7P-rQH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkL-CH-yUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Suq-X0-TYK">
+                    <connections>
+                        <outlet property="delegate" destination="XYP-48-Odw" id="2dW-dj-sIZ"/>
+                        <outlet property="searchBar" destination="RLu-EH-NvC" id="skS-8i-Kaj"/>
+                        <outlet property="searchContentsController" destination="XYP-48-Odw" id="S4n-RE-Ypa"/>
+                        <outlet property="searchResultsDataSource" destination="XYP-48-Odw" id="VnH-xX-YcK"/>
+                        <outlet property="searchResultsDelegate" destination="XYP-48-Odw" id="a0c-QN-t9V"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="582" y="3884"/>
         </scene>
@@ -1441,6 +1472,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wOB-9A-cAt"/>
-        <segue reference="ENg-d4-jcR"/>
+        <segue reference="OVq-ed-ygA"/>
     </inferredMetricsTieBreakers>
 </document>
