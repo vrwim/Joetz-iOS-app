@@ -985,7 +985,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4go-m6-0nA" id="mF4-eb-cF4">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z5P-M3-J3X">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Account gegevens" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z5P-M3-J3X">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -994,7 +994,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="kq1-A6-FKK" kind="show" id="quU-Pd-2kz"/>
+                                    <segue destination="uOs-sd-ZWE" kind="show" id="bIZ-0d-ygJ"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hFq-jA-ZAp" style="IBUITableViewCellStyleDefault" id="6ny-EG-AAS">
@@ -1002,7 +1002,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6ny-EG-AAS" id="8E1-8D-z6o">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hFq-jA-ZAp">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Wachtwoord wijzigen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hFq-jA-ZAp">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1011,7 +1011,24 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="2ey-q9-Y4e" kind="show" id="YiT-bb-CvG"/>
+                                    <segue destination="Vnt-VA-j5A" kind="show" id="Wc0-Hj-rmG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="q7S-R3-Mqm" style="IBUITableViewCellStyleDefault" id="oad-BY-nnZ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oad-BY-nnZ" id="Mb7-ve-9r8">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Kinderen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q7S-R3-Mqm">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2ey-q9-Y4e" kind="show" id="ir7-0n-ANB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1037,52 +1054,39 @@
             </objects>
             <point key="canvasLocation" x="587" y="5452"/>
         </scene>
-        <!--Account gegevens-->
-        <scene sceneID="Xmf-eV-OgU">
+        <!--Wachtwoord wijzigen-->
+        <scene sceneID="swm-bt-opL">
             <objects>
-                <viewController id="kq1-A6-FKK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7x1-G3-KEQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="QOS-ke-mXq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fP7-LX-qY9">
+                <tableViewController id="Vnt-VA-j5A" customClass="ChangePasswordViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aas-et-mcH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Account gegevens" id="roD-PF-lAF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="xHC-1c-NUF">
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oEY-tS-q9E">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oEY-tS-q9E" id="uUu-HJ-zsG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vnt-VA-j5A" id="ljL-4t-ZTR"/>
+                            <outlet property="delegate" destination="Vnt-VA-j5A" id="v7A-mf-8tk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wachtwoord wijzigen" id="HUo-0A-PSc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SFW-QD-Ran"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Nps-tE-W84">
                             <connections>
-                                <segue destination="i3k-mZ-NYF" kind="show" id="aaf-vc-YnP"/>
+                                <action selector="savePassword:" destination="Vnt-VA-j5A" id="ulc-FD-Bro"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jwK-8F-pkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYd-L4-R86" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="5452"/>
-        </scene>
-        <!--Gegevens wijzigen-->
-        <scene sceneID="20q-wv-I09">
-            <objects>
-                <viewController id="i3k-mZ-NYF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Baf-VN-Ghj"/>
-                        <viewControllerLayoutGuide type="bottom" id="Kf3-ok-l6c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ruW-bf-OqK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Gegevens wijzigen" id="k12-BN-b21">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZVG-7h-eMv"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aUK-SS-Qq1"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Djj-td-qrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2191" y="5452"/>
+            <point key="canvasLocation" x="582" y="6158"/>
         </scene>
         <!--Planning-->
         <scene sceneID="dIY-rG-yIw">
@@ -1113,6 +1117,36 @@
             </objects>
             <point key="canvasLocation" x="626" y="7668"/>
         </scene>
+        <!--Account gegevens-->
+        <scene sceneID="vlp-YO-hyn">
+            <objects>
+                <tableViewController id="uOs-sd-ZWE" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tJf-ts-Eyr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RJn-4Q-yw7">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJn-4Q-yw7" id="vSn-DK-ePM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uOs-sd-ZWE" id="LSL-qj-kot"/>
+                            <outlet property="delegate" destination="uOs-sd-ZWE" id="Hyp-Ba-N9W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Account gegevens" id="aWc-5B-bMe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DPO-Xr-lgR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vlh-uB-rWC"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zc5-JP-VLS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1397" y="5452"/>
+        </scene>
         <!--Kinderen-->
         <scene sceneID="gCN-G7-XNf">
             <objects>
@@ -1128,7 +1162,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="fWz-tP-Ies" kind="show" id="dXI-J6-F49"/>
+                                    <segue destination="Tqm-fe-Y0T" kind="show" id="SS5-fp-Xm7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1140,7 +1174,7 @@
                     <navigationItem key="navigationItem" title="Kinderen" id="VIT-UY-CzO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hAD-T0-h9n">
                             <connections>
-                                <segue destination="xgC-6I-Fl3" kind="show" id="6AI-1U-1Gl"/>
+                                <segue destination="vhP-Oh-SIj" kind="show" id="u4b-wm-F8A"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1150,73 +1184,64 @@
             <point key="canvasLocation" x="1397" y="6158"/>
         </scene>
         <!--Voeg kind toe-->
-        <scene sceneID="9gl-mp-TZW">
+        <scene sceneID="LEb-R5-QeQ">
             <objects>
-                <viewController id="xgC-6I-Fl3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UEf-jH-9gO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bnw-u1-zju"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kbE-2Q-MsS">
+                <tableViewController id="vhP-Oh-SIj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UQG-gL-hcI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Voeg kind toe" id="VuL-SV-dmM">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gHQ-cF-vo8"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oh0-kY-Pxd"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dNb-mk-9Yi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNb-mk-9Yi" id="Xc6-Ef-ma6">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vhP-Oh-SIj" id="2lk-cV-h0E"/>
+                            <outlet property="delegate" destination="vhP-Oh-SIj" id="qIc-57-hbS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Voeg kind toe" id="wZf-ye-H7m">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="apU-Po-RCJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="KzQ-mu-Lpk"/>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IaI-s2-dvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ArU-kR-Y2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2209" y="6158"/>
         </scene>
         <!--Kind-->
-        <scene sceneID="jWk-Tk-GsW">
+        <scene sceneID="fRY-v5-6cl">
             <objects>
-                <viewController id="fWz-tP-Ies" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KyU-yR-3cF"/>
-                        <viewControllerLayoutGuide type="bottom" id="FrK-9B-dU7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TaP-If-bgN">
+                <tableViewController id="Tqm-fe-Y0T" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="C8j-ji-YVi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Kind" id="zjC-wv-cNx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Yp3-id-Vaw">
-                            <connections>
-                                <segue destination="hbG-xG-aml" kind="show" id="Ydi-Fx-F9z"/>
-                            </connections>
-                        </barButtonItem>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wuy-mD-FO3">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wuy-mD-FO3" id="Xyg-bS-CQs">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Tqm-fe-Y0T" id="8bR-bg-Sj3"/>
+                            <outlet property="delegate" destination="Tqm-fe-Y0T" id="jMr-Yt-5Bi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kind" id="Tfm-Tp-aDb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NFt-6f-brO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lxE-pW-NqK"/>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tb3-rO-hSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPG-RK-k9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2209" y="6900"/>
-        </scene>
-        <!--Kind-->
-        <scene sceneID="qrj-Hn-RBT">
-            <objects>
-                <viewController id="hbG-xG-aml" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1OC-Qq-r3H"/>
-                        <viewControllerLayoutGuide type="bottom" id="kDC-b0-S3Q"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Atn-W6-kzi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Kind" id="pvF-gB-2jA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XIP-Hh-qyO"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="2zA-Fw-57i"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6de-wy-ouF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3012" y="6900"/>
         </scene>
         <!--Parent Trip TabVC-->
         <scene sceneID="pLV-3S-ZnN">
