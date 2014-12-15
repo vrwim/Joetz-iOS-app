@@ -11,6 +11,7 @@ import UIKit
 class AccountViewController: MenuSetupUITableViewController {
     
     @IBAction func menuButton(sender: UIBarButtonItem) {
+        setupMenuButton()
     }
     
     @IBAction func logOut(sender: UIBarButtonItem) {

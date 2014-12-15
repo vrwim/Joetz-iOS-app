@@ -115,6 +115,7 @@ class MenuViewController: UITableViewController
                 ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
                 ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
                 ("LoginNavVC", ("Aanmelden", "AccountIcon")),
+                ("AccountNavVC", ("Account", "AccountIcon")),
                 ("SettingsVC", ("Instellingen", "SettingsIcon")),
                 ("", ("", "")),
                 ("ContactVC", ("Contact", "ContactIcon")),
