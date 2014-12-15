@@ -6,9 +6,16 @@
 //  Copyright (c) 2014 Groep 3D07. All rights reserved.
 //
 
-import Foundation
-
+/**
+ * Performs everything involving JSON files. Usually called by ConnectionService.
+ */
 class JSON {
+    
+    /**
+     * Returns all trips in the JSON data.
+     * Parameters: 
+     * data: the data containing the JSON.
+     */
     class func readTrips(data: NSData) -> [Trip] {
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSArray
@@ -60,6 +67,11 @@ class JSON {
         return trips
     }
     
+    /**
+     * Returns all newsitems in the JSON data.
+     * Parameters:
+     * data: the data containing the JSON.
+     */
     class func readNews(data: NSData) -> [NewsItem] {
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSArray
@@ -89,7 +101,10 @@ class JSON {
         return news
     }
     
-    class func isoDateParser(date: String) -> String {
+    /**
+     * Helping method: Parses an ISO date to a user-readable format
+     */
+    private class func isoDateParser(date: String) -> String {
         let dateFormatter = NSDateFormatter()
         //original isoDate format to convert to NSDate
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -102,7 +117,10 @@ class JSON {
         return dateFormatter.stringFromDate(tmpDate)
     }
     
-    class func stringToDate(date: String) -> NSDate {
+    /**
+     * Helping method: Returns an NSDate from this ISO date
+     */
+    private class func stringToDate(date: String) -> NSDate {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
@@ -111,6 +129,9 @@ class JSON {
         return tmpDate
     }
     
+    /**
+     * Parses a token from this JSON data
+     */
     class func parseToken(data: NSData) -> String{
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
@@ -118,6 +139,12 @@ class JSON {
         return jsonData["token"] as String
     }
     
+    /**
+     * Returns a user from this JSON data
+     * Parameters:
+     * data: The JSON data containing the server response.
+     * token: The token used to authenticate further requests.
+     */
     class func parseUser(data: NSData, token: String) -> User{
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
@@ -158,7 +185,14 @@ class JSON {
         return User(id: id, provider: provider, name: name, email: email, role: role, token: token, children: children, tripsHistory: tripsHistory, reservations: reservations)
     }
     
-    class func toJSON(dict: [String: AnyObject?]) -> String { // currently only Int, NSDate and String supported
+    /**
+     * Returns a JSON String containing all data in this dictionary.
+     * Skips entries with nil as value
+     * Can only parse Int, String and NSDate, skips others.
+     * Parameters:
+     * dict: the dictionary containing all the data
+     */
+    class func toJSON(dict: [String: AnyObject?]) -> String {
         
         var elements: [String] = []
         
@@ -171,6 +205,13 @@ class JSON {
         return "{" + ", ".join(elements) + "}"
     }
     
+    /**
+     * Helping method that formats AnyObjects to Strings, to be used in a JSON String.
+     * Skips entries with nil as value
+     * Can only parse Int, String and NSDate, skips others.
+     * Parameters:
+     * input: AnyObject (only Int, String and NSDate supported) to be converted into String
+     */
     private class func format(input: AnyObject) -> String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -183,18 +224,14 @@ class JSON {
             return "\(val)"
         } else {
             println("Nil or unknown type in parsing JSON: \(input.debugDescription), skipping")
+            return "\"\""
         }
-        return "\"\""
-    }
-    
-    private class func toDate(date: String) -> NSDate {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        
-        return dateFormatter.dateFromString(date)!
     }
 }
 
+/**
+ * String extension so that the NSString .floatValue van be used on Swift Strings.
+ */
 extension String {
     var floatValue: Float {
         return (self as NSString).floatValue
