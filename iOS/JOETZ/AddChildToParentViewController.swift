@@ -63,29 +63,15 @@ class AddChildToParentViewController: FormViewController, FormViewControllerDele
         row = FormRowDescriptor(tag: "city", rowType: .Name, title: "Stad")
         sectionAddress.addRow(row)
         
-        // Phones
-        
-        let sectionPhone = FormSectionDescriptor()
-        sectionPhone.headerTitle = "Telefoonnummers"
-        
-        row = FormRowDescriptor(tag: "gsm", rowType: .Phone, title: "GSM-nummer")
-        sectionPhone.addRow(row)
-        
-        row = FormRowDescriptor(tag: "phone", rowType: .Phone, title: "Telefoonnummer")
-        sectionPhone.addRow(row)
-        
         // Numbers
         
         let sectionNumbers = FormSectionDescriptor()
         sectionNumbers.headerTitle = "Sociale nummers"
         
-        row = FormRowDescriptor(tag: "smn", rowType: .Text, title: "Nummer van de mutualiteit")
-        sectionNumbers.addRow(row)
-        
         row = FormRowDescriptor(tag: "ssn", rowType: .Text, title: "Rijksregisternummer")
         sectionNumbers.addRow(row)
         
-        form.sections = [sectionPersonalia, sectionAddress, sectionPhone, sectionNumbers]
+        form.sections = [sectionPersonalia, sectionAddress, sectionNumbers]
         
         self.form = form
     }

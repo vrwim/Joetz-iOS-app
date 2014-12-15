@@ -50,7 +50,6 @@ class GooglePlaces {
         var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         
         var results = json["results"] as? Array<NSDictionary>
-        //println("results = \(results!.count)")
         
         for result in results! {
             

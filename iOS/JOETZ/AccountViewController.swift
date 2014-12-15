@@ -9,14 +9,9 @@
 import UIKit
 
 class AccountViewController: MenuSetupUITableViewController {
-    
-    let tableItems = [("AccountGegevens wijzigen")]
-    
+        
     @IBAction func menuButton(sender: UIBarButtonItem) {
         setupMenuButton()
-    }
-    
-    @IBAction func logOut(sender: UIBarButtonItem) {
     }
     
 }
