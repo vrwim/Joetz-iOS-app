@@ -94,6 +94,14 @@ class ConnectionService {
             }
     }
     
+    func getMonitors(token: String, completionHandler: [Monitor] -> Void) -> NSURLSessionTask {
+        return request("GET", appendage: "api/users/monitors", values: ["Authorization": "Bearer \(token)"], payload: nil) {
+            data in
+            let monitors = JSON.parseMonitors(data)
+            completionHandler(monitors)
+        }
+    }
+    
     private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection

@@ -227,6 +227,24 @@ class JSON {
             return "\"\""
         }
     }
+    
+    class func parseMonitors(data: NSData) -> [Monitor] {
+        let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSArray
+        
+        var monitors: [Monitor] = []
+        
+        for jsonMonitor in jsonDict {
+            if let jsonMonitor = jsonMonitor as? NSDictionary {
+                let name = (jsonMonitor["firstname"] as String) + " " + (jsonMonitor["lastname"] as String)
+                let gsm = jsonMonitor["gsm"] as String?
+                let email = jsonMonitor["email"] as String
+                
+                monitors.append(Monitor(name: name, gsm: gsm, email: email))
+            }
+        }
+        
+        return monitors
+    }
 }
 
 /**

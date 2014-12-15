@@ -77,6 +77,9 @@
 		AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9FAA9A1A1E241100B857CE /* MapCell.swift */; };
 		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
+		ABC787FD1A3FA10B000E84F8 /* MonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC787FC1A3FA10B000E84F8 /* MonitorViewController.swift */; };
+		ABC787FF1A3FA36D000E84F8 /* Monitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC787FE1A3FA36D000E84F8 /* Monitor.swift */; };
+		ABC788011A3FA3D5000E84F8 /* MonitorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC788001A3FA3D5000E84F8 /* MonitorCell.swift */; };
 		ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776E91A05241C0063AEDB /* JSON.swift */; };
 		ABE776EC1A0524500063AEDB /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EB1A0524500063AEDB /* Trip.swift */; };
 		ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE776EF1A052FE00063AEDB /* ConnectionService.swift */; };
@@ -176,6 +179,9 @@
 		AB9FAA9A1A1E241100B857CE /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		ABC787FC1A3FA10B000E84F8 /* MonitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorViewController.swift; sourceTree = "<group>"; };
+		ABC787FE1A3FA36D000E84F8 /* Monitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monitor.swift; sourceTree = "<group>"; };
+		ABC788001A3FA3D5000E84F8 /* MonitorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitorCell.swift; sourceTree = "<group>"; };
 		ABE776E91A05241C0063AEDB /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		ABE776EB1A0524500063AEDB /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		ABE776EF1A052FE00063AEDB /* ConnectionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
@@ -311,6 +317,7 @@
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
 				87853D051A252D1C00EA4DB9 /* News */,
 				3DF675D21A20CBE600B8387A /* Menu */,
+				ABC787FC1A3FA10B000E84F8 /* MonitorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +341,7 @@
 				AB9FAA9A1A1E241100B857CE /* MapCell.swift */,
 				3D635BCC1A25399A00E3A8DF /* ImageCell.swift */,
 				87853D081A252FE800EA4DB9 /* NewsCell.swift */,
+				ABC788001A3FA3D5000E84F8 /* MonitorCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 				ABFEBA9A1A250D0F00FF4EA8 /* User.swift */,
 				87853D031A2527D900EA4DB9 /* NewsItem.swift */,
 				3D3D0E6F1A2570AB00F51247 /* GlobalSettings.swift */,
+				ABC787FE1A3FA36D000E84F8 /* Monitor.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -569,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D16EC561A3EE4F2004C008D /* FormCheckCell.swift in Sources */,
+				ABC787FF1A3FA36D000E84F8 /* Monitor.swift in Sources */,
 				3D16EC671A3EE9BC004C008D /* ChangeAccountDetailsViewController.swift in Sources */,
 				3D16EC5C1A3EE4F2004C008D /* FormTextFieldCell.swift in Sources */,
 				ABE776F01A052FE00063AEDB /* ConnectionService.swift in Sources */,
@@ -581,6 +591,7 @@
 				3D16EC3D1A3EE4B5004C008D /* ChangePasswordViewController.swift in Sources */,
 				AB3C88991A3F4FE4004BBF9F /* LocksmithLogin.swift in Sources */,
 				3D3D0E701A2570AB00F51247 /* GlobalSettings.swift in Sources */,
+				ABC788011A3FA3D5000E84F8 /* MonitorCell.swift in Sources */,
 				3DF675E81A20CC3D00B8387A /* ECSlidingViewController.m in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,
 				ABFEBA9B1A250D0F00FF4EA8 /* User.swift in Sources */,
@@ -629,6 +640,7 @@
 				3D16EC5B1A3EE4F2004C008D /* FormSwitchCell.swift in Sources */,
 				3D16EC581A3EE4F2004C008D /* FormPickerCell.swift in Sources */,
 				3D16EC641A3EE4F2004C008D /* FormRowDescriptor.swift in Sources */,
+				ABC787FD1A3FA10B000E84F8 /* MonitorViewController.swift in Sources */,
 				3DF675EC1A20CDBD00B8387A /* MenuViewController.swift in Sources */,
 				AB3C88971A3E70CC004BBF9F /* RegisterViewController.swift in Sources */,
 				3D1AB2DD1A3DB32900FA1126 /* Locksmith.swift in Sources */,
