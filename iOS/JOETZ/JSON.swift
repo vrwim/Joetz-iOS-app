@@ -18,7 +18,7 @@ class JSON {
         for jsonTrip in jsonData {
             
             let id = jsonTrip["_id"] as String
-            var basicPrice = jsonTrip["basicPrice"] as Float?
+            let basicPrice = (jsonTrip["basicPrice"] as String?)?.floatValue
             let capacity = jsonTrip["capacity"] as Int?
             let destination = jsonTrip["destination"] as String?
             var beginDate = jsonTrip["startDate"] as String?
@@ -37,13 +37,11 @@ class JSON {
             let transport = jsonTrip["transport"] as String?
             let pricesDict = jsonTrip["prices"] as [NSDictionary]?
             
-            basicPrice = basicPrice == nil ? nil : basicPrice!/100
-            
             var prices: [(String, Float)] = []
             
             if pricesDict != nil {
                 for price in pricesDict! {
-                    prices.append(price["info"] as String, (price["price"] as Float)/100)
+                    prices.append(price["info"] as String, (price["price"]! as String).floatValue)
                 }
             }
             
@@ -133,13 +131,13 @@ class JSON {
         return User(id: id, provider: provider, name: name, email: email, role: role, token: token)
     }
     
-    class func toJSON(dict: [String: AnyObject]) -> String { // currently only Int, NSDate and String supported
+    class func toJSON(dict: [String: AnyObject?]) -> String { // currently only Int, NSDate and String supported
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
-        let lastKey = dict.keys.last!
-        let lastValue: AnyObject = dict.values.last!
+        let lastKey = dict.keys.last
+        let lastValue = dict.values.last
         
         var json = "{"
         
@@ -154,7 +152,7 @@ class JSON {
             } else if let val = kvPair.1 as? Int {
                 json += "\(val)"
             } else {
-                println("Unknown type in parsing JSON: \(kvPair.1), skipping")
+                println("Nil or unknown type in parsing JSON: \(kvPair.1?.debugDescription), skipping")
             }
             
             if kvPair.0 != lastKey {
@@ -165,5 +163,11 @@ class JSON {
         json += "}"
         
         return json
+    }
+}
+
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
     }
 }
