@@ -73,7 +73,7 @@ class ConnectionService {
         smn: String, ssn: String,
         email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
             
-            var payloadDict: [String:AnyObject] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode":postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
+            var payloadDict: [String:AnyObject] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode": postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
             
             var payload = JSON.toJSON(payloadDict)
             

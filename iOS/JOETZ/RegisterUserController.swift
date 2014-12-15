@@ -78,10 +78,10 @@ class RegisterUserController: FormViewController, FormViewControllerDelegate {
         let sectionNumbers = FormSectionDescriptor()
         sectionNumbers.headerTitle = "Sociale nummers"
         
-        row = FormRowDescriptor(tag: "socialMutualityNumber", rowType: .Text, title: "Nummer van de mutualiteit")
+        row = FormRowDescriptor(tag: "smn", rowType: .Text, title: "Nummer van de mutualiteit")
         sectionNumbers.addRow(row)
         
-        row = FormRowDescriptor(tag: "socialSecurityNumber", rowType: .Text, title: "Rijksregisternummer")
+        row = FormRowDescriptor(tag: "ssn", rowType: .Text, title: "Rijksregisternummer")
         sectionNumbers.addRow(row)
         
         // Login
@@ -97,9 +97,45 @@ class RegisterUserController: FormViewController, FormViewControllerDelegate {
         
         row = FormRowDescriptor(tag: "password2", rowType: .Password, title: "Herhaal wachtwoord")
         sectionLogin.addRow(row)
-
+        
         form.sections = [sectionPersonalia, sectionAddress, sectionPhone, sectionNumbers, sectionLogin]
         
         self.form = form
+    }
+    
+    @IBAction func OnClickDone(sender: UIBarButtonItem) {
+        
+        let fv = form.formValues() as [String:AnyObject]
+        
+        println(fv.debugDescription)
+        
+        for pair in fv {
+            print(pair.0 + "\t")
+            println(pair.1.debugDescription)
+        }
+        
+        let street = fv["street"] as String
+        let streetNumber = (fv["streetNumber"] as String).toInt()!
+        let bus = fv["bus"] as String
+        let postalCode = fv["postalCode"] as String
+        let city = fv["city"] as String
+        let firstName = fv["firstName"] as String
+        let lastName = fv["lastName"] as String
+        let gsm = fv["gsm"] as String
+        let phone = fv["phone"] as String
+        let birthday = fv["birthday"] as NSDate
+        let smn = fv["smn"] as String
+        let ssn = fv["ssn"] as String
+        let email = fv["email"] as String
+        let password = fv["password"] as String
+        
+        connectionService.register(street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn, email: email, password: password) {
+            token in
+            connectionService.getUserData(token) {
+                user in
+                // do something with user
+                }.resume()
+            }.resume()
+        
     }
 }

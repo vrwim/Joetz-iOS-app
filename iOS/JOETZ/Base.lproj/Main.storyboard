@@ -243,7 +243,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="PQm-Sc-sD2">
-                        <barButtonItem key="backBarButtonItem" title="Deze moet weg" id="V5L-d7-jsD"/>
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="Pm2-Sw-OFa">
                             <connections>
                                 <action selector="menuButton:" destination="wjM-pD-5ff" id="vmI-Kr-BcT"/>
@@ -280,7 +279,13 @@
                             <outlet property="delegate" destination="Ef4-2i-2cC" id="2oK-zR-IlZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Registreer" id="2sx-G2-z2W"/>
+                    <navigationItem key="navigationItem" title="Registreer" id="2sx-G2-z2W">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zGT-Rq-5yU">
+                            <connections>
+                                <action selector="OnClickDone:" destination="Ef4-2i-2cC" id="dN0-3W-AIC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxZ-KT-WNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
