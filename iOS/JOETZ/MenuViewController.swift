@@ -14,10 +14,13 @@ class MenuViewController: UITableViewController
         ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
         ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
         //("UserTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-        //("ContactNavVC", ("Contact", "ContactIcon")),
+        ("ContactNavVC", ("Contact", "ContactIcon")),
         ("LoginNavVC", ("Aanmelden", "AccountIcon")),
-        ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+        ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
+        ("", ("", "")),
+        ("ContactVC", ("Contact", "ContactIcon"))
     ]
+    var loggedInUser = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,24 +78,28 @@ class MenuViewController: UITableViewController
     }
     
     func setUpMenu(loggedInUser: Bool) {
+        self.loggedInUser = loggedInUser
         if loggedInUser {
             menuItems = [
                 ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
                 ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
                 //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
                 ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-                //("ContactNavVC", ("Contact", "ContactIcon")),
                 ("AccountNavVC", ("Account", "AccountIcon")),
-                ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+                ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
+                ("", ("", "")),
+                ("LogoutVC", ("Logout", "AccountIcon")),
+                ("ContactVC", ("Contact", "ContactIcon"))
             ]
         }
         else {
             menuItems = [
                 ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
                 ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
-                //("ContactNavVC", ("Contact", "ContactIcon")),
                 ("LoginNavVC", ("Aanmelden", "AccountIcon")),
-                ("SettingsNavVC", ("Instellingen", "SettingsIcon"))
+                ("SettingsVC", ("Instellingen", "SettingsIcon")),
+                ("", ("", "")),
+                ("ContactVC", ("Contact", "ContactIcon")),
             ]
         }
     }
@@ -102,6 +109,7 @@ class MenuViewController: UITableViewController
             svc.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         }
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
+        tableView.reloadData()
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -127,11 +135,41 @@ class MenuViewController: UITableViewController
         return self.menuItems.count
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var bottomItems = 2
+        if loggedInUser {
+            bottomItems += 1
+        }
+        if indexPath.row == menuItems.count - bottomItems {
+            return CGFloat(Int(UIScreen.mainScreen().bounds.size.height) - 15 - (44 * menuItems.count))
+        } else {
+            return 44
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        var bottomItems = 2
+        if loggedInUser {
+            bottomItems += 1
+        }
+        if indexPath.row != menuItems.count - bottomItems{
+            return indexPath
+        }
+        return nil
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "MenuCell"
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
-        
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as UITableViewCell
         cell.backgroundColor = UIColor(white: 0.2, alpha: 1.0)
+        
+        var bottomItems = 2
+        if loggedInUser {
+            bottomItems += 1
+        }
+        if indexPath.row == menuItems.count - bottomItems{
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            return cell
+        }
         
         //cell.textLabel.text = self.menu[indexPath.row]
         cell.textLabel!.text = self.menuItems[indexPath.row].tI.titel
