@@ -1,6 +1,6 @@
 import UIKit
 
-class ChildViewController: UIViewController, UIPageViewControllerDelegate {
+class ChildViewController: MenuSetupUIViewController, UIPageViewControllerDelegate {
     
     var pageViewController: UIPageViewController?
     
@@ -71,6 +71,11 @@ class ChildViewController: UIViewController, UIPageViewControllerDelegate {
         self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: {done in })
         
         return .Mid
+    }
+    
+    
+    @IBAction func menuButton(sender: UIBarButtonItem) {
+        setupMenuButton()
     }
     
 }

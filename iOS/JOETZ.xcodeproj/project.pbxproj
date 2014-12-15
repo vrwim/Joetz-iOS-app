@@ -343,7 +343,6 @@
 		3DF675F51A20D9BE00B8387A /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
 				8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */,
 				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,

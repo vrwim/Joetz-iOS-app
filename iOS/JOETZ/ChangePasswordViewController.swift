@@ -86,7 +86,15 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
             println(pair.1.debugDescription)
         }
 
-        let password = fv["password"] as String
+        let oldPass = fv["oldPass"] as String
+        let newPass = fv["newPass"] as String
+        let newPass2 = fv["newPass2"] as String
+        
+        if newPass != newPass2 {
+            let alert = UIAlertController(title: "Ongeldig wachtwoord", message: "De wachtwoorden komen niet overeen.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
         
         //ToDo: send to server
         
