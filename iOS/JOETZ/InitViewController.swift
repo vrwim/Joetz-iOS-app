@@ -12,7 +12,7 @@ class InitViewController: ECSlidingViewController
 {
     override func viewDidLoad() {
         
-        //Waarschijnlijk overschakelen op NSUserDefaults --> veel gemakkelijk en veel beter voor app settings
+        //Waarschijnlijk overschakelen op NSUserDefaults --> veel gemakkelijker en veel beter voor app settings
         var viewType: String = ""
         
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate

@@ -12,12 +12,12 @@
         <!--Init View Controller-->
         <scene sceneID="2iH-Xc-W2B">
             <objects>
-                <viewController id="Pbb-8e-I9L" customClass="InitViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitViewController" id="Pbb-8e-I9L" customClass="InitViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="40t-rS-pwE"/>
                         <viewControllerLayoutGuide type="bottom" id="F1J-lr-hmk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ft8-w7-mAB">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="InitViewController" id="Ft8-w7-mAB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -202,7 +202,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="750" id="IRU-NI-aC4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nog geen account? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6m-XX-KlW">
                                 <rect key="frame" x="178" y="316" width="139" height="18"/>
@@ -1317,7 +1317,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emi-RZ-s3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="7668"/>
+            <point key="canvasLocation" x="626" y="6158"/>
         </scene>
         <!--Kinderen-->
         <scene sceneID="gCN-G7-XNf">
@@ -1478,7 +1478,71 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBP-yC-WmS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184" y="7668"/>
+            <point key="canvasLocation" x="-184" y="6158"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cD5-UQ-pxs">
+            <objects>
+                <navigationController storyboardIdentifier="LogoutVC" id="Rbx-i8-Pfu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5bE-tz-WY8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TcZ-Fe-TR7" kind="relationship" relationship="rootViewController" id="scz-6H-REj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J1A-6U-LtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184" y="6900"/>
+        </scene>
+        <!--Logout View Controller-->
+        <scene sceneID="Uc9-eU-mqU">
+            <objects>
+                <viewController id="TcZ-Fe-TR7" customClass="LogoutViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PkW-EK-hxp"/>
+                        <viewControllerLayoutGuide type="bottom" id="vbg-9h-O99"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bla-IG-nPe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bent u zeker dat u wilt afmelden?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P1-Mg-sS5">
+                                <rect key="frame" x="172" y="262" width="257" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mH-C4-mhq">
+                                <rect key="frame" x="268" y="301" width="65" height="30"/>
+                                <state key="normal" title="Afmelden">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="TcZ-Fe-TR7" eventType="touchUpInside" id="vHO-Vu-TkW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9mH-C4-mhq" firstAttribute="top" secondItem="6P1-Mg-sS5" secondAttribute="bottom" constant="18" id="3Ae-f7-afY"/>
+                            <constraint firstAttribute="centerX" secondItem="6P1-Mg-sS5" secondAttribute="centerX" constant="-0.5" id="GWk-be-KpD"/>
+                            <constraint firstAttribute="centerY" secondItem="6P1-Mg-sS5" secondAttribute="centerY" multiplier="1.1" id="cPe-rS-uPk"/>
+                            <constraint firstAttribute="centerX" secondItem="9mH-C4-mhq" secondAttribute="centerX" constant="-0.5" id="yy9-jN-aet"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jXz-Rz-Whw">
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="RO9-oT-AxR">
+                            <connections>
+                                <action selector="menuButton:" destination="TcZ-Fe-TR7" id="jsC-1R-12V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03D-EU-dsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="6900"/>
         </scene>
     </scenes>
     <resources>
