@@ -38,6 +38,7 @@
 		3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D635BCC1A25399A00E3A8DF /* ImageCell.swift */; };
 		3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */; };
 		3D7E547F1A2535DE00185BF5 /* TripImageTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */; };
+		3DBDB89C1A3F84070003C71F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBDB89B1A3F84070003C71F /* UserService.swift */; };
 		3DCC8F311A3EF10700F4CEE5 /* AddChildToParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCC8F301A3EF10700F4CEE5 /* AddChildToParentViewController.swift */; };
 		3DF675D41A20CC0400B8387A /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675D31A20CC0400B8387A /* InitViewController.swift */; };
 		3DF675E41A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675D71A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.m */; };
@@ -124,6 +125,7 @@
 		3D635BCC1A25399A00E3A8DF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		3D7E547C1A25325000185BF5 /* ParentTripTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripTabVC.swift; sourceTree = "<group>"; };
 		3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripImageTabViewController.swift; sourceTree = "<group>"; };
+		3DBDB89B1A3F84070003C71F /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3DCC8F301A3EF10700F4CEE5 /* AddChildToParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddChildToParentViewController.swift; sourceTree = "<group>"; };
 		3DF675D31A20CC0400B8387A /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		3DF675D61A20CC3D00B8387A /* ECPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				ABE776EF1A052FE00063AEDB /* ConnectionService.swift */,
 				ABE776E91A05241C0063AEDB /* JSON.swift */,
 				879136E01A22AEA00074892A /* GooglePlaces.swift */,
+				3DBDB89B1A3F84070003C71F /* UserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */,
 				ABE776EC1A0524500063AEDB /* Trip.swift in Sources */,
 				3D16EC6B1A3EEA97004C008D /* ChangeChildDetailsViewController.swift in Sources */,
+				3DBDB89C1A3F84070003C71F /* UserService.swift in Sources */,
 				AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */,
 				3D16EC5F1A3EE4F2004C008D /* FormValueCell.swift in Sources */,
 				3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */,

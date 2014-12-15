@@ -18,7 +18,7 @@ class ConnectionService {
     }
     
     func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
-        return request(false, appendage: "api/trips", values: nil, payload: nil) {
+        return request("GET", appendage: "api/trips", values: nil, payload: nil) {
             data in
             let trips = JSON.readTrips(data)
             completionHandler(trips)
@@ -26,7 +26,7 @@ class ConnectionService {
     }
     
     func createFetchTask(imagePath: String, completionHandler: UIImage -> Void) -> NSURLSessionTask {
-        return request(false, appendage: "images/\(imagePath)", values: nil, payload: nil) {
+        return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil) {
             data in
             let image = UIImage(data: data)
             completionHandler(image!)
@@ -35,7 +35,7 @@ class ConnectionService {
     
     func authenticate(email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"email\":\"\(email)\",\"password\":\"\(password)\"}"
-        return request(true, appendage: "auth/local", values: nil, payload: payload) {
+        return request("POST", appendage: "auth/local", values: nil, payload: payload) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -44,7 +44,7 @@ class ConnectionService {
     
     func authenticate(token: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"FBtoken\":\"\(token)\"}"
-        return request(true, appendage: "auth/local", values: nil, payload: payload) {
+        return request("POST", appendage: "auth/local", values: nil, payload: payload) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -52,7 +52,7 @@ class ConnectionService {
     }
     
     func createNewsFetchTask(completionHandler: [NewsItem] -> Void) -> NSURLSessionTask {
-        return request(false, appendage: "api/news", values: nil, payload: nil) {
+        return request("GET", appendage: "api/news", values: nil, payload: nil) {
             data in
             let news = JSON.readNews(data)
             completionHandler(news)
@@ -60,7 +60,7 @@ class ConnectionService {
     }
     
     func getUserData(token: String, completionHandler: User -> Void) -> NSURLSessionTask {
-        return request(false, appendage: "api/users/me", values: ["Authorization":"Bearer \(token)"], payload: nil) {
+        return request("GET", appendage: "api/users/me", values: ["Authorization":"Bearer \(token)"], payload: nil) {
             data in
             let user = JSON.parseUser(data, token: token)
             completionHandler(user)
@@ -77,21 +77,30 @@ class ConnectionService {
             
             var payload = JSON.toJSON(payloadDict)
             
-            return request(true, appendage: "api/users", values: nil, payload: payload) {
+            return request("POST", appendage: "api/users", values: nil, payload: payload) {
                 data in
                 self.authenticate(email, password: password, completionHandler: completionHandler).resume()
             }
     }
     
-    private func request(post: Bool, appendage: String, values: [String: String]?, payload: String?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
+    func changePassword(id: String, email: String, oldPassword: String, newPassword: String, token: String) -> NSURLSessionTask {
+        
+        var payloadDict: [String:AnyObject?] = ["email": email, "oldPassword": oldPassword, "newPassword": newPassword]
+        
+        var payload = JSON.toJSON(payloadDict)
+        
+        return request("PUT", appendage: "api/users/\(id)/password", values: ["Authorization":"Bearer \(token)"], payload: payload) {
+                data in
+            }
+    }
+    
+    private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection
         let url = baseUrl.URLByAppendingPathComponent(appendage)
         let request = NSMutableURLRequest(URL: url)
         
-        if post {
-            request.HTTPMethod = "POST"
-        }
+        request.HTTPMethod = httpMethod
         
         if let payload = payload {
             request.HTTPBody = payload.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)

@@ -50,48 +50,21 @@ class MenuViewController: UITableViewController
             svc.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         }
         
-        var globalSettings: GlobalSettings?
-        var userEmail = ""
-        var viewType = ""
-        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let context: NSManagedObjectContext = appDel.managedObjectContext!
-        
-        let fetchRequest = NSFetchRequest(entityName: "GlobalSettings")
-        
-        if let fetchResults = context.executeFetchRequest(fetchRequest, error: nil) as? [GlobalSettings]
-        {
-            if fetchResults.count > 0
-            {
-                globalSettings = fetchResults[0]
-                println(globalSettings)
-                if let globalSettingsTmp = globalSettings {
-                    if let userEmailTmp = globalSettingsTmp.loggedInUser as String? {
-                        userEmail = userEmailTmp
-                    }
-                    if let tmpViewType = globalSettingsTmp.viewType as String? {
-                        viewType = tmpViewType
-                    }
-                }
-                
-            }
-        }
+        var userEmail = UserService.getEmailLoggedInUser()
+        var viewType = UserService.getViewTypeLoggedInUser()
                 
         userEmail.isEmpty ? setUpMenu(false, pEmail: userEmail, viewType: viewType) : setUpMenu(true, pEmail: userEmail, viewType: viewType)
         
     }
     
     func setUpMenu(pLoggedInUser: Bool, pEmail: String, viewType: String) {
-        var storyboardId = ""
-        if viewType == "childView" {
-             storyboardId = "ChildTripsNavVC"
-        }
-        else {
-            storyboardId = "ParentTripsSplitVC"
-        }
+        var storyboardId = UserService.getSBIdForViewType()
+        
         
         if pLoggedInUser {
             self.loggedInUser = true
-            let userRole = loadUserRole(pEmail)
+            let userDetails = UserService.getDetailsLoggedInUser()
+            let userRole = userDetails["role"]
             println(userRole)
             if userRole == "user" || userRole == "" || userRole == "admin" {
                 menuItems = [
@@ -134,24 +107,6 @@ class MenuViewController: UITableViewController
                 ("ContactVC", ("Contact", "ContactIcon")),
             ]
         }
-    }
-    
-    
-    
-    func loadUserRole(pEmail: String) -> String {
-        let key = "details"
-        let service = "Locksmith"
-        
-        let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: pEmail)
-        
-        if let dictionary = dictionary {
-            return dictionary["role"] as String
-        }
-        
-        if let error = error {
-            println("Error: \(error)")
-        }
-        return ""
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {

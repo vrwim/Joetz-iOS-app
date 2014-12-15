@@ -173,7 +173,7 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
                 token in
                 connectionService.getUserData(token) {
                     user in
-                    LocksmithLogin.save(user.name, provider: user.provider, role: user.role, token: user.token, userAccount: user.email)
+                    LocksmithLogin.save(user.name, provider: user.provider, role: user.role, token: user.token, userAccount: user.email, id: user.id)
                     LocksmithLogin.changeLoggedInUser(user.email)
                     
                     let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsSplitVC") as UIViewController

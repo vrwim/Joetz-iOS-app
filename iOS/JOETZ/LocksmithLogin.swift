@@ -11,18 +11,18 @@ import CoreData
 class LocksmithLogin {
     
     //save the userdetails in keychain
-    class func save(name: String, provider: String, role: String, token: String, userAccount: String) {
-        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token]
+    class func save(name: String, provider: String, role: String, token: String, userAccount: String, id: String) {
+        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token, "id":id]
         let error = Locksmith.saveData(dict, forKey: "details", inService: "Locksmith", forUserAccount: userAccount)
         //if there is an error, userAccount already exists --> update instead
         if error != nil {
-            update(name, provider: provider, role: role, token: token, userAccount: userAccount)
+            update(name, provider: provider, role: role, token: token, userAccount: userAccount, id: id)
         }
     }
     
     //update existing userdata in keychain
-    class func update(name: String, provider: String, role: String, token: String, userAccount: String) {
-        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token]
+    class func update(name: String, provider: String, role: String, token: String, userAccount: String, id: String) {
+        let dict: [String: String] = ["name":name, "provider": provider, "role":role, "token":token, "id":id]
         let error = Locksmith.updateData(dict, forKey: "details", inService: "Locksmith", forUserAccount: userAccount)
     }
     

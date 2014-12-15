@@ -61,13 +61,13 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
         let sectionPassword = FormSectionDescriptor()
         sectionPassword.headerTitle = "Wachtwoord wijzigen"
         
-        var row = FormRowDescriptor(tag: "oldPass", rowType: .Password, title: "Huidig wachtwoord")
+        var row = FormRowDescriptor(tag: "oldPass", rowType: .Text, title: "Huidig wachtwoord")
         sectionPassword.addRow(row)
         
-        row = FormRowDescriptor(tag: "newPass", rowType: .Password, title: "Nieuw wachtwoord")
+        row = FormRowDescriptor(tag: "newPass", rowType: .Text, title: "Nieuw wachtwoord")
         sectionPassword.addRow(row)
         
-        row = FormRowDescriptor(tag: "newPass2", rowType: .Password, title: "Herhaal wachtwoord")
+        row = FormRowDescriptor(tag: "newPass2", rowType: .Text, title: "Herhaal wachtwoord")
         sectionPassword.addRow(row)
         
         form.sections = [sectionPassword]
@@ -95,8 +95,15 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             presentViewController(alert, animated: true, completion: nil)
         }
+        else {
         
-        //ToDo: send to server
+            let userDetails = UserService.getDetailsLoggedInUser()
+            let id = userDetails["id"]
+            let email = UserService.getEmailLoggedInUser()
+            let token = userDetails["token"]
+            
+            connectionService.changePassword(id!, email: email, oldPassword: oldPass, newPassword: newPass, token: token!).resume()
+        }
         
     }
     
