@@ -135,35 +135,31 @@ class JSON {
     
     class func toJSON(dict: [String: AnyObject?]) -> String { // currently only Int, NSDate and String supported
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        
-        let lastKey = dict.keys.last
-        let lastValue = dict.values.last
-        
-        var json = "{"
+        var elements: [String] = []
         
         for kvPair in dict {
-            
-            json += "\t\"\(kvPair.0)\": "
-            if let val = kvPair.1 as? String {
-                json += "\"\(val)\""
-            } else if let val = kvPair.1 as? NSDate {
-                json += "\"\(dateFormatter.stringFromDate(val))\""
-            } else if let val = kvPair.1 as? Int {
-                json += "\(val)"
-            } else {
-                println("Nil or unknown type in parsing JSON: \(kvPair.1?.debugDescription), skipping")
-            }
-            
-            if kvPair.0 != lastKey{
-                json+=",\n"
+            if let value: AnyObject = kvPair.1 {
+                elements.append("\"" + kvPair.0 + "\":" + format(value))
             }
         }
         
-        json += "}"
+        return "{" + ", ".join(elements) + "}"
+    }
+    
+    private class func format(input: AnyObject) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
-        return json
+        if let val = input as? String {
+            return "\"\(val)\""
+        } else if let val = input as? NSDate {
+            return "\"\(dateFormatter.stringFromDate(val))\""
+        } else if let val = input as? Int {
+            return "\(val)"
+        } else {
+            println("Nil or unknown type in parsing JSON: \(input.debugDescription), skipping")
+        }
+        return "\"\""
     }
 }
 
