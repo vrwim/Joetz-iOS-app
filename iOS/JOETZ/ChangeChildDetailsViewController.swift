@@ -16,5 +16,6 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
     
     
     @IBAction func cancelBtn(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -94,6 +94,7 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
     
     
     @IBAction func cancelBtn(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

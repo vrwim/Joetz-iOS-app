@@ -303,7 +303,6 @@
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
 				87853D051A252D1C00EA4DB9 /* News */,
 				3DF675D21A20CBE600B8387A /* Menu */,
-				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -346,6 +345,7 @@
 			children = (
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
 				8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */,
+				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,
 				87853CFF1A24E76900EA4DB9 /* SettingsViewController.swift */,
 				3D1AB2DF1A3DDA1200FA1126 /* AccountViewController.swift */,
 				3D16EC381A3EE4B5004C008D /* ChangePasswordViewController.swift */,

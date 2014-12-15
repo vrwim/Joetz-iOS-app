@@ -125,6 +125,7 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
     
     
     @IBAction func cancelBtn(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }

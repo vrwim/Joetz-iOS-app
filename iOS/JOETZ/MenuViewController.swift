@@ -14,7 +14,6 @@ class MenuViewController: UITableViewController
         ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
         ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
         //("UserTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-        ("ContactNavVC", ("Contact", "ContactIcon")),
         ("LoginNavVC", ("Aanmelden", "AccountIcon")),
         ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
         ("", ("", "")),
@@ -77,11 +76,12 @@ class MenuViewController: UITableViewController
         
     }
     
-    func setUpMenu(loggedInUser: Bool, pEmail: String) {
-        if loggedInUser {
+    func setUpMenu(pLoggedInUser: Bool, pEmail: String) {
+        if pLoggedInUser {
+            self.loggedInUser = true
             let userRole = loadUserRole(pEmail)
-            
-            if userRole == "user" || userRole == "" {
+            println(userRole)
+            if userRole == "user" || userRole == "" || userRole == "admin" {
                 menuItems = [
                     ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
                     ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
@@ -111,12 +111,13 @@ class MenuViewController: UITableViewController
             }
         }
         else {
+            self.loggedInUser = false
             menuItems = [
                 ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
                 ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
                 ("LoginNavVC", ("Aanmelden", "AccountIcon")),
-                ("AccountNavVC", ("Account", "AccountIcon")),
-                ("SettingsVC", ("Instellingen", "SettingsIcon")),
+                //("AccountNavVC", ("Account", "AccountIcon")),
+                ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
                 ("", ("", "")),
                 ("ContactVC", ("Contact", "ContactIcon")),
             ]
