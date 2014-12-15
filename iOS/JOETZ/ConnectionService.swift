@@ -18,7 +18,7 @@ class ConnectionService {
     }
     
     func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/trips", values: nil, payload: nil) {
+        return request("GET", appendage: "api/trips", values: nil, payload: nil, onFail: nil) {
             data in
             let trips = JSON.readTrips(data)
             completionHandler(trips)
@@ -26,7 +26,7 @@ class ConnectionService {
     }
     
     func createFetchTask(imagePath: String, completionHandler: UIImage -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil) {
+        return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil, onFail: nil) {
             data in
             let image = UIImage(data: data)
             completionHandler(image!)
@@ -35,7 +35,7 @@ class ConnectionService {
     
     func authenticate(email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"email\":\"\(email)\",\"password\":\"\(password)\"}"
-        return request("POST", appendage: "auth/local", values: nil, payload: payload) {
+        return request("POST", appendage: "auth/local", values: nil, payload: payload, onFail: nil) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -44,7 +44,7 @@ class ConnectionService {
     
     func authenticate(token: String, completionHandler: String -> Void) -> NSURLSessionTask {
         let payload = "{\"FBtoken\":\"\(token)\"}"
-        return request("POST", appendage: "auth/local", values: nil, payload: payload) {
+        return request("POST", appendage: "auth/local", values: nil, payload: payload, onFail: nil) {
             data in
             let token = JSON.parseToken(data)
             completionHandler(token)
@@ -52,7 +52,7 @@ class ConnectionService {
     }
     
     func createNewsFetchTask(completionHandler: [NewsItem] -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/news", values: nil, payload: nil) {
+        return request("GET", appendage: "api/news", values: nil, payload: nil, onFail: nil) {
             data in
             let news = JSON.readNews(data)
             completionHandler(news)
@@ -60,7 +60,7 @@ class ConnectionService {
     }
     
     func getUserData(token: String, completionHandler: User -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/users/me", values: ["Authorization":"Bearer \(token)"], payload: nil) {
+        return request("GET", appendage: "api/users/me", values: ["Authorization":"Bearer \(token)"], payload: nil, onFail: nil) {
             data in
             let user = JSON.parseUser(data, token: token)
             completionHandler(user)
@@ -77,7 +77,7 @@ class ConnectionService {
             
             var payload = JSON.toJSON(payloadDict)
             
-            return request("POST", appendage: "api/users", values: nil, payload: payload) {
+            return request("POST", appendage: "api/users", values: nil, payload: payload, onFail: nil) {
                 data in
                 self.authenticate(email, password: password, completionHandler: completionHandler).resume()
             }
@@ -89,20 +89,20 @@ class ConnectionService {
         
         var payload = JSON.toJSON(payloadDict)
         
-        return request("PUT", appendage: "api/users/\(id)/password", values: ["Authorization":"Bearer \(token)"], payload: payload) {
+        return request("PUT", appendage: "api/users/\(id)/password", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
                 data in
             }
     }
     
     func getMonitors(token: String, completionHandler: [Monitor] -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/users/monitors", values: ["Authorization": "Bearer \(token)"], payload: nil) {
+        return request("GET", appendage: "api/users/monitors", values: ["Authorization": "Bearer \(token)"], payload: nil, onFail: nil) {
             data in
             let monitors = JSON.parseMonitors(data)
             completionHandler(monitors)
         }
     }
     
-    private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
+    private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: (NSData! -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection
         let url = baseUrl.URLByAppendingPathComponent(appendage)
@@ -137,7 +137,7 @@ class ConnectionService {
                         completionHandler(data)
                     }
                 } else {
-                    println(NSString(data: data, encoding: NSUTF8StringEncoding)!)
+                    onFail?(data)
                 }
             }
         }
