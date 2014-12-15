@@ -24,6 +24,7 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
             self.tableView.reloadData()
         }
         task!.resume()
+        tableView.setContentOffset(CGPointMake(0,44), animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -84,6 +85,10 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
         cell.setContent(newsItem)
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 89
     }
     
     @IBAction func refresh(sender: UIRefreshControl) {

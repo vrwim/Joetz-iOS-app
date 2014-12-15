@@ -517,6 +517,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="pmL-V1-Rn6">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="z6g-GB-oRL" id="eLf-ud-Ddk"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="parentTripCell" rowHeight="97" id="lWH-WL-Vcx" customClass="ParentTripCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -606,7 +614,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="searchDisplayController" destination="QF6-cB-mJC" id="M2F-oX-YJx"/>
+                        <outlet property="searchDisplayController" destination="3RE-IM-lgR" id="Gq2-4V-hQj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcE-Jv-ysZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -616,6 +624,15 @@
                         <outlet property="searchContentsController" destination="z6g-GB-oRL" id="BhT-y0-dxX"/>
                         <outlet property="searchResultsDataSource" destination="z6g-GB-oRL" id="HOw-2h-ovI"/>
                         <outlet property="searchResultsDelegate" destination="z6g-GB-oRL" id="qyj-Lb-BEF"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="3RE-IM-lgR">
+                    <connections>
+                        <outlet property="delegate" destination="z6g-GB-oRL" id="2b5-XJ-agM"/>
+                        <outlet property="searchBar" destination="pmL-V1-Rn6" id="DMx-4s-pbf"/>
+                        <outlet property="searchContentsController" destination="z6g-GB-oRL" id="rwL-i4-Msn"/>
+                        <outlet property="searchResultsDataSource" destination="z6g-GB-oRL" id="wgN-Rk-XPB"/>
+                        <outlet property="searchResultsDelegate" destination="z6g-GB-oRL" id="39S-Ln-WTE"/>
                     </connections>
                 </searchDisplayController>
             </objects>

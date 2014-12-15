@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ParentTripsController: MenuSetupUITableViewController
+class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate, UISearchDisplayDelegate
 {
-    var trips: [Trip] = []
+    var trips = [Trip]()
+    var filteredTrips = [Trip]()
     var task: NSURLSessionTask?
     var sidebar: UIPopoverController?
     var parentTripTabVC: ParentTripTabVC?
@@ -23,6 +24,7 @@ class ParentTripsController: MenuSetupUITableViewController
             self.tableView.reloadData()
         }
         task!.resume()
+        tableView.setContentOffset(CGPointMake(0,44), animated: true)
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -32,9 +34,32 @@ class ParentTripsController: MenuSetupUITableViewController
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         parentTripTabVC = (segue.destinationViewController as UINavigationController).topViewController as? ParentTripTabVC
-        let selectedTrip = trips[tableView.indexPathForSelectedRow()!.row]
+        var selectedTrip: Trip
+        if (sender as UITableViewCell).isDescendantOfView(self.searchDisplayController!.searchResultsTableView) {
+            selectedTrip = filteredTrips[self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!.row]
+        } else {
+            selectedTrip = trips[self.tableView.indexPathForSelectedRow()!.row]
+        }
         parentTripTabVC?.trip = selectedTrip
         parentTripTabVC?.sidebar = sidebar
+    }
+    
+    func filterContentForSearchText(searchText: String){
+        self.filteredTrips = self.trips.filter({(trip: Trip) -> Bool in
+            let stringMatch = trip.title!.rangeOfString(searchText)
+            let locMatch = trip.location!.rangeOfString(searchText)
+            return (stringMatch != nil || locMatch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -42,16 +67,29 @@ class ParentTripsController: MenuSetupUITableViewController
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trips.count
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            return filteredTrips.count
+        } else {
+            return trips.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("parentTripCell") as ParentTripCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("parentTripCell") as ParentTripCell
         
-        let trip = trips[indexPath.row]
+        var trip: Trip
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            trip = filteredTrips[indexPath.row]
+        } else {
+            trip = trips[indexPath.row]
+        }
         cell.setContent(trip)
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 97
     }
 
     @IBAction func refresh(sender: UIRefreshControl) {
