@@ -73,24 +73,42 @@ class MenuViewController: UITableViewController
             }
         }
         
-        userEmail.isEmpty ? setUpMenu(false) : setUpMenu(true)
+        userEmail.isEmpty ? setUpMenu(false, pEmail: userEmail) : setUpMenu(true, pEmail: userEmail)
         
     }
     
-    func setUpMenu(loggedInUser: Bool) {
-        self.loggedInUser = loggedInUser
+    func setUpMenu(loggedInUser: Bool, pEmail: String) {
         if loggedInUser {
-            menuItems = [
-                ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
-                //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
-                ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
-                ("AccountNavVC", ("Account", "AccountIcon")),
-                ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
-                ("", ("", "")),
-                ("LogoutVC", ("Logout", "AccountIcon")),
-                ("ContactVC", ("Contact", "ContactIcon"))
-            ]
+            let userRole = loadUserRole(pEmail)
+            
+            if userRole == "user" || userRole == "" {
+                menuItems = [
+                    ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
+                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                    //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
+                    ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
+                    ("AccountNavVC", ("Account", "AccountIcon")),
+                    ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
+                    ("", ("", "")),
+                    ("LogoutVC", ("Logout", "AccountIcon")),
+                    ("ContactVC", ("Contact", "ContactIcon"))
+                ]
+            }
+            else if userRole == "monitor" {
+                menuItems = [
+                    ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
+                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                    //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
+                    //("ContactNavVC", ("Contact", "ContactIcon")),
+                    //("PlanningNavVC", ("Planning", "TBD")),
+                    //("MonitorsNavVC", ("Monitoren", "TBD")),
+                    ("AccountNavVC", ("Account", "AccountIcon")),
+                    ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
+                    ("", ("", "")),
+                    ("LogoutVC", ("Logout", "AccountIcon")),
+                    ("ContactVC", ("Contact", "ContactIcon"))
+                ]
+            }
         }
         else {
             menuItems = [
@@ -102,6 +120,22 @@ class MenuViewController: UITableViewController
                 ("ContactVC", ("Contact", "ContactIcon")),
             ]
         }
+    }
+    
+    func loadUserRole(pEmail: String) -> String {
+        let key = "details"
+        let service = "Locksmith"
+        
+        let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: pEmail)
+        
+        if let dictionary = dictionary {
+            return dictionary["role"] as String
+        }
+        
+        if let error = error {
+            println("Error: \(error)")
+        }
+        return ""
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
