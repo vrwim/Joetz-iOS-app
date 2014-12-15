@@ -70,6 +70,7 @@
 		AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */; };
 		AB384AF51A12C48C005C597A /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB384AF41A12C48C005C597A /* ModelController.swift */; };
 		AB3C88971A3E70CC004BBF9F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */; };
+		AB3C88991A3F4FE4004BBF9F /* LocksmithLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C88981A3F4FE4004BBF9F /* LocksmithLogin.swift */; };
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
 		AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9FAA9A1A1E241100B857CE /* MapCell.swift */; };
 		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
@@ -166,6 +167,7 @@
 		AB384AF21A12C3AC005C597A /* ChildTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildTripViewController.swift; sourceTree = "<group>"; };
 		AB384AF41A12C48C005C597A /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AB3C88981A3F4FE4004BBF9F /* LocksmithLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocksmithLogin.swift; sourceTree = "<group>"; };
 		AB4C15E51A01948B0018876A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB9FAA9A1A1E241100B857CE /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				3D1AB2DB1A3DB32900FA1126 /* Locksmith.swift */,
 				3D1AB2DC1A3DB32900FA1126 /* LocksmithRequest.swift */,
+				AB3C88981A3F4FE4004BBF9F /* LocksmithLogin.swift */,
 			);
 			name = Locksmith;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				3D16EC611A3EE4F2004C008D /* FormSelector.swift in Sources */,
 				3D16EC551A3EE4F2004C008D /* FormButtonCell.swift in Sources */,
 				3D16EC3D1A3EE4B5004C008D /* ChangePasswordViewController.swift in Sources */,
+				AB3C88991A3F4FE4004BBF9F /* LocksmithLogin.swift in Sources */,
 				3D3D0E701A2570AB00F51247 /* GlobalSettings.swift in Sources */,
 				3DF675E81A20CC3D00B8387A /* ECSlidingViewController.m in Sources */,
 				ABE776EA1A05241C0063AEDB /* JSON.swift in Sources */,

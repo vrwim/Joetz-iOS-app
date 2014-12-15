@@ -41,6 +41,21 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
         row = FormRowDescriptor(tag: "birthday", rowType: .Date, title: "Geboortedatum")
         sectionPersonalia.addRow(row)
         
+        row = FormRowDescriptor(tag: "role", rowType: .Picker , title: "Rol")
+        row.options = ["user", "monitor"]
+        row.titleFormatter = {
+            value in
+            switch(value) {
+            case "user":
+                return "Ouder"
+            case "monitor":
+                return "Monitor"
+            default:
+                return nil
+            }
+        }
+        sectionPersonalia.addRow(row)
+        
         // Address
         
         let sectionAddress = FormSectionDescriptor()
@@ -121,10 +136,10 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
             error.append("Email is leeg")
         }
         if firstName == nil || firstName!.isEmpty {
-            error.append("Email is leeg")
+            error.append("Voornaam is leeg")
         }
         if lastName == nil || lastName!.isEmpty {
-            error.append("Email is leeg")
+            error.append("Familienaam is leeg")
         }
         if !validateEmail(email!) {
             error.append("Email is niet geldig")
@@ -152,16 +167,18 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
             let birthday = fv["birthday"] as? NSDate
             let smn = fv["smn"] as? String
             let ssn = fv["ssn"] as? String
+            let role = fv["role"] as? String
             
-            connectionService.register(street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn, email: email!, password: password!) {
+            connectionService.register(street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn, email: email!, password: password!, role: role) {
                 token in
                 connectionService.getUserData(token) {
                     user in
-                    // do something with user
+                    LocksmithLogin.save(user.name, provider: user.provider, role: user.role, token: user.token, userAccount: user.email)
+                    LocksmithLogin.changeLoggedInUser(user.email)
                     }.resume()
                 }.resume()
-            
-            // send user to Trips Controller
+            let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsSplitVC") as UIViewController
+            self.slidingViewController().topViewController = newTopViewController
         } else {
             showAlert("\n".join(error))
         }
