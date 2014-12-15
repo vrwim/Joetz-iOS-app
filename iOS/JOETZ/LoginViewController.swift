@@ -32,6 +32,9 @@ class LoginViewController: MenuSetupUIViewController {
                 user in
                 LocksmithLogin.save(user.name, provider: user.provider, role: user.role, token: user.token, userAccount: user.email)
                 LocksmithLogin.changeLoggedInUser(user.email)
+                
+                let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsSplitVC") as UIViewController
+                self.slidingViewController().topViewController = newTopViewController
             }.resume()
         }.resume()
     }
