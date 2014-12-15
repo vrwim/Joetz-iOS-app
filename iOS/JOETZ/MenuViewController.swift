@@ -52,6 +52,7 @@ class MenuViewController: UITableViewController
         
         var globalSettings: GlobalSettings?
         var userEmail = ""
+        var viewType = ""
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let context: NSManagedObjectContext = appDel.managedObjectContext!
         
@@ -67,16 +68,27 @@ class MenuViewController: UITableViewController
                     if let userEmailTmp = globalSettingsTmp.loggedInUser as String? {
                         userEmail = userEmailTmp
                     }
+                    if let tmpViewType = globalSettingsTmp.viewType as String? {
+                        viewType = tmpViewType
+                    }
                 }
                 
             }
         }
-        
-        userEmail.isEmpty ? setUpMenu(false, pEmail: userEmail) : setUpMenu(true, pEmail: userEmail)
+                
+        userEmail.isEmpty ? setUpMenu(false, pEmail: userEmail, viewType: viewType) : setUpMenu(true, pEmail: userEmail, viewType: viewType)
         
     }
     
-    func setUpMenu(pLoggedInUser: Bool, pEmail: String) {
+    func setUpMenu(pLoggedInUser: Bool, pEmail: String, viewType: String) {
+        var storyboardId = ""
+        if viewType == "childView" {
+             storyboardId = "ChildTripsNavVC"
+        }
+        else {
+            storyboardId = "ParentTripsSplitVC"
+        }
+        
         if pLoggedInUser {
             self.loggedInUser = true
             let userRole = loadUserRole(pEmail)
@@ -84,9 +96,9 @@ class MenuViewController: UITableViewController
             if userRole == "user" || userRole == "" || userRole == "admin" {
                 menuItems = [
                     ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                    (storyboardId, ("Reizen", "TripsIcon")),
                     //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
-                    ("ParentTripsSplitVC", ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
+                    (storyboardId, ("Mijn Reizen", "UserTripsIcon")), //alleen bij ingelogde user
                     ("AccountNavVC", ("Account", "AccountIcon")),
                     ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
                     ("", ("", "")),
@@ -97,7 +109,7 @@ class MenuViewController: UITableViewController
             else if userRole == "monitor" {
                 menuItems = [
                     ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                    ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                    (storyboardId, ("Reizen", "TripsIcon")),
                     //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
                     //("ContactNavVC", ("Contact", "ContactIcon")),
                     //("PlanningNavVC", ("Planning", "TBD")),
@@ -114,7 +126,7 @@ class MenuViewController: UITableViewController
             self.loggedInUser = false
             menuItems = [
                 ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
-                ("ParentTripsSplitVC", ("Reizen", "TripsIcon")),
+                (storyboardId, ("Reizen", "TripsIcon")),
                 ("LoginNavVC", ("Aanmelden", "AccountIcon")),
                 //("AccountNavVC", ("Account", "AccountIcon")),
                 ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
@@ -123,6 +135,8 @@ class MenuViewController: UITableViewController
             ]
         }
     }
+    
+    
     
     func loadUserRole(pEmail: String) -> String {
         let key = "details"
