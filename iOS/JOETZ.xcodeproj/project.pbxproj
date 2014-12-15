@@ -61,6 +61,7 @@
 		87853D091A252FE800EA4DB9 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87853D081A252FE800EA4DB9 /* NewsCell.swift */; };
 		879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879136E01A22AEA00074892A /* GooglePlaces.swift */; };
 		8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */; };
+		87E3EDBC1A3F427C008FB274 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E3EDBB1A3F427C008FB274 /* ContactViewController.swift */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
 		AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE619F51B74007DB692 /* StartViewController.swift */; };
@@ -152,6 +153,7 @@
 		87853D081A252FE800EA4DB9 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		879136E01A22AEA00074892A /* GooglePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaces.swift; sourceTree = "<group>"; };
 		8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JOETZ.xcdatamodel; sourceTree = "<group>"; };
+		87E3EDBB1A3F427C008FB274 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EE319F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				3DF675D31A20CC0400B8387A /* InitViewController.swift */,
 				AB138EE619F51B74007DB692 /* StartViewController.swift */,
+				87E3EDBB1A3F427C008FB274 /* ContactViewController.swift */,
 				3DF675F51A20D9BE00B8387A /* Account */,
 				3DF675F21A20D95E00B8387A /* ParentTrip */,
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
@@ -343,7 +346,6 @@
 		3DF675F51A20D9BE00B8387A /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,
 				AB4C15E51A01948B0018876A /* LoginViewController.swift */,
 				8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */,
 				AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */,
@@ -614,6 +616,7 @@
 				3D635BCD1A25399A00E3A8DF /* ImageCell.swift in Sources */,
 				879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */,
 				3D1EB9CF1A06992900C01F49 /* ChildTripController.swift in Sources */,
+				87E3EDBC1A3F427C008FB274 /* ContactViewController.swift in Sources */,
 				AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */,
 				3D16EC5B1A3EE4F2004C008D /* FormSwitchCell.swift in Sources */,
 				3D16EC581A3EE4F2004C008D /* FormPickerCell.swift in Sources */,

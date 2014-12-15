@@ -1099,6 +1099,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Afmelden" id="SKF-rO-SWB">
                             <connections>
                                 <action selector="logOut:" destination="DDK-cA-2fH" id="Ymm-cf-3uv"/>
+                                <segue destination="TcZ-Fe-TR7" kind="show" id="WwG-2r-zwN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1396,7 +1397,23 @@
             </objects>
             <point key="canvasLocation" x="-184" y="7716"/>
         </scene>
-        <!--Logout View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="rjK-az-Azy">
+            <objects>
+                <navigationController storyboardIdentifier="ContactVC" id="Ygi-Mg-9eL" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9gI-sr-EDV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hWt-Wg-mwB" kind="relationship" relationship="rootViewController" id="bwJ-xa-r2S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gw5-cB-Iy4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-184" y="8444"/>
+        </scene>
+        <!--Afmelden-->
         <scene sceneID="Uc9-eU-mqU">
             <objects>
                 <viewController id="TcZ-Fe-TR7" customClass="LogoutViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
@@ -1432,7 +1449,7 @@
                             <constraint firstAttribute="centerX" secondItem="9mH-C4-mhq" secondAttribute="centerX" constant="-0.5" id="yy9-jN-aet"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jXz-Rz-Whw">
+                    <navigationItem key="navigationItem" title="Afmelden" id="jXz-Rz-Whw">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="RO9-oT-AxR">
                             <connections>
                                 <action selector="menuButton:" destination="TcZ-Fe-TR7" id="jsC-1R-12V"/>
@@ -1444,15 +1461,200 @@
             </objects>
             <point key="canvasLocation" x="587" y="7716"/>
         </scene>
+        <!--Contact-->
+        <scene sceneID="dlA-xg-EGP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MtT-Eh-Hrw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="hWt-Wg-mwB" customClass="ContactViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wcN-KT-AdN"/>
+                        <viewControllerLayoutGuide type="bottom" id="DIr-Ga-1kn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="idt-1W-vP5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BondMoysonLogo" translatesAutoresizingMaskIntoConstraints="NO" id="h6S-vi-udr">
+                                <rect key="frame" x="16" y="74" width="280" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="05i-fW-kIE"/>
+                                    <constraint firstAttribute="width" secondItem="h6S-vi-udr" secondAttribute="height" multiplier="1:1" id="uk1-87-PmZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-JK-pAs">
+                                <rect key="frame" x="304" y="147" width="280" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Xf-JK-pAs" secondAttribute="height" multiplier="650:311" id="MsJ-lO-GFH"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="4AH-fH-1Mg">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="hMN-hD-U1W"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="XE1-3y-9RI">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="dQ3-HO-u1Y"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="DPX-b0-VtK">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="P8I-Va-Wyi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="St-Jansstraat 32" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBY-5d-CdL">
+                                <rect key="frame" x="392" y="362" width="114" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 Brussel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZC-Am-pOA">
+                                <rect key="frame" x="404" y="384" width="90" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYC-0u-h15">
+                                <rect key="frame" x="390" y="410" width="117" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Tel. 02 515 02 52">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchCall:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="ErJ-Gd-a4n"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fax 02 511 07 13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37p-ga-MUV">
+                                <rect key="frame" x="389" y="448" width="119" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HL-aw-aMf">
+                                <rect key="frame" x="402" y="474" width="92" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="info@joetz.be">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchJoetzEmail:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="iTx-lZ-DVD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tramstraat 69" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKh-HU-LQ3">
+                                <rect key="frame" x="116" y="362" width="94" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9052 Zwijnaarde" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ND-1X-W3K">
+                                <rect key="frame" x="106" y="384" width="114" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwl-tV-jzW">
+                                <rect key="frame" x="104" y="410" width="117" height="30"/>
+                                <state key="normal" title="Tel. 09 333 55 00">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchCall:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="5N7-JW-d42"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-Do-iEV">
+                                <rect key="frame" x="78" y="474" width="170" height="30"/>
+                                <state key="normal" title="vragen@bondmoyson.be">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchJoetzEmail:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="g1Q-tm-5z8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh6-d3-R1q">
+                                <rect key="frame" x="400" y="512" width="97" height="30"/>
+                                <state key="normal" title="Website Joetz">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchWebsite:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="sXo-lb-Yq0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khK-eV-Grm">
+                                <rect key="frame" x="86" y="512" width="155" height="30"/>
+                                <state key="normal" title="Website Bond Moyson">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchWebsite:" destination="hWt-Wg-mwB" eventType="touchUpInside" id="Gqz-Xk-0qZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4HL-aw-aMf" firstAttribute="top" secondItem="37p-ga-MUV" secondAttribute="bottom" constant="8" id="57d-d8-0x0"/>
+                            <constraint firstItem="0ND-1X-W3K" firstAttribute="top" secondItem="IKh-HU-LQ3" secondAttribute="bottom" constant="4" id="9IJ-Tc-1ii"/>
+                            <constraint firstItem="gh6-d3-R1q" firstAttribute="centerX" secondItem="4HL-aw-aMf" secondAttribute="centerX" id="9c7-TM-NaK"/>
+                            <constraint firstItem="khK-eV-Grm" firstAttribute="centerX" secondItem="NBj-Do-iEV" secondAttribute="centerX" id="DQV-U7-6R8"/>
+                            <constraint firstItem="4AH-fH-1Mg" firstAttribute="width" secondItem="XE1-3y-9RI" secondAttribute="width" id="EkX-4r-zDy"/>
+                            <constraint firstItem="gh6-d3-R1q" firstAttribute="top" secondItem="4HL-aw-aMf" secondAttribute="bottom" constant="8" id="FGQ-hY-xDm"/>
+                            <constraint firstItem="DPX-b0-VtK" firstAttribute="width" secondItem="XE1-3y-9RI" secondAttribute="width" id="Foy-Df-liW"/>
+                            <constraint firstAttribute="centerX" secondItem="4AH-fH-1Mg" secondAttribute="centerX" id="Fpp-Jf-aQ9"/>
+                            <constraint firstItem="bwl-tV-jzW" firstAttribute="top" secondItem="0ND-1X-W3K" secondAttribute="bottom" constant="8" id="Grb-FW-e6f"/>
+                            <constraint firstItem="h6S-vi-udr" firstAttribute="leading" secondItem="XE1-3y-9RI" secondAttribute="trailing" id="O6H-96-pn7"/>
+                            <constraint firstItem="1Xf-JK-pAs" firstAttribute="leading" secondItem="4AH-fH-1Mg" secondAttribute="trailing" constant="4" id="Pkb-3V-o1K"/>
+                            <constraint firstItem="XE1-3y-9RI" firstAttribute="leading" secondItem="idt-1W-vP5" secondAttribute="leadingMargin" id="RWZ-I9-paU"/>
+                            <constraint firstAttribute="centerY" secondItem="h6S-vi-udr" secondAttribute="centerY" multiplier="1.4" id="SwV-gt-xfl"/>
+                            <constraint firstAttribute="centerY" secondItem="4AH-fH-1Mg" secondAttribute="centerY" id="U00-Pr-w38"/>
+                            <constraint firstItem="9ZC-Am-pOA" firstAttribute="top" secondItem="sBY-5d-CdL" secondAttribute="bottom" constant="4" id="VkA-85-rJR"/>
+                            <constraint firstItem="WYC-0u-h15" firstAttribute="centerX" secondItem="37p-ga-MUV" secondAttribute="centerX" constant="0.5" id="WuD-3R-xFa"/>
+                            <constraint firstItem="khK-eV-Grm" firstAttribute="top" secondItem="NBj-Do-iEV" secondAttribute="bottom" constant="8" id="Xrg-df-uHa"/>
+                            <constraint firstItem="WYC-0u-h15" firstAttribute="centerX" secondItem="9ZC-Am-pOA" secondAttribute="centerX" constant="-0.5" id="Yjq-BY-Vf1"/>
+                            <constraint firstItem="h6S-vi-udr" firstAttribute="width" secondItem="1Xf-JK-pAs" secondAttribute="width" id="ZFJ-W9-ygd"/>
+                            <constraint firstItem="h6S-vi-udr" firstAttribute="centerX" secondItem="IKh-HU-LQ3" secondAttribute="centerX" constant="-7" id="ZnD-us-QPH"/>
+                            <constraint firstItem="4HL-aw-aMf" firstAttribute="centerX" secondItem="37p-ga-MUV" secondAttribute="centerX" id="bBf-Um-WCI"/>
+                            <constraint firstAttribute="centerY" secondItem="XE1-3y-9RI" secondAttribute="centerY" id="bJo-hY-Tlv"/>
+                            <constraint firstItem="0ND-1X-W3K" firstAttribute="centerX" secondItem="IKh-HU-LQ3" secondAttribute="centerX" id="eap-Ah-BW9"/>
+                            <constraint firstAttribute="centerY" secondItem="DPX-b0-VtK" secondAttribute="centerY" id="f29-ux-jED"/>
+                            <constraint firstItem="37p-ga-MUV" firstAttribute="top" secondItem="WYC-0u-h15" secondAttribute="bottom" constant="8" id="fP8-zm-KYe"/>
+                            <constraint firstItem="DPX-b0-VtK" firstAttribute="leading" secondItem="1Xf-JK-pAs" secondAttribute="trailing" id="hxB-Fs-16T"/>
+                            <constraint firstItem="WYC-0u-h15" firstAttribute="top" secondItem="9ZC-Am-pOA" secondAttribute="bottom" constant="8" id="k8O-g2-TLG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DPX-b0-VtK" secondAttribute="trailing" id="kdI-nz-K1j"/>
+                            <constraint firstItem="1Xf-JK-pAs" firstAttribute="centerX" secondItem="sBY-5d-CdL" secondAttribute="centerX" constant="-5" id="pp4-ON-crw"/>
+                            <constraint firstAttribute="centerY" secondItem="1Xf-JK-pAs" secondAttribute="centerY" multiplier="1.4" id="rO0-wm-JSW"/>
+                            <constraint firstItem="sBY-5d-CdL" firstAttribute="top" secondItem="h6S-vi-udr" secondAttribute="bottom" constant="8" id="rgu-xW-JOJ"/>
+                            <constraint firstItem="NBj-Do-iEV" firstAttribute="centerX" secondItem="bwl-tV-jzW" secondAttribute="centerX" id="ry3-Uw-sF6"/>
+                            <constraint firstItem="NBj-Do-iEV" firstAttribute="baseline" secondItem="4HL-aw-aMf" secondAttribute="baseline" id="tBh-q8-Scz"/>
+                            <constraint firstItem="0ND-1X-W3K" firstAttribute="centerX" secondItem="bwl-tV-jzW" secondAttribute="centerX" constant="0.5" id="tzw-cz-KDN"/>
+                            <constraint firstItem="IKh-HU-LQ3" firstAttribute="top" secondItem="h6S-vi-udr" secondAttribute="bottom" constant="8" id="uIj-gh-Thd"/>
+                            <constraint firstItem="4AH-fH-1Mg" firstAttribute="leading" secondItem="h6S-vi-udr" secondAttribute="trailing" constant="4" id="v3D-9K-CVC"/>
+                            <constraint firstItem="sBY-5d-CdL" firstAttribute="centerX" secondItem="9ZC-Am-pOA" secondAttribute="centerX" constant="0.5" id="xpg-3b-Ycm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contact" id="ptQ-gI-vCf">
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="F6E-Se-xz0">
+                            <connections>
+                                <action selector="menuButton:" destination="hWt-Wg-mwB" id="ZTa-0T-XkS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="587" y="8444"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="BondMoysonLogo" width="650" height="650"/>
         <image name="DetailViewIcon" width="24" height="32"/>
         <image name="Logo" width="650" height="311"/>
         <image name="MenuIcon" width="32" height="32"/>
         <image name="PictureIcon" width="33" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wOB-9A-cAt"/>
+        <segue reference="WwG-2r-zwN"/>
         <segue reference="OVq-ed-ygA"/>
+        <segue reference="wOB-9A-cAt"/>
     </inferredMetricsTieBreakers>
 </document>

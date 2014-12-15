@@ -46,7 +46,7 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
     
     func filterContentForSearchText(searchText: String){
         self.filteredNews = self.news.filter({(newsItem: NewsItem) -> Bool in
-            let stringMatch = newsItem.title.rangeOfString(searchText)
+            let stringMatch = newsItem.title.lowercaseString.rangeOfString(searchText.lowercaseString)
             return (stringMatch != nil)
         })
     }

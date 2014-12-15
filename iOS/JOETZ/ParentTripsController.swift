@@ -46,8 +46,8 @@ class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate
     
     func filterContentForSearchText(searchText: String){
         self.filteredTrips = self.trips.filter({(trip: Trip) -> Bool in
-            let stringMatch = trip.title!.rangeOfString(searchText)
-            let locMatch = trip.location!.rangeOfString(searchText)
+            let stringMatch = trip.title!.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let locMatch = trip.location!.lowercaseString.rangeOfString(searchText.lowercaseString)
             return (stringMatch != nil || locMatch != nil)
         })
     }
