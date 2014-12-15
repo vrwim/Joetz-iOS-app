@@ -122,9 +122,11 @@ class JSON {
         
         let jsonData = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
         
+        debugPrint(jsonData)
+        
         let id = jsonData["_id"] as String
         let provider = jsonData["provider"] as String
-        let name = jsonData["name"] as String
+        let name = (jsonData["firstName"] as String? ?? "")  + " " + (jsonData["lastName"] as String? ?? "")
         let email = jsonData["email"] as String
         let role = jsonData["role"] as String
         
@@ -144,7 +146,6 @@ class JSON {
         for kvPair in dict {
             
             json += "\t\"\(kvPair.0)\": "
-            
             if let val = kvPair.1 as? String {
                 json += "\"\(val)\""
             } else if let val = kvPair.1 as? NSDate {
@@ -155,7 +156,7 @@ class JSON {
                 println("Nil or unknown type in parsing JSON: \(kvPair.1?.debugDescription), skipping")
             }
             
-            if kvPair.0 != lastKey {
+            if kvPair.0 != lastKey{
                 json+=",\n"
             }
         }

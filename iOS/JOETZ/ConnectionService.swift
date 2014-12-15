@@ -67,13 +67,13 @@ class ConnectionService {
         }
     }
     
-    func register(street: String, streetNumber: Int, bus: String, postalCode: String, city: String,
-        firstName: String, lastName: String,
-        gsm: String, phone: String, birthday: NSDate,
-        smn: String, ssn: String,
+    func register(street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?,
+        firstName: String?, lastName: String?,
+        gsm: String?, phone: String?, birthday: NSDate?,
+        smn: String?, ssn: String?,
         email: String, password: String, completionHandler: String -> Void) -> NSURLSessionTask {
             
-            var payloadDict: [String:AnyObject] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode": postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
+            var payloadDict: [String:AnyObject?] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode": postalCode, "city": city, "firstName": firstName, "lastName": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn, "email": email, "password": password]
             
             var payload = JSON.toJSON(payloadDict)
             
@@ -120,6 +120,8 @@ class ConnectionService {
                     dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
                         completionHandler(data)
                     }
+                } else {
+                    println(NSString(data: data, encoding: NSUTF8StringEncoding)!)
                 }
             }
         }

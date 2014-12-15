@@ -280,7 +280,13 @@
                             <outlet property="delegate" destination="vXx-5E-T34" id="7HT-J2-Oxd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Registreer" id="MHM-g8-nwy"/>
+                    <navigationItem key="navigationItem" title="Registreer" id="MHM-g8-nwy">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="1kE-xN-VlC">
+                            <connections>
+                                <action selector="OnClickDone:" destination="vXx-5E-T34" id="abM-UX-qRV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke7-Xr-urT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

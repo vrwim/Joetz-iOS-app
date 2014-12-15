@@ -91,10 +91,12 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
         row = FormRowDescriptor(tag: "email", rowType: .Email, title: "E-mail")
         sectionLogin.addRow(row)
         
-        row = FormRowDescriptor(tag: "password", rowType: .Password, title: "Wachtwoord")
+        // Currently using .Text, but should be .Password; this because of a bug in the framework we are using
+        // bugreport in https://github.com/ortuman/SwiftForms/issues/12
+        row = FormRowDescriptor(tag: "password", rowType: .Text, title: "Wachtwoord")
         sectionLogin.addRow(row)
         
-        row = FormRowDescriptor(tag: "password2", rowType: .Password, title: "Herhaal wachtwoord")
+        row = FormRowDescriptor(tag: "password2", rowType: .Text, title: "Herhaal wachtwoord")
         sectionLogin.addRow(row)
         
         form.sections = [sectionPersonalia, sectionAddress, sectionPhone, sectionNumbers, sectionLogin]
@@ -106,31 +108,72 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
         
         let fv = form.formValues() as [String:AnyObject]
         
-        // TODO check for nonoptionals & password
+        // nonoptionals
+        let email = fv["email"] as? String
+        let password = fv["password"] as? String
+        let password2 = fv["password2"] as? String
+        let firstName = fv["firstName"] as? String
+        let lastName = fv["lastName"] as? String
         
+        var error: [String] = []
         
-        let street = fv["street"] as String
-        let streetNumber = (fv["streetNumber"] as String).toInt()!
-        let bus = fv["bus"] as String
-        let postalCode = fv["postalCode"] as String
-        let city = fv["city"] as String
-        let firstName = fv["firstName"] as String
-        let lastName = fv["lastName"] as String
-        let gsm = fv["gsm"] as String
-        let phone = fv["phone"] as String
-        let birthday = fv["birthday"] as NSDate
-        let smn = fv["smn"] as String
-        let ssn = fv["ssn"] as String
-        let email = fv["email"] as String
-        let password = fv["password"] as String
+        if email == nil || email!.isEmpty {
+            error.append("Email is leeg")
+        }
+        if firstName == nil || firstName!.isEmpty {
+            error.append("Email is leeg")
+        }
+        if lastName == nil || lastName!.isEmpty {
+            error.append("Email is leeg")
+        }
+        if !validateEmail(email!) {
+            error.append("Email is niet geldig")
+        }
+        if password == nil || password!.isEmpty {
+            error.append("Wachtwoord is leeg")
+        }
+        if password2 == nil || password2!.isEmpty {
+            error.append("Herhaling wachtwoord is leeg")
+        }
+        if password != password2 {
+            error.append("Wachtwoorden komen niet overeen")
+        }
         
-        connectionService.register(street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn, email: email, password: password) {
-            token in
-            connectionService.getUserData(token) {
-                user in
-                // do something with user
+        if error.count == 0 {
+            
+            // optionals
+            let street = fv["street"] as? String
+            let streetNumber = (fv["streetNumber"] as? String)?.toInt()
+            let bus = fv["bus"] as? String
+            let postalCode = fv["postalCode"] as? String
+            let city = fv["city"] as? String
+            let gsm = fv["gsm"] as? String
+            let phone = fv["phone"] as? String
+            let birthday = fv["birthday"] as? NSDate
+            let smn = fv["smn"] as? String
+            let ssn = fv["ssn"] as? String
+            
+            connectionService.register(street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn, email: email!, password: password!) {
+                token in
+                connectionService.getUserData(token) {
+                    user in
+                    // do something with user
+                    }.resume()
                 }.resume()
-            }.resume()
+        } else {
+            showAlert("\n".join(error))
+        }
         
+    }
+    
+    func showAlert(message: String) {
+        var alert = UIAlertController(title: "Oeps", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func validateEmail(candidate: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex)!.evaluateWithObject(candidate)
     }
 }
