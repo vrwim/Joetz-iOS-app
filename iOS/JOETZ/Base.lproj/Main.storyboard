@@ -281,7 +281,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Registreer" id="MHM-g8-nwy">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1kE-xN-VlC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="1kE-xN-VlC">
                             <connections>
                                 <action selector="OnClickDone:" destination="vXx-5E-T34" id="abM-UX-qRV"/>
                             </connections>
@@ -1647,7 +1647,13 @@
                             <outlet property="delegate" destination="6cQ-f4-tbN" id="X2w-Lk-VNa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Monitoren" id="uAg-KU-99f"/>
+                    <navigationItem key="navigationItem" title="Monitoren" id="uAg-KU-99f">
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="xEb-c2-xg1">
+                            <connections>
+                                <action selector="onClickMenuButton:" destination="6cQ-f4-tbN" id="cmB-Qv-MXe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6k-Vc-gjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
