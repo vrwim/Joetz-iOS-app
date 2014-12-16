@@ -106,12 +106,11 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
         row = FormRowDescriptor(tag: "email", rowType: .Email, title: "E-mail")
         sectionLogin.addRow(row)
         
-        // Currently using .Text, but should be .Password; this because of a bug in the framework we are using
-        // bugreport in https://github.com/ortuman/SwiftForms/issues/12
-        row = FormRowDescriptor(tag: "password", rowType: .Text, title: "Wachtwoord")
+        // bugreport in https://github.com/ortuman/SwiftForms/issues/12 --> fixed!
+        row = FormRowDescriptor(tag: "password", rowType: .Password, title: "Wachtwoord")
         sectionLogin.addRow(row)
         
-        row = FormRowDescriptor(tag: "password2", rowType: .Text, title: "Herhaal wachtwoord")
+        row = FormRowDescriptor(tag: "password2", rowType: .Password, title: "Herhaal wachtwoord")
         sectionLogin.addRow(row)
         
         form.sections = [sectionPersonalia, sectionAddress, sectionPhone, sectionNumbers, sectionLogin]

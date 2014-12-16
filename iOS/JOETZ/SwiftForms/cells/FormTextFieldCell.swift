@@ -57,7 +57,7 @@ class FormTextFieldCell: FormBaseCell {
         textField.text = rowDescriptor.value as? String
         textField.placeholder = rowDescriptor.placeholder
     
-        textField.secureTextEntry = false
+        // textField.secureTextEntry = false // commented to fix bug
         textField.clearButtonMode = .WhileEditing
         
         switch rowDescriptor.rowType {
