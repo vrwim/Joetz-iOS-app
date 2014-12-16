@@ -102,6 +102,21 @@ class ConnectionService {
         }
     }
     
+    func changeAccountDetails(id: String, token: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?,
+        firstName: String?, lastName: String?,
+        gsm: String?, phone: String?, birthday: NSDate?,
+        smn: String?, ssn: String?, completionHandler: String -> Void) -> NSURLSessionTask{
+        
+            var payloadDict: [String:AnyObject?] = ["street": street, "streetNumber": streetNumber, "bus": bus, "postalCode": postalCode, "city": city, "firstname": firstName, "lastname": lastName, "gsm": gsm, "phone": phone, "birthday": birthday, "socialMutualityNumber": smn, "socialSecurityNumber": ssn]
+            
+            var payload = JSON.toJSON(payloadDict)
+            
+            return request("PUT", appendage: "api/users/\(id)", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
+                data in
+                completionHandler(token)
+            }
+    }
+    
     private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: (NSData! -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection

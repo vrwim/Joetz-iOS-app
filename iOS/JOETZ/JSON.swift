@@ -156,6 +156,18 @@ class JSON {
         let name = (jsonData["firstname"] as String? ?? "")  + " " + (jsonData["lastname"] as String? ?? "")
         let email = jsonData["email"] as String
         let role = jsonData["role"] as String
+        var birthday = jsonData["birthday"] as String?
+        let bus = jsonData["bus"] as String?
+        let city = jsonData["city"] as String?
+        let firstname = jsonData["firstname"] as String?
+        let lastname = jsonData["lastname"] as String?
+        let gsm = jsonData["gsm"] as String?
+        let phone = jsonData["phone"] as String?
+        let postalCode = jsonData["postalCode"] as String?
+        let socialMutualityNumber = jsonData["socialMutualityNumber"] as String?
+        let socialSecurityNumber = jsonData["socialSecurityNumber"] as String?
+        let street = jsonData["street"] as String?
+        let streetNumber = jsonData["streetNumber"] as Int?
         
         var children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)] = []
         var tripsHistory: [(childId: String, tripId: String)] = []
@@ -182,7 +194,11 @@ class JSON {
             }
         }
         
-        return User(id: id, provider: provider, name: name, email: email, role: role, token: token, children: children, tripsHistory: tripsHistory, reservations: reservations)
+        if let birthdayTmp = birthday {
+            birthday = isoDateParser(birthday!)
+        }
+        
+        return User(id: id, provider: provider, name: name, email: email, role: role, token: token, children: children, tripsHistory: tripsHistory, reservations: reservations, birthday: birthday, bus: bus, city: city, firstname: firstname, lastname: lastname, gsm: gsm, phone: phone, postalCode: postalCode, socialMutualityNumber: socialMutualityNumber, socialSecurityNumber: socialSecurityNumber, street: street, streetNumber: streetNumber)
     }
     
     /**

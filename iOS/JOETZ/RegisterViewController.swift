@@ -173,7 +173,12 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
                 token in
                 connectionService.getUserData(token) {
                     user in
-                    LocksmithLogin.save(user.name, provider: user.provider, role: user.role, token: user.token, userAccount: user.email, id: user.id)
+                    var streetNumber = ""
+                    if let streetNumberTmp = user.streetNumber {
+                        streetNumber = String(streetNumberTmp)
+                    }
+                    
+                    LocksmithLogin.save(user.name ?? "", provider: user.provider ?? "", role: user.role ?? "", token: user.token ?? "", userAccount: user.email, id: user.id, birthday: user.birthday ?? "", bus: user.bus ?? "", city: user.city ?? "", firstname: user.firstname ?? "", lastname: user.lastname ?? "", gsm: user.gsm ?? "", phone: user.phone ?? "", postalCode: user.postalCode ?? "", socialMutualityNumber: user.socialMutualityNumber ?? "", socialSecurityNumber: user.socialSecurityNumber ?? "", street: user.street ?? "", streetNumber: streetNumber)
                     LocksmithLogin.changeLoggedInUser(user.email)
                     
                     let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ParentTripsSplitVC") as UIViewController
@@ -187,7 +192,7 @@ class RegisterViewController: FormViewController, FormViewControllerDelegate {
     }
     
     func showAlert(message: String) {
-        var alert = UIAlertController(title: "Oeps", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        var alert = UIAlertController(title: "Foute ingave", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
