@@ -92,4 +92,16 @@ class UserService {
         
         return storyboardId
     }
+    
+    class func changeViewType(viewType: String) {
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        let ent = NSEntityDescription.entityForName("GlobalSettings", inManagedObjectContext: context)
+        
+        var globalSettings = GlobalSettings(entity: ent!, insertIntoManagedObjectContext: context)
+        globalSettings.viewType = viewType//"parentView"
+        
+        context.save(nil)
+    }
 }
