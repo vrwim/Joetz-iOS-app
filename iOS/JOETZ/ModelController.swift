@@ -26,9 +26,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     init(onDataLoaded: () -> Void) {
         trips = []
         super.init()
-        connectionService.createFetchTask ({
-            alert, data in
-            }){
+        connectionService.createFetchTask {
                 list in
                 self.trips = list
                 onDataLoaded()

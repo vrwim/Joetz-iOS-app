@@ -4,6 +4,10 @@
         <attribute name="loggedInUser" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Inclusive" syncable="YES"/>
+    <entity name="Logos" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="NewsItem" representedClassName="NewsItem" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,8 +15,45 @@
         <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Picture" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Price" syncable="YES">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Registration" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Trip" syncable="YES">
+        <attribute name="basicPrice" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beginDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="capacity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inclusives" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logos" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="maxAge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minAge" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="period" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictures" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="prices" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="promo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registration" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transport" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="GlobalSettings" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Inclusive" positionX="-36" positionY="153" width="128" height="45"/>
+        <element name="Logos" positionX="0" positionY="171" width="128" height="60"/>
         <element name="NewsItem" positionX="-63" positionY="0" width="128" height="120"/>
+        <element name="Picture" positionX="-54" positionY="135" width="128" height="58"/>
+        <element name="Price" positionX="-18" positionY="162" width="128" height="75"/>
+        <element name="Registration" positionX="18" positionY="180" width="128" height="60"/>
+        <element name="Trip" positionX="-63" positionY="27" width="128" height="328"/>
     </elements>
 </model>

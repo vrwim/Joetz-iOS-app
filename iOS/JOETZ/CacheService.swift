@@ -69,6 +69,77 @@ class CacheService {
         return normalData
     }
     
+    func updateTrips() -> [Trip] {
+        var tripsList:[Trip]?
+        let task = connectionService.createFetchTask {
+            trips in
+            if trips.count > 0{
+                self.clearCache("Trip")
+                self.cacheTrips(trips)
+                tripsList = trips
+            }
+        }
+        task.resume()
+        while(task.state == NSURLSessionTaskState.Running){
+            sleep(1)
+        }
+        if tripsList != nil {
+            return tripsList!
+        } else {
+            return normalizedTripsCache()
+        }
+    }
+    
+    private func cacheTrips(trips: [Trip]){
+        for trip in trips{
+            let entity =  NSEntityDescription.entityForName("Trip",
+                inManagedObjectContext:
+                managedContext)
+            
+            let trips = NSManagedObject(entity: entity!,
+                insertIntoManagedObjectContext:managedContext)
+            /*var test = trip.prices! as NSArray
+            var temp = NSMutableArray()
+            for item in trip.prices!{
+                temp.addObject(item[0] as NSString, item[1] as Float)
+            }*/
+            
+            trips.setValue(trip.id, forKey: "id")
+            trips.setValue(trip.title, forKey: "title")
+            trips.setValue(trip.basicPrice, forKey: "basicPrice")
+            trips.setValue(trip.capacity, forKey: "capacity")
+            trips.setValue(trip.destination, forKey: "destination")
+            trips.setValue(trip.beginDate, forKey: "beginDate")
+            trips.setValue(trip.endDate, forKey: "endDate")
+            trips.setValue(trip.location, forKey: "location")
+            trips.setValue(trip.minAge, forKey: "minAge")
+            trips.setValue(trip.maxAge, forKey: "maxAge")
+            trips.setValue(trip.period, forKey: "period")
+            trips.setValue(trip.promo, forKey: "promo")
+            trips.setValue(trip.remarks, forKey: "remarks")
+            trips.setValue(trip.transport, forKey: "transport")
+            trips.setValue(trip.inclusives! as [NSString] as NSArray, forKey: "inclusives")
+            trips.setValue(trip.logos! as [NSString] as NSArray, forKey: "logos")
+            trips.setValue(trip.pictures! as [NSString] as NSArray, forKey: "pictures")
+            trips.setValue(trip.registration! as [NSString] as NSArray, forKey: "registration")
+            //trips.setValue(trip.prices! as NSArray, forKey: "prices")
+            
+            var error: NSError?
+            if !managedContext.save(&error) {
+                println("Could not save \(error), \(error?.userInfo)")
+            }
+        }
+    }
+    
+    private func normalizedTripsCache() -> [Trip]{
+        var cache = getCache("Trip")
+        var normalData = [Trip]()
+        for item in cache{
+            //normalData.append(NewsItem(id: item.valueForKeyPath("id") as String, title: item.valueForKeyPath("title") as String, date: item.valueForKeyPath("date") as String, thumbnail: item.valueForKeyPath("thumbnail") as String, content: item.valueForKeyPath("content") as String))
+        }
+        return normalData
+    }
+    
     private func clearCache(type: String){
         var results = getCache(type)
         var error: NSError?
