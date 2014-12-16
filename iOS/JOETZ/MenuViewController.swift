@@ -86,7 +86,7 @@ class MenuViewController: UITableViewController
                     //Gewoon de lijst van reizen aanpassen, al de rest blijft hetzelfde
                     //("ContactNavVC", ("Contact", "ContactIcon")),
                     //("PlanningNavVC", ("Planning", "TBD")),
-                    ("MonitorsNavVC", ("Monitoren", "TBD")),
+                    ("MonitorsNavVC", ("Monitoren", "MonitorsIcon")),
                     ("AccountNavVC", ("Account", "AccountIcon")),
                     ("SettingsNavVC", ("Instellingen", "SettingsIcon")),
                     ("", ("", "")),

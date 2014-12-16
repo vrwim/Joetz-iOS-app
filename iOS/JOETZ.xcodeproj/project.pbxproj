@@ -276,6 +276,14 @@
 			name = Locksmith;
 			sourceTree = "<group>";
 		};
+		3DE391AF1A40320100FF7312 /* Monitors */ = {
+			isa = PBXGroup;
+			children = (
+				ABC787FC1A3FA10B000E84F8 /* MonitorViewController.swift */,
+			);
+			name = Monitors;
+			sourceTree = "<group>";
+		};
 		3DF675D21A20CBE600B8387A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,8 +326,8 @@
 				3DF675F21A20D95E00B8387A /* ParentTrip */,
 				3DF675F41A20D9A100B8387A /* ChildTrip */,
 				87853D051A252D1C00EA4DB9 /* News */,
+				3DE391AF1A40320100FF7312 /* Monitors */,
 				3DF675D21A20CBE600B8387A /* Menu */,
-				ABC787FC1A3FA10B000E84F8 /* MonitorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
