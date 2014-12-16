@@ -17,8 +17,8 @@ class ConnectionService {
         session = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
     }
     
-    func createFetchTask(onFail: ((UIAlertController, NSData?) -> Void)?, completionHandler: [Trip] -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/trips", values: nil, payload: nil, onFail: onFail) {
+    func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
+        return request("GET", appendage: "api/trips", values: nil, payload: nil, onFail: nil) {
             data in
             let trips = JSON.readTrips(data)
             completionHandler(trips)

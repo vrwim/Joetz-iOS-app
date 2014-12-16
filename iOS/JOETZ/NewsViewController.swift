@@ -16,6 +16,8 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
     var newsItemController: NewsItemViewController?
     
     override func viewDidLoad() {
+        news = cacheService.normalizedNewsCache()
+        tableView.reloadData()
         let queue = NSOperationQueue()
         queue.addOperationWithBlock(){
             self.news = cacheService.updateNews()

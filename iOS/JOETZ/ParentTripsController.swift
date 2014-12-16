@@ -18,12 +18,15 @@ class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        task = connectionService.createFetchTask{
-            trips in
-            self.trips = trips
-            self.tableView.reloadData()
+        trips = cacheService.normalizedTripsCache()
+        tableView.reloadData()
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock(){
+            self.trips = cacheService.updateTrips()
+            NSOperationQueue.mainQueue().addOperationWithBlock(){
+                self.tableView.reloadData()
+            }
         }
-        task!.resume()
         tableView.setContentOffset(CGPointMake(0,44), animated: true)
     }
     
@@ -93,13 +96,14 @@ class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate
     }
 
     @IBAction func refresh(sender: UIRefreshControl) {
-        let task = connectionService.createFetchTask{
-            trips in
-            self.trips = trips
-            self.tableView.reloadData()
-            sender.endRefreshing()
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock(){
+            self.trips = cacheService.updateTrips()
+            NSOperationQueue.mainQueue().addOperationWithBlock(){
+                self.tableView.reloadData()
+                sender.endRefreshing()
+            }
         }
-        task.resume()
     }
     
     @IBAction func menuButton(sender: UIBarButtonItem) {

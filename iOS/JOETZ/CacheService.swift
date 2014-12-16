@@ -28,9 +28,12 @@ class CacheService {
             }
         }
         task.resume()
-        while(task.state == NSURLSessionTaskState.Running){
+        var counter = 0
+        while(task.state == NSURLSessionTaskState.Running && counter < 20){
             sleep(1)
+            counter += 1
         }
+        task.cancel()
         if news != nil {
             return news!
         } else {
@@ -60,7 +63,7 @@ class CacheService {
         }
     }
     
-    private func normalizedNewsCache() -> [NewsItem]{
+    func normalizedNewsCache() -> [NewsItem]{
         var cache = getCache("NewsItem")
         var normalData = [NewsItem]()
         for item in cache{
@@ -80,9 +83,12 @@ class CacheService {
             }
         }
         task.resume()
-        while(task.state == NSURLSessionTaskState.Running){
+        var counter = 0
+        while(task.state == NSURLSessionTaskState.Running && counter < 20){
             sleep(1)
+            counter += 1
         }
+        task.cancel()
         if tripsList != nil {
             return tripsList!
         } else {
@@ -98,11 +104,6 @@ class CacheService {
             
             let trips = NSManagedObject(entity: entity!,
                 insertIntoManagedObjectContext:managedContext)
-            /*var test = trip.prices! as NSArray
-            var temp = NSMutableArray()
-            for item in trip.prices!{
-                temp.addObject(item[0] as NSString, item[1] as Float)
-            }*/
             
             trips.setValue(trip.id, forKey: "id")
             trips.setValue(trip.title, forKey: "title")
@@ -122,7 +123,14 @@ class CacheService {
             trips.setValue(trip.logos! as [NSString] as NSArray, forKey: "logos")
             trips.setValue(trip.pictures! as [NSString] as NSArray, forKey: "pictures")
             trips.setValue(trip.registration! as [NSString] as NSArray, forKey: "registration")
-            //trips.setValue(trip.prices! as NSArray, forKey: "prices")
+            var priceNames = NSMutableArray()
+            var priceValues = NSMutableArray()
+            for item in trip.prices! {
+                priceNames.addObject(item.0)
+                priceValues.addObject(item.1)
+            }
+            trips.setValue(priceNames, forKey: "priceNames")
+            trips.setValue(priceValues, forKey: "priceValues")
             
             var error: NSError?
             if !managedContext.save(&error) {
@@ -131,11 +139,37 @@ class CacheService {
         }
     }
     
-    private func normalizedTripsCache() -> [Trip]{
+    func normalizedTripsCache() -> [Trip]{
         var cache = getCache("Trip")
         var normalData = [Trip]()
         for item in cache{
-            //normalData.append(NewsItem(id: item.valueForKeyPath("id") as String, title: item.valueForKeyPath("title") as String, date: item.valueForKeyPath("date") as String, thumbnail: item.valueForKeyPath("thumbnail") as String, content: item.valueForKeyPath("content") as String))
+            var priceNames: [String] = item.valueForKey("priceNames") as [String]
+            var priceValues: [Float] = item.valueForKey("priceValues") as [Float]
+            var prices = [(String, Float)]()
+            for var i = 0; i < priceNames.count; i += 1 {
+                prices.append((priceNames[i] as String, priceValues[i] as Float))
+            }
+            var trip = Trip(id: item.valueForKey("id") as String,
+                basicPrice: item.valueForKey("basicPrice") as? Float,
+                capacity: item.valueForKey("capacity") as? Int,
+                destination: item.valueForKey("destination") as? String,
+                beginDate: item.valueForKey("beginDate") as? String,
+                endDate: item.valueForKey("endDate") as? String,
+                inclusives: item.valueForKey("inclusives") as? [String],
+                location: item.valueForKey("location") as? String,
+                logos: item.valueForKey("logos") as? [String],
+                minAge: item.valueForKey("minAge") as? Int,
+                maxAge: item.valueForKey("maxAge") as? Int,
+                period: item.valueForKey("period") as? String,
+                pictures: item.valueForKey("pictures") as? [String],
+                prices: prices,
+                promo: item.valueForKey("promo") as? String,
+                registration: item.valueForKey("registration") as? [String],
+                remarks: item.valueForKey("remarks") as? String,
+                title: item.valueForKey("title") as? String,
+                transport: item.valueForKey("transport") as? String
+            )
+            normalData.append(trip)
         }
         return normalData
     }
