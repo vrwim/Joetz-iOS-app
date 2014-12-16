@@ -47,6 +47,10 @@ class GooglePlaces {
     class func parseFromData(data : NSData) -> [MKPlacemark] {
         var pms = [MKPlacemark]()
         
+        if data.description == "<>"{
+            return pms
+        }
+        
         var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         
         var results = json["results"] as? Array<NSDictionary>

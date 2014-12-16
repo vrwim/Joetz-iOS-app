@@ -24,7 +24,7 @@ class MapCell: UITableViewCell {
                     geocoder.geocodeAddressString(self.locationString.componentsSeparatedByString(", ")[1]) {
                         placemarks, error in
                         if error != nil {
-                            println("Error: \(error)")
+                            println("Error: \(error) (Probably no internet)")
                         } else if let placemark = placemarks?[0] as? CLPlacemark {
                             self.setMap(placemark)
                         }
