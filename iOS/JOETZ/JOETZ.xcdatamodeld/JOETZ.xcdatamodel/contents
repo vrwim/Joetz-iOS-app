@@ -4,7 +4,15 @@
         <attribute name="loggedInUser" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="NewsItem" representedClassName="NewsItem" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="GlobalSettings" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="NewsItem" positionX="-63" positionY="0" width="128" height="120"/>
     </elements>
 </model>

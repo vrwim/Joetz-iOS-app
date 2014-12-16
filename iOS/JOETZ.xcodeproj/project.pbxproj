@@ -63,6 +63,7 @@
 		879136E11A22AEA00074892A /* GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879136E01A22AEA00074892A /* GooglePlaces.swift */; };
 		8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */; };
 		87E3EDBC1A3F427C008FB274 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E3EDBB1A3F427C008FB274 /* ContactViewController.swift */; };
+		87E3EDBE1A3FB285008FB274 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E3EDBD1A3FB285008FB274 /* CacheService.swift */; };
 		AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */; };
 		AB138EE519F51B74007DB692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE419F51B74007DB692 /* AppDelegate.swift */; };
 		AB138EE719F51B74007DB692 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB138EE619F51B74007DB692 /* StartViewController.swift */; };
@@ -160,6 +161,7 @@
 		879136E01A22AEA00074892A /* GooglePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaces.swift; sourceTree = "<group>"; };
 		8798D7D31A2284CC0085C06F /* JOETZ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JOETZ.xcdatamodel; sourceTree = "<group>"; };
 		87E3EDBB1A3F427C008FB274 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		87E3EDBD1A3FB285008FB274 /* CacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		AB0BB5D61A0D563500CB9F6F /* ParentTripCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTripCell.swift; sourceTree = "<group>"; };
 		AB138EDF19F51B74007DB692 /* JOETZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JOETZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB138EE319F51B74007DB692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				ABE776E91A05241C0063AEDB /* JSON.swift */,
 				879136E01A22AEA00074892A /* GooglePlaces.swift */,
 				3DBDB89B1A3F84070003C71F /* UserService.swift */,
+				87E3EDBD1A3FB285008FB274 /* CacheService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */,
 				3D16EC591A3EE4F2004C008D /* FormSegmentedControlCell.swift in Sources */,
 				8798D7D41A2284CC0085C06F /* JOETZ.xcdatamodeld in Sources */,
+				87E3EDBE1A3FB285008FB274 /* CacheService.swift in Sources */,
 				3D182AB61A0A7BD000E3E59F /* ParentTripsController.swift in Sources */,
 				3DF675E71A20CC3D00B8387A /* ECSlidingSegue.m in Sources */,
 				AB384AF31A12C3AC005C597A /* ChildTripViewController.swift in Sources */,

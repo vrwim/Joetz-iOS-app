@@ -12,18 +12,17 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
     
     var news = [NewsItem]()
     var filteredNews = [NewsItem]()
-    var task: NSURLSessionTask?
     var sidebar: UIPopoverController?
     var newsItemController: NewsItemViewController?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        task = connectionService.createNewsFetchTask {
-            newsItems in
-            self.news = newsItems
-            self.tableView.reloadData()
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock(){
+            self.news = cacheService.updateNews()
+            NSOperationQueue.mainQueue().addOperationWithBlock(){
+                self.tableView.reloadData()
+            }
         }
-        task!.resume()
         tableView.setContentOffset(CGPointMake(0,44), animated: true)
     }
     
@@ -92,13 +91,14 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
     }
     
     @IBAction func refresh(sender: UIRefreshControl) {
-        let task = connectionService.createNewsFetchTask {
-            newsItems in
-            self.news = newsItems
-            self.tableView.reloadData()
-            sender.endRefreshing()
+        let queue = NSOperationQueue()
+        queue.addOperationWithBlock(){
+            self.news = cacheService.updateNews()
+            NSOperationQueue.mainQueue().addOperationWithBlock(){
+                self.tableView.reloadData()
+                sender.endRefreshing()
+            }
         }
-        task.resume()
     }
     
     @IBAction func menuButton(sender: UIBarButtonItem) {

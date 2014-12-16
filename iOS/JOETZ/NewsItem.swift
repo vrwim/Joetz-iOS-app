@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Groep 3D07. All rights reserved.
 //
 
-class NewsItem {
+class NewsItem{
     
     let id: String
     let title: String
