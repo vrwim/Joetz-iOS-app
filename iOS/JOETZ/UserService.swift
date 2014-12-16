@@ -22,7 +22,6 @@ class UserService {
             if fetchResults.count > 0
             {
                 globalSettings = fetchResults[0]
-                println(globalSettings)
                 if let globalSettingsTmp = globalSettings {
                     
                     if let userEmailTmp = globalSettingsTmp.loggedInUser as String? {

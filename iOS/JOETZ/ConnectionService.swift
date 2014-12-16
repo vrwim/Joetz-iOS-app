@@ -89,7 +89,12 @@ class ConnectionService {
         
         var payload = JSON.toJSON(payloadDict)
         
-        return request("PUT", appendage: "api/users/\(id)/password", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
+        return request("PUT", appendage: "api/users/\(id)/password", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: {
+            data in
+                println("Fail")
+                
+            
+            }) {
                 data in
             }
     }
@@ -143,6 +148,7 @@ class ConnectionService {
             data, response, error in
             if error != nil {
                 println("\tRequest failed: \(error!)")
+                onFail?(data)
             } else {
                 let response = response as NSHTTPURLResponse
                 println("\tRequest succeeded: \(response.statusCode)")

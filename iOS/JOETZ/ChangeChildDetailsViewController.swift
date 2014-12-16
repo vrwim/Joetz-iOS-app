@@ -77,6 +77,13 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
     }
     
     @IBAction func saveChildDetails(sender: UIBarButtonItem) {
+        if !Reachability.isConnectedToNetwork() {
+            let noInternetAlert = Reachability.giveNoInternetAlert()
+            presentViewController(noInternetAlert, animated: true, completion: nil)
+        }
+        else {
+            
+        }
     }
     
     

@@ -149,60 +149,70 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
     
     @IBAction func saveAccountDetails(sender: UIBarButtonItem) {
         
-        let fv = form.formValues() as [String:AnyObject]
-        
-        // nonoptionals
-        let firstName = fv["firstName"] as? String
-        let lastName = fv["lastName"] as? String
-        
-        var error: [String] = []
-        
-        if firstName == nil || firstName!.isEmpty {
-            error.append("Voornaam is leeg")
+        if !Reachability.isConnectedToNetwork() {
+            let noInternetAlert = Reachability.giveNoInternetAlert()
+            presentViewController(noInternetAlert, animated: true, completion: nil)
         }
-        if lastName == nil || lastName!.isEmpty {
-            error.append("Familienaam is leeg")
-        }
+        else{
+            let fv = form.formValues() as [String:AnyObject]
         
-        if error.count == 0 {
+            // nonoptionals
+            let firstName = fv["firstName"] as? String
+            let lastName = fv["lastName"] as? String
+        
+            var error: [String] = []
+        
+            if firstName == nil || firstName!.isEmpty {
+                error.append("Voornaam is leeg")
+            }
+            if lastName == nil || lastName!.isEmpty {
+                error.append("Familienaam is leeg")
+            }
+        
+            if error.count == 0 {
             
-            // optionals
-            let street = fv["street"] as? String
-            let streetNumber = (fv["streetNumber"] as? String)?.toInt()
-            let bus = fv["bus"] as? String
-            let postalCode = fv["postalCode"] as? String
-            let city = fv["city"] as? String
-            let gsm = fv["gsm"] as? String
-            let phone = fv["phone"] as? String
-            let birthday = fv["birthday"] as? NSDate
-            let smn = fv["smn"] as? String
-            let ssn = fv["ssn"] as? String
-            let role = fv["role"] as? String
-            let user = UserService.getDetailsLoggedInUser()
-            let id = user["id"]
-            let token = user["token"]
+                // optionals
+                let street = fv["street"] as? String
+                let streetNumber = (fv["streetNumber"] as? String)?.toInt()
+                let bus = fv["bus"] as? String
+                let postalCode = fv["postalCode"] as? String
+                let city = fv["city"] as? String
+                let gsm = fv["gsm"] as? String
+                let phone = fv["phone"] as? String
+                let birthday = fv["birthday"] as? NSDate
+                let smn = fv["smn"] as? String
+                let ssn = fv["ssn"] as? String
+                let role = fv["role"] as? String
+                let user = UserService.getDetailsLoggedInUser()
+                let id = user["id"]
+                let token = user["token"]
             
-            connectionService.changeAccountDetails(id!, token: token!, street: street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn) {
-                token in
-                println("in eerste closure")
-                connectionService.getUserData(token) {
-                    user in
-                    var streetNumber = ""
-                    if let streetNumberTmp = user.streetNumber {
-                        streetNumber = String(streetNumberTmp)
+                connectionService.changeAccountDetails(id!, token: token!, street: street, streetNumber: streetNumber, bus: bus, postalCode: postalCode, city: city, firstName: firstName, lastName: lastName, gsm: gsm, phone: phone, birthday: birthday, smn: smn, ssn: ssn /*, onFail: {
+                    data in
+                    if data == nil {
+                        // alrt(geen intrnet)
+                    } else {
+                        // switch op foutcode;
                     }
-                    println("in tweede closure")
-                    LocksmithLogin.save(user.name ?? "", provider: user.provider ?? "", role: user.role ?? "", token: user.token ?? "", userAccount: user.email, id: user.id, birthday: user.birthday ?? "", bus: user.bus ?? "", city: user.city ?? "", firstname: user.firstname ?? "", lastname: user.lastname ?? "", gsm: user.gsm ?? "", phone: user.phone ?? "", postalCode: user.postalCode ?? "", socialMutualityNumber: user.socialMutualityNumber ?? "", socialSecurityNumber: user.socialSecurityNumber ?? "", street: user.street ?? "", streetNumber: streetNumber)
-                    LocksmithLogin.changeLoggedInUser(user.email)
+                    }*/) {
+                        token in
+                        connectionService.getUserData(token) {
+                            user in
+                            var streetNumber = ""
+                            if let streetNumberTmp = user.streetNumber {
+                                streetNumber = String(streetNumberTmp)
+                            }
+                            LocksmithLogin.save(user.name ?? "", provider: user.provider ?? "", role: user.role ?? "", token: user.token ?? "", userAccount: user.email, id: user.id, birthday: user.birthday ?? "", bus: user.bus ?? "", city: user.city ?? "", firstname: user.firstname ?? "", lastname: user.lastname ?? "", gsm: user.gsm ?? "", phone: user.phone ?? "", postalCode: user.postalCode ?? "", socialMutualityNumber: user.socialMutualityNumber ?? "", socialSecurityNumber: user.socialSecurityNumber ?? "", street: user.street ?? "", streetNumber: streetNumber)
+                            LocksmithLogin.changeLoggedInUser(user.email)
                     
-                    let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AccountNavVC") as UIViewController
-                    self.slidingViewController().topViewController = newTopViewController
+                            let newTopViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AccountNavVC") as UIViewController
+                            self.slidingViewController().topViewController = newTopViewController
+                            }.resume()
                     }.resume()
-                }.resume()
-        } else {
-            showAlert("\n".join(error))
+            } else {
+                showAlert("\n".join(error))
+            }
         }
-        
     }
     
     func showAlert(message: String) {

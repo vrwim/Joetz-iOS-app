@@ -65,7 +65,6 @@ class MenuViewController: UITableViewController
             self.loggedInUser = true
             let userDetails = UserService.getDetailsLoggedInUser()
             let userRole = userDetails["role"]
-            println(userRole)
             if userRole == "user" || userRole == "" || userRole == "admin" {
                 menuItems = [
                     ("NewsSplitVC", ("Joetz Nieuws", "NewsIcon")),
@@ -217,8 +216,8 @@ class MenuViewController: UITableViewController
         var sectionName = ""
         switch section
         {
-        case 0: sectionName = "Instellingen"
-        default: sectionName = "InstellingenDefault"
+        case 0: sectionName = "Menu"
+        default: sectionName = "Menu"
             
         }
         return sectionName

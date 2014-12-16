@@ -10,5 +10,11 @@ import UIKit
 
 class ChildrenFromParentViewController: MenuSetupUITableViewController
 {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if !Reachability.isConnectedToNetwork() {
+            let noInternetAlert = Reachability.giveNoInternetAlert()
+            presentViewController(noInternetAlert, animated: true, completion: nil)
+        }
+    }
 }

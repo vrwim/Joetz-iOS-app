@@ -31,7 +31,7 @@
         <scene sceneID="d1O-ut-MUi">
             <objects>
                 <tableViewController storyboardIdentifier="MenuVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ij7-sq-Wv4" customClass="MenuViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mfb-vP-22W">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mfb-vP-22W">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1686,8 +1686,8 @@
         <image name="PictureIcon" width="33" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ENg-d4-jcR"/>
         <segue reference="WwG-2r-zwN"/>
-        <segue reference="OVq-ed-ygA"/>
         <segue reference="wOB-9A-cAt"/>
     </inferredMetricsTieBreakers>
 </document>

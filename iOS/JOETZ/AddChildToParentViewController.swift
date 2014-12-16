@@ -77,6 +77,13 @@ class AddChildToParentViewController: FormViewController, FormViewControllerDele
     }
     
     @IBAction func saveChild(sender: UIBarButtonItem) {
+        if !Reachability.isConnectedToNetwork() {
+            let noInternetAlert = Reachability.giveNoInternetAlert()
+            presentViewController(noInternetAlert, animated: true, completion: nil)
+        }
+        else {
+            
+        }
     }
     
     

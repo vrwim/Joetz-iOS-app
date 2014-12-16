@@ -64,7 +64,6 @@ class MenuSetupUITableViewController: UITableViewController
         
         //will probably be removed but just in case leaving it here for now
         /*if self.splitViewController != nil {
-            println("Trying to hide the masterview")
             self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryHidden
             self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
             //let svc = self.splitViewController as ParentSplitViewController

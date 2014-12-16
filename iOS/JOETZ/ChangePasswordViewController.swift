@@ -77,33 +77,48 @@ class ChangePasswordViewController: FormViewController, FormViewControllerDelega
     
     @IBAction func savePassword(sender: UIBarButtonItem) {
         
-        let fv = form.formValues() as [String:AnyObject]
-        
-        println(fv.debugDescription)
-        
-        for pair in fv {
-            print(pair.0 + "\t")
-            println(pair.1.debugDescription)
-        }
-
-        let oldPass = fv["oldPass"] as String
-        let newPass = fv["newPass"] as String
-        let newPass2 = fv["newPass2"] as String
-        
-        if newPass != newPass2 {
-            let alert = UIAlertController(title: "Ongeldig wachtwoord", message: "De wachtwoorden komen niet overeen.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            presentViewController(alert, animated: true, completion: nil)
+        if !Reachability.isConnectedToNetwork() {
+            let noInternetAlert = Reachability.giveNoInternetAlert()
+            presentViewController(noInternetAlert, animated: true, completion: nil)
         }
         else {
-        
-            let userDetails = UserService.getDetailsLoggedInUser()
-            let id = userDetails["id"]
-            let email = UserService.getEmailLoggedInUser()
-            let token = userDetails["token"]
+            let fv = form.formValues() as [String:AnyObject]
             
-            connectionService.changePassword(id!, email: email, oldPassword: oldPass, newPassword: newPass, token: token!).resume()
+            let oldPass = fv["oldPass"] as? String
+            let newPass = fv["newPass"] as? String
+            let newPass2 = fv["newPass2"] as? String
+        
+            var error: [String] = []
+            
+            if oldPass == nil || oldPass!.isEmpty {
+                error.append("Huidig wachtwoord is leeg")
+            }
+            if newPass == nil || newPass!.isEmpty {
+                error.append("Nieuw wachtwoord is leeg")
+            }
+            if newPass2 == nil || newPass2!.isEmpty {
+                error.append("Herhaling wachtwoord is leeg")
+            }
+            if newPass != newPass2 {
+                error.append("Wachtwoorden komen niet overeen")
+            }
+            
+            if error.count != 0 {
+                let alert = UIAlertController(title: "Ongeldig ingave", message: "\n".join(error), preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+            else {
+        
+                let userDetails = UserService.getDetailsLoggedInUser()
+                let id = userDetails["id"]
+                let email = UserService.getEmailLoggedInUser()
+                let token = userDetails["token"]
+            
+                connectionService.changePassword(id!, email: email, oldPassword: oldPass!, newPassword: newPass!, token: token!).resume()
+            }
         }
+        
         
     }
     
