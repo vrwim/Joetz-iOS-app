@@ -17,16 +17,16 @@ class ConnectionService {
         session = NSURLSession(configuration: NSURLSessionConfiguration.ephemeralSessionConfiguration())
     }
     
-    func createFetchTask(#completionHandler: [Trip] -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "api/trips", values: nil, payload: nil, onFail: nil) {
+    func createFetchTask(onFail: ((UIAlertController, NSData?) -> Void)?, completionHandler: [Trip] -> Void) -> NSURLSessionTask {
+        return request("GET", appendage: "api/trips", values: nil, payload: nil, onFail: onFail) {
             data in
             let trips = JSON.readTrips(data)
             completionHandler(trips)
         }
     }
     
-    func createFetchTask(imagePath: String, completionHandler: UIImage -> Void) -> NSURLSessionTask {
-        return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil, onFail: nil) {
+    func createFetchTask(imagePath: String, onFail: ((UIAlertController?, NSData?) -> Void)?, completionHandler: UIImage -> Void) -> NSURLSessionTask {
+        return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil, onFail: onFail) {
             data in
             let image = UIImage(data: data)
             completionHandler(image!)
@@ -122,7 +122,7 @@ class ConnectionService {
             }
     }
     
-    private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: (NSData! -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
+    private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: ((UIAlertController, NSData?) -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection
         let url = baseUrl.URLByAppendingPathComponent(appendage)
@@ -148,7 +148,7 @@ class ConnectionService {
             data, response, error in
             if error != nil {
                 println("\tRequest failed: \(error!)")
-                onFail?(data)
+                onFail?(self.createAlert("Netwerkfout", message: "Er kan geen verbinding gemaakt worden met de server."), nil)
             } else {
                 let response = response as NSHTTPURLResponse
                 println("\tRequest succeeded: \(response.statusCode)")
@@ -158,10 +158,26 @@ class ConnectionService {
                         completionHandler(data)
                     }
                 } else {
-                    onFail?(data)
+                    var alert: UIAlertController
+                    switch response.statusCode {
+                    case 401:
+                        alert = self.createAlert("Niet geautoriseerd", message: "U bent niet toegelaten om deze pagina te bekijken")
+                    case 404:
+                        alert = self.createAlert("Niet gevonden", message: "De app kan de gevraagde pagina niet ophalen")
+                    default:
+                        alert = self.createAlert("Fout", message: "Er is iets misgelopen op de server.")
+                    }
+                    onFail?(alert, data)
                 }
             }
         }
+    }
+    
+    private func createAlert(title: String, message: String) -> UIAlertController{
+        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        
+        return alert
     }
 }
 

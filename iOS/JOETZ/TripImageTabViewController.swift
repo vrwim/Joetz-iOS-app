@@ -12,7 +12,8 @@ class TripImageTabViewController: MenuSetupUITableViewController
 {
     
     var trip: Trip!
-    var images: [String : UIImage] = [:]
+    var images: [String : AnyObject] = [:]
+    let loadingImagePlaceholder = "Loading image..."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,15 @@ class TripImageTabViewController: MenuSetupUITableViewController
         if trip != nil {
             self.parentViewController?.navigationItem.title = trip.title
             for imagePath in trip.pictures! {
-                connectionService.createFetchTask(imagePath) {
-                    image in
-                    self.images[imagePath] = image
+                connectionService.createFetchTask(imagePath, {
+                    alert, data in
+                    self.presentViewController(alert!, animated: true, completion: nil)
+                    self.images[imagePath] = "Netwerkfout"
                     self.tableView.reloadData()
+                    }) {
+                        image in
+                        self.images[imagePath] = image
+                        self.tableView.reloadData()
                     }.resume()
             }
         }
@@ -75,31 +81,45 @@ class TripImageTabViewController: MenuSetupUITableViewController
             // images
             var cell: UITableViewCell
             
-            if images[trip.pictures![indexPath.row]] == nil {
-                cell = tableView.dequeueReusableCellWithIdentifier("imageLoadingCell") as UITableViewCell
-                
-                cell.textLabel!.text = "Loading image..."
-            }
-            else {
+            if let image = images[trip.pictures![indexPath.row]] as? UIImage {
                 cell = tableView.dequeueReusableCellWithIdentifier("imageCell") as ImageCell
                 
-                (cell as ImageCell).pictureView.image = images[trip.pictures![indexPath.row]]
+                (cell as ImageCell).pictureView.image = image
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("imageLoadingCell") as UITableViewCell
+                
+                cell.textLabel!.text = images[trip.pictures![indexPath.row]] as? String ?? loadingImagePlaceholder
             }
             return cell
         default:
             println("Error: Asking for content of cell \(indexPath.row) in section \(indexPath.section)")
             return super.tableView(tableView,cellForRowAtIndexPath: indexPath)
         }
-        
-        
+    }
+    
+    @IBAction func refresh(sender: UIRefreshControl) {
+        self.parentViewController?.navigationItem.title = trip.title
+        for imagePath in trip.pictures! {
+            connectionService.createFetchTask(imagePath, {
+                alert, data in
+                self.presentViewController(alert!, animated: true, completion: nil)
+                self.images[imagePath] = "Netwerkfout"
+                self.tableView.reloadData()
+                sender.endRefreshing()
+                }) {
+                    image in
+                    self.images[imagePath] = image
+                    self.tableView.reloadData()
+                    sender.endRefreshing()
+                }.resume()
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            var image = images[trip.pictures![indexPath.row]]
             
-            if image != nil {
+            if let image = images[trip.pictures![indexPath.row]] as? UIImage {
                 var screenRect = UIScreen.mainScreen().bounds
                 var screenWidth: CGFloat
                 if (UIDevice.currentDevice().model as NSString).containsString("iPad") && UIApplication.sharedApplication().statusBarOrientation.isLandscape {
@@ -108,8 +128,8 @@ class TripImageTabViewController: MenuSetupUITableViewController
                     screenWidth = screenRect.size.width
                 }
                 
-                var imageHeight = image!.size.height
-                var imageWidth = image!.size.width
+                var imageHeight = image.size.height
+                var imageWidth = image.size.width
                 
                 return imageHeight/(imageWidth/screenWidth)
             }

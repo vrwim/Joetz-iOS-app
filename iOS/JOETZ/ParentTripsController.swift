@@ -18,7 +18,10 @@ class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        task = connectionService.createFetchTask {
+        task = connectionService.createFetchTask({
+            alert, data in
+            self.presentViewController(alert, animated: true, completion: nil)
+            }) {
             trips in
             self.trips = trips
             self.tableView.reloadData()
@@ -93,7 +96,11 @@ class ParentTripsController: MenuSetupUITableViewController, UISearchBarDelegate
     }
 
     @IBAction func refresh(sender: UIRefreshControl) {
-        let task = connectionService.createFetchTask {
+        let task = connectionService.createFetchTask({
+            alert, data in
+            self.presentViewController(alert, animated: true, completion: nil)
+            sender.endRefreshing()
+            }) {
             trips in
             self.trips = trips
             self.tableView.reloadData()

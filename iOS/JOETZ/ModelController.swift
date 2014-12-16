@@ -26,12 +26,13 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     init(onDataLoaded: () -> Void) {
         trips = []
         super.init()
-        var task = connectionService.createFetchTask {
-            list in
-            self.trips = list
-            onDataLoaded()
-        }
-        task.resume()
+        connectionService.createFetchTask ({
+            alert, data in
+            }){
+                list in
+                self.trips = list
+                onDataLoaded()
+        }.resume()
         // Create the data model.
     }
     

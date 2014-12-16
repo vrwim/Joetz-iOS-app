@@ -21,7 +21,7 @@ class NewsCell: UITableViewCell {
         titleLabel.text = newsItem.title
         dateLabel.text = newsItem.date
         
-        connectionService.createFetchTask(newsItem.thumbnail) {
+        connectionService.createFetchTask(newsItem.thumbnail, onFail: nil) {
             image in
             self.thumbnail.image = image
             }.resume()
