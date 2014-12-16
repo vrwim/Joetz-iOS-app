@@ -202,6 +202,23 @@ class JSON {
     }
     
     /**
+    * Returns a JSON String containing all data in this dictionary.
+    * Skips entries with nil as value
+    * Can only parse Int, String and NSDate, skips others.
+    * Parameters:
+    * dict: the dictionary containing all the data
+    */
+    class func toJSON(dict: NSDictionary!) -> String {
+        var elements: [String:AnyObject?] = [:]
+        
+        for kvPair in dict {
+            elements[kvPair.0 as String] = kvPair.1
+        }
+        
+        return toJSON(elements)
+    }
+    
+    /**
      * Returns a JSON String containing all data in this dictionary.
      * Skips entries with nil as value
      * Can only parse Int, String and NSDate, skips others.
@@ -209,16 +226,25 @@ class JSON {
      * dict: the dictionary containing all the data
      */
     class func toJSON(dict: [String: AnyObject?]) -> String {
-        
         var elements: [String] = []
         
         for kvPair in dict {
-            if let value: AnyObject = kvPair.1 {
+            if let value = kvPair.1 {
                 elements.append("\"" + kvPair.0 + "\":" + format(value))
             }
         }
         
         return "{" + ", ".join(elements) + "}"
+    }
+    
+    class func toJSON(array: NSArray) -> String {
+        var elements: [String] = []
+        
+        for element in array {
+            elements.append(format(element))
+        }
+        
+        return "[" + ", ".join(elements) + "]"
     }
     
     /**
@@ -236,10 +262,15 @@ class JSON {
             return "\"\(val)\""
         } else if let val = input as? NSDate {
             return "\"\(dateFormatter.stringFromDate(val))\""
+        } else if let val = input as? NSDictionary {
+            return toJSON(val)
+        } else if let val = input as? NSArray {
+            return toJSON(val)
         } else if let val = input as? Int {
             return "\(val)"
         } else {
-            println("Nil or unknown type in parsing JSON: \(input.debugDescription), skipping")
+            println("Nil or unknown type in parsing JSON, skipping: ")
+            debugPrint(input)
             return "\"\""
         }
     }

@@ -123,6 +123,71 @@ class ConnectionService {
             }
     }
     
+    func enroll(isReservation: Bool, tripId: String, contactPerson: (bus: String, city: String, email: String, firstname: String, lastname: String, gsm: String, phone: String, postalCode: String, socialMutualityNumber: String, codeGerechtige: String, socialSecurityNumber: String, street: String, streetNumber: Int), extraSocialMutualityNumber: String, payingUser: (bus: String, city: String, email: String, firstname: String, lastname: String, gsm: String, phone: String, postalCode: String, socialSecurityNumber: String, street: String, streetNumber: Int), child: (id: String, birthday: NSDate, bus: String, city: String, firstname: String, lastname: String, postalCode: String, socialSecurityNumber: String, street: String, streetNumber: Int), emergencyContacts: [(email: String, firstname: String, lastname: String, gsm: String, phone: String)], extraInfo: String, token: String) -> NSURLSessionTask {
+        
+        // Turning tuples into dictionaries here to avoid having to send them over in a Dictionary containing "Any" objects; somewhat unstable, causes random segfaults.
+        var contactPersonDict: NSMutableDictionary = [:]
+        contactPersonDict["bus"] = contactPerson.bus
+        contactPersonDict["city"] = contactPerson.city
+        contactPersonDict["email"] = contactPerson.email
+        contactPersonDict["firstname"] = contactPerson.firstname
+        contactPersonDict["lastname"] = contactPerson.lastname
+        contactPersonDict["gsm"] = contactPerson.gsm
+        contactPersonDict["phone"] = contactPerson.phone
+        contactPersonDict["postalCode"] = contactPerson.postalCode
+        contactPersonDict["socialMutualityNumber"] = contactPerson.socialMutualityNumber
+        contactPersonDict["codeGerechtige"] = contactPerson.codeGerechtige
+        contactPersonDict["socialSecurityNumber"] = contactPerson.socialSecurityNumber
+        contactPersonDict["street"] = contactPerson.street
+        contactPersonDict["streetNumber"] = contactPerson.streetNumber
+        
+        var payingUserDict: NSMutableDictionary = [:]
+        payingUserDict["bus"] = payingUser.bus
+        payingUserDict["city"] = payingUser.city
+        payingUserDict["email"] = payingUser.email
+        payingUserDict["firstname"] = payingUser.firstname
+        payingUserDict["lastname"] = payingUser.lastname
+        payingUserDict["gsm"] = payingUser.gsm
+        payingUserDict["phone"] = payingUser.phone
+        payingUserDict["postalCode"] = payingUser.postalCode
+        payingUserDict["socialSecurityNumber"] = payingUser.socialSecurityNumber
+        payingUserDict["street"] = payingUser.street
+        payingUserDict["streetNumber"] = payingUser.streetNumber
+        
+        var childDict: NSMutableDictionary = [:]
+        childDict["id"] = child.id
+        childDict["birthday"] = child.birthday
+        childDict["bus"] = child.bus
+        childDict["city"] = child.city
+        childDict["firstname"] = child.firstname
+        childDict["lastname"] = child.lastname
+        childDict["postalCode"] = child.postalCode
+        childDict["socialSecurityNumber"] = child.socialSecurityNumber
+        childDict["street"] = child.street
+        childDict["streetNumber"] = child.streetNumber
+        
+        var emergencyContactDicts: [NSMutableDictionary] = []
+        for emergencyContact in emergencyContacts {
+            var emergencyContactDict: NSMutableDictionary = [:]
+            emergencyContactDict["email"] = emergencyContact.email
+            emergencyContactDict["firstname"] = emergencyContact.firstname
+            emergencyContactDict["lastname"] = emergencyContact.lastname
+            emergencyContactDict["gsm"] = emergencyContact.gsm
+            emergencyContactDict["phone"] = emergencyContact.phone
+            emergencyContactDicts.append(emergencyContactDict)
+        }
+        
+        var payloadDict: [String:AnyObject?] = ["isReservation": isReservation, "tripId": tripId, "contactPerson": contactPersonDict, "extraSocialMutualityNumber": extraSocialMutualityNumber, "payingUser": payingUserDict, "child": childDict, "emergencyContacts": emergencyContactDicts, "extraInfo": extraInfo]
+        
+        var payload = JSON.toJSON(payloadDict)
+        
+        println(payload)
+        
+        return request("POST", appendage: "api/registrations", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
+            data in
+        }
+    }
+    
     private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: ((UIAlertController, NSData?) -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection
