@@ -24,6 +24,7 @@ class ConnectionService {
             completionHandler(trips)
         }
     }
+
     
     func createFetchTask(imagePath: String, onFail: ((UIAlertController?, NSData?) -> Void)?, completionHandler: UIImage -> Void) -> NSURLSessionTask {
         return request("GET", appendage: "images/\(imagePath)", values: nil, payload: nil, onFail: onFail) {
