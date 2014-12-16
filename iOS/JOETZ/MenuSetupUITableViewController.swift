@@ -8,7 +8,6 @@
 
 class MenuSetupUITableViewController: UITableViewController
 {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

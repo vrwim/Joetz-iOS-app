@@ -30,7 +30,9 @@ class NewsSplitViewController: UISplitViewController, UISplitViewControllerDeleg
     func orientationCheck(){
         if (UIDevice.currentDevice().model as NSString).containsString("iPad") {
             if UIApplication.sharedApplication().statusBarOrientation.isPortrait {
-                self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
+                if self.view.frame.origin.x == 0 {
+                    self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
+                }
             } else {
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay//no clue why, but without this the masterview might show up as a gray field
                 self.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible

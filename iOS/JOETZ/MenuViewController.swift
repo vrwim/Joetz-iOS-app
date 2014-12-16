@@ -113,7 +113,6 @@ class MenuViewController: UITableViewController
             svc.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible
         }
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
-        tableView.reloadData()
     }
     
     override func viewDidDisappear(animated: Bool) {
