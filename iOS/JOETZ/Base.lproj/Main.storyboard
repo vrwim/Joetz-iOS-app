@@ -243,7 +243,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="PQm-Sc-sD2">
-                        <barButtonItem key="backBarButtonItem" title="Deze moet weg" id="V5L-d7-jsD"/>
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="Pm2-Sw-OFa">
                             <connections>
                                 <action selector="menuButton:" destination="wjM-pD-5ff" id="vmI-Kr-BcT"/>
