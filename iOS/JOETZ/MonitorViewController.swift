@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
-class MonitorViewController: MenuSetupUITableViewController {
+class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
-    var monitors: [Monitor] = []
+    var monitors = [Monitor]()
+    var filteredMonis = [Monitor]()
     var token = ""
     
     override func viewWillAppear(animated: Bool) {
@@ -51,36 +52,53 @@ class MonitorViewController: MenuSetupUITableViewController {
         }
     }
     
+    func filterContentForSearchText(searchText: String){
+        self.filteredMonis = self.monitors.filter({(moni: Monitor) -> Bool in
+            let nameMatch = moni.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let gsmMatch = moni.gsm?.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let emailMatch = moni.email.lowercaseString.rangeOfString(searchText.lowercaseString)
+            return (nameMatch != nil || gsmMatch != nil || emailMatch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return monitors.count
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            return filteredMonis.count
+        } else {
+            return monitors.count
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("monitorCell") as MonitorCell
         
-        cell.monitor = monitors[indexPath.row]
+        var monitor: Monitor
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            monitor = filteredMonis[indexPath.row]
+        } else {
+            monitor = monitors[indexPath.row]
+        }
+
+        cell.monitor = monitor
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let monitor = monitors[indexPath.row]
-        
-        /*
-        It is pretty difficult to add UIActivities
-        
-        var activityItems = ["mailto://\(monitor.email)"]
-        if let gsm = monitor.gsm {
-        activityItems.append("tel://\(gsm)")
-        }
-        
-        var activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypeAirDrop]
-        presentViewController(activityViewController, animated:true, completion: nil)
-        */
         
         var alert = UIAlertController(title: "Contacteer", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         if let gsm = monitor.gsm {
@@ -102,7 +120,7 @@ class MonitorViewController: MenuSetupUITableViewController {
             })
         alert.addAction(UIAlertAction(title: "Annuleer", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
-    }
+    }*/
     
     @IBAction func refresh(sender: UIRefreshControl) {
         if token != "" {

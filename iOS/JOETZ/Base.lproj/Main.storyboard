@@ -1606,6 +1606,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="RSh-xF-pef">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="6cQ-f4-tbN" id="09T-zQ-XoV"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="monitorCell" rowHeight="70" id="eYV-8g-k8n" customClass="MonitorCell" customModule="JOETZ" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1665,8 +1673,20 @@
                             <action selector="refresh:" destination="6cQ-f4-tbN" eventType="valueChanged" id="059-Bc-7eG"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="l51-dt-fVu" id="NGD-bz-auj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6k-Vc-gjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="l51-dt-fVu">
+                    <connections>
+                        <outlet property="delegate" destination="6cQ-f4-tbN" id="Srk-e9-7mx"/>
+                        <outlet property="searchBar" destination="RSh-xF-pef" id="6Yh-1c-6di"/>
+                        <outlet property="searchContentsController" destination="6cQ-f4-tbN" id="pgb-iu-PFG"/>
+                        <outlet property="searchResultsDataSource" destination="6cQ-f4-tbN" id="Njt-Gg-otj"/>
+                        <outlet property="searchResultsDelegate" destination="6cQ-f4-tbN" id="YqZ-wX-mdL"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="582" y="9166"/>
         </scene>
