@@ -4,6 +4,11 @@
         <attribute name="loggedInUser" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="viewType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Monitor" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gsm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="NewsItem" representedClassName="NewsItem" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,5 +42,6 @@
         <element name="GlobalSettings" positionX="-63" positionY="135" width="128" height="75"/>
         <element name="NewsItem" positionX="-63" positionY="0" width="128" height="120"/>
         <element name="Trip" positionX="-63" positionY="27" width="128" height="345"/>
+        <element name="Monitor" positionX="-54" positionY="162" width="128" height="90"/>
     </elements>
 </model>

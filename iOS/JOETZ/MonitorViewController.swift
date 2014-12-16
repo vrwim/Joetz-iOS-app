@@ -12,11 +12,10 @@ import CoreData
 class MonitorViewController: MenuSetupUITableViewController {
     
     var monitors: [Monitor] = []
+    var token = ""
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        var token: String = ""
         
         var globalSettings: GlobalSettings?
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -39,11 +38,16 @@ class MonitorViewController: MenuSetupUITableViewController {
             }
         }
         if token != "" {
-            connectionService.getMonitors(token) {
-                monitors in
-                self.monitors = monitors
-                self.tableView.reloadData()
-                }.resume()
+            monitors = cacheService.normalizedMonisCache()
+            tableView.reloadData()
+            let queue = NSOperationQueue()
+            queue.addOperationWithBlock(){
+                self.monitors = cacheService.updateMonis(self.token)
+                NSOperationQueue.mainQueue().addOperationWithBlock(){
+                    self.tableView.reloadData()
+                }
+            }
+            //tableView.setContentOffset(CGPointMake(0,44), animated: true)
         }
     }
     
@@ -98,6 +102,19 @@ class MonitorViewController: MenuSetupUITableViewController {
             })
         alert.addAction(UIAlertAction(title: "Annuleer", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func refresh(sender: UIRefreshControl) {
+        if token != "" {
+            let queue = NSOperationQueue()
+            queue.addOperationWithBlock(){
+                self.monitors = cacheService.updateMonis(self.token)
+                NSOperationQueue.mainQueue().addOperationWithBlock(){
+                    self.tableView.reloadData()
+                    sender.endRefreshing()
+                }
+            }
+        }
     }
     
     @IBAction func onClickMenuButton(sender: UIBarButtonItem) {

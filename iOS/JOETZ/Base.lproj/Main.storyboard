@@ -1659,6 +1659,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="eWD-pg-WPu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="6cQ-f4-tbN" eventType="valueChanged" id="059-Bc-7eG"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6k-Vc-gjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1691,8 +1697,8 @@
         <image name="PictureIcon" width="33" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ENg-d4-jcR"/>
-        <segue reference="WwG-2r-zwN"/>
         <segue reference="wOB-9A-cAt"/>
+        <segue reference="OVq-ed-ygA"/>
+        <segue reference="WwG-2r-zwN"/>
     </inferredMetricsTieBreakers>
 </document>

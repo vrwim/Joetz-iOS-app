@@ -29,7 +29,7 @@ class CacheService {
         }
         task.resume()
         var counter = 0
-        while(task.state == NSURLSessionTaskState.Running && counter < 20){
+        while(task.state == NSURLSessionTaskState.Running && counter < 30){
             sleep(1)
             counter += 1
         }
@@ -38,6 +38,54 @@ class CacheService {
             return news!
         } else {
             return normalizedNewsCache()
+        }
+    }
+    
+    func updateTrips() -> [Trip] {
+        var tripsList:[Trip]?
+        let task = connectionService.createFetchTask {
+            trips in
+            if trips.count > 0{
+                self.clearCache("Trip")
+                self.cacheTrips(trips)
+                tripsList = trips
+            }
+        }
+        task.resume()
+        var counter = 0
+        while(task.state == NSURLSessionTaskState.Running && counter < 30){
+            sleep(1)
+            counter += 1
+        }
+        task.cancel()
+        if tripsList != nil {
+            return tripsList!
+        } else {
+            return normalizedTripsCache()
+        }
+    }
+    
+    func updateMonis(token: String) -> [Monitor] {
+        var monitorList:[Monitor]?
+        let task = connectionService.getMonitors(token) {
+            monis in
+            if monis.count > 0{
+                self.clearCache("Monitor")
+                self.cacheMonis(monis)
+                monitorList = monis
+            }
+        }
+        task.resume()
+        var counter = 0
+        while(task.state == NSURLSessionTaskState.Running && counter < 30){
+            sleep(1)
+            counter += 1
+        }
+        task.cancel()
+        if monitorList != nil {
+            return monitorList!
+        } else {
+            return normalizedMonisCache()
         }
     }
     
@@ -60,39 +108,6 @@ class CacheService {
             if !managedContext.save(&error) {
                 println("Could not save \(error), \(error?.userInfo)")
             }
-        }
-    }
-    
-    func normalizedNewsCache() -> [NewsItem]{
-        var cache = getCache("NewsItem")
-        var normalData = [NewsItem]()
-        for item in cache{
-            normalData.append(NewsItem(id: item.valueForKeyPath("id") as String, title: item.valueForKeyPath("title") as String, date: item.valueForKeyPath("date") as String, thumbnail: item.valueForKeyPath("thumbnail") as String, content: item.valueForKeyPath("content") as String))
-        }
-        return normalData
-    }
-    
-    func updateTrips() -> [Trip] {
-        var tripsList:[Trip]?
-        let task = connectionService.createFetchTask {
-            trips in
-            if trips.count > 0{
-                self.clearCache("Trip")
-                self.cacheTrips(trips)
-                tripsList = trips
-            }
-        }
-        task.resume()
-        var counter = 0
-        while(task.state == NSURLSessionTaskState.Running && counter < 20){
-            sleep(1)
-            counter += 1
-        }
-        task.cancel()
-        if tripsList != nil {
-            return tripsList!
-        } else {
-            return normalizedTripsCache()
         }
     }
     
@@ -139,6 +154,42 @@ class CacheService {
         }
     }
     
+    private func cacheMonis(monis: [Monitor]){
+        for moni in monis{
+            let entity =  NSEntityDescription.entityForName("Monitor",
+                inManagedObjectContext:
+                managedContext)
+            
+            let monitor = NSManagedObject(entity: entity!,
+                insertIntoManagedObjectContext:managedContext)
+            
+            monitor.setValue(moni.name, forKey: "name")
+            monitor.setValue(moni.gsm, forKey: "gsm")
+            monitor.setValue(moni.email, forKey: "email")
+            
+            var error: NSError?
+            if !managedContext.save(&error) {
+                println("Could not save \(error), \(error?.userInfo)")
+            }
+        }
+    }
+    
+    func normalizedNewsCache() -> [NewsItem]{
+        var cache = getCache("NewsItem")
+        var normalData = [NewsItem]()
+        for item in cache{
+            normalData.append(NewsItem(
+                id: item.valueForKeyPath("id") as String,
+                title: item.valueForKeyPath("title") as String,
+                date: item.valueForKeyPath("date") as String,
+                thumbnail: item.valueForKeyPath("thumbnail") as String,
+                content: item.valueForKeyPath("content") as String
+                )
+            )
+        }
+        return normalData
+    }
+    
     func normalizedTripsCache() -> [Trip]{
         var cache = getCache("Trip")
         var normalData = [Trip]()
@@ -170,6 +221,20 @@ class CacheService {
                 transport: item.valueForKey("transport") as? String
             )
             normalData.append(trip)
+        }
+        return normalData
+    }
+    
+    func normalizedMonisCache() -> [Monitor]{
+        var cache = getCache("Monitor")
+        var normalData = [Monitor]()
+        for item in cache{
+            normalData.append(Monitor(
+                name: item.valueForKeyPath("name") as String,
+                gsm: item.valueForKeyPath("gsm") as? String,
+                email: item.valueForKeyPath("email") as String
+                )
+            )
         }
         return normalData
     }
