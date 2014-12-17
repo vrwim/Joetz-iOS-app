@@ -129,6 +129,19 @@ class JSON {
         return tmpDate
     }
     
+    /*private class func isoDateParser(date: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        //original isoDate format to convert to NSDate
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let tmpDate = dateFormatter.dateFromString(date)!
+        //New dateformat to more readable date
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        //return date back as a string
+        return dateFormatter.stringFromDate(tmpDate)
+    }*/
+    
     /**
      * Parses a token from this JSON data
      */
@@ -169,15 +182,25 @@ class JSON {
         let street = jsonData["street"] as String?
         let streetNumber = jsonData["streetNumber"] as Int?
         
-        var children: [(childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)] = []
+        var children: [(childId: String, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: Int?, zipcode: String?, bus: String?, city: String?)] = []
         var tripsHistory: [(childId: String, tripId: String)] = []
         var reservations: [(childId: String, tripId: String, registrationId: String)] = []
         
         let jsonChildren = jsonData["children"] as NSArray?
         if let jsonChildren = jsonChildren {
             for jsonChild in jsonChildren {
-                let childBirthday = isoDateParser(jsonChild["birthday"] as String)
-                children.append(childId: jsonChild["childId"] as String, isMemberOfSocialMutuality: jsonChild["isMemberOfSocialMutuality"] as Bool?, firstname: jsonChild["firstname"] as String, lastname: jsonChild["lastname"] as String, socialSecurityNumber: jsonChild["socialSecurityNumber"] as String, birthday: childBirthday as String, street: jsonChild["street"] as String?, streetNumber: jsonChild["streetNumber"] as String?, zipcode: jsonChild["zipcode"] as String?, bus: jsonChild["bus"] as String?, city: jsonChild["city"] as String?)
+                println(jsonChild["birthday"])
+                var childBirthday = /*isoDateParser(*/jsonChild["birthday"]// as String)
+                let bla1 = jsonChild["_id"] as String
+                let bla2 = jsonChild["firstname"] as String
+                let bla3 = jsonChild["lastname"] as String
+                let bla4 = jsonChild["socialSecurityNumber"] as String
+                let bla5 = jsonChild["street"] as String?
+                let bla6 = jsonChild["streetNumber"] as Int?
+                let bla7 = jsonChild["postalCode"] as String?
+                let bla8 = jsonChild["bus"] as String?
+                let bla9 = jsonChild["city"] as String?
+                children.append(childId: jsonChild["_id"] as String, firstname: jsonChild["firstname"] as String, lastname: jsonChild["lastname"] as String, socialSecurityNumber: jsonChild["socialSecurityNumber"] as String, birthday: childBirthday as String, street: jsonChild["street"] as String?, streetNumber: jsonChild["streetNumber"] as Int?, zipcode: jsonChild["postalCode"] as String?, bus: jsonChild["bus"] as String?, city: jsonChild["city"] as String?)
             }
         }
         

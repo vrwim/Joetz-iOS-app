@@ -226,7 +226,14 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        let tmpDate = dateFormatter.dateFromString(date)!
+        var tmpDate: NSDate = NSDate()
+        if let tmpDate2 = dateFormatter.dateFromString(date) {
+            tmpDate = tmpDate2
+        }
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        if let tmpDate2 = dateFormatter.dateFromString(date) {
+            tmpDate = tmpDate2
+        }
         dateFormatter.dateStyle = .LongStyle
         dateFormatter.timeStyle = .NoStyle
         birthday = dateFormatter.stringFromDate(tmpDate)
@@ -234,6 +241,19 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
         var birthdayDate = dateFormatter.dateFromString(birthday)
         
         return birthdayDate
+    }
+    
+    private class func isoDateParser(date: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        //original isoDate format to convert to NSDate
+        
+        
+        let tmpDate = dateFormatter.dateFromString(date)!
+        //New dateformat to more readable date
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        //return date back as a string
+        return dateFormatter.stringFromDate(tmpDate)
     }
     
     @IBAction func cancelBtn(sender: UIBarButtonItem) {

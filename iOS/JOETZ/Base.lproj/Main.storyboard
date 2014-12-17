@@ -1243,7 +1243,7 @@
         <!--Voeg kind toe-->
         <scene sceneID="ta4-5l-3Ck">
             <objects>
-                <tableViewController id="kXZ-ob-yKT" customClass="AddChildToParentViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kXZ-ob-yKT" customClass="AddChildToParentViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HYF-b3-v39">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1283,7 +1283,7 @@
         <!--Kind-->
         <scene sceneID="FLx-AL-jri">
             <objects>
-                <tableViewController id="C8p-rV-Ogq" customClass="ChangeChildDetailsViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="childDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C8p-rV-Ogq" customClass="ChangeChildDetailsViewController" customModule="JOETZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xmp-Ks-k9Q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,25 +10,25 @@ import UIKit
 
 class ChildrenFromParentViewController: MenuSetupUITableViewController
 {
-    var children: [(childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)] = []
+    var children: [(childId: String, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: Int?, zipcode: String?, bus: String?, city: String?)] = []
     var task: NSURLSessionTask?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !Reachability.isConnectedToNetwork() {
-            let noInternetAlert = Reachability.giveNoInternetAlert()
-            presentViewController(noInternetAlert, animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let user = UserService.getDetailsLoggedInUser()
+        let token = user["token"]
+        
+        task = connectionService.getUserData(token!){
+            user in
+            self.children = user.children
+            self.tableView.reloadData()
         }
-        else {
-            let user = UserService.getDetailsLoggedInUser()
-            let token = user["token"]
-            
-            task = connectionService.getUserData(token!){
-                user in
-                self.children = user.children
-            }
-            task!.resume()
-        }
+        task!.resume()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -48,12 +48,11 @@ class ChildrenFromParentViewController: MenuSetupUITableViewController
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let changeChildDetailsVC = segue.destinationViewController as? ChangeChildDetailsViewController {
-            let selectedChild = children[tableView.indexPathForSelectedRow()!.row]
-            changeChildDetailsVC.child = selectedChild
-        }
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let childrenDetailsVC = self.storyboard?.instantiateViewControllerWithIdentifier("childDetailsVC") as ChangeChildDetailsViewController
+        childrenDetailsVC.child = children[indexPath.row]
     }
+    
     
     @IBAction func refresh(sender: UIRefreshControl) {
         let user = UserService.getDetailsLoggedInUser()

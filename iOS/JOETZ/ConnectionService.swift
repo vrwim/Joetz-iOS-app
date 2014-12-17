@@ -188,7 +188,7 @@ class ConnectionService {
         }
     }
     
-    func changeChildDetails(id: String, token: String, childId: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?, isMemberMutuality: Bool?, completionHandler: String -> Void) -> NSURLSessionTask {
+    func changeChildDetails(id: String, token: String, childId: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?, completionHandler: String -> Void) -> NSURLSessionTask {
         
         var childDict: NSMutableDictionary = [:]
         childDict["id"] = childId
@@ -211,25 +211,53 @@ class ConnectionService {
         }
     }
     
-    func addChildToParent(id: String, token: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?, isMemberMutuality: Bool?, completionHandler: String -> Void) -> NSURLSessionTask {
+    func addChildToParent(id: String, token: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?,
+        existingChildren: [(childId: String, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: Int?, zipcode: String?, bus: String?, city: String?)],
+        completionHandler: String -> Void) -> NSURLSessionTask {
         
-        var childDict: NSMutableDictionary = [:]
-        childDict["birthday"] = birthday
-        childDict["bus"] = bus
-        childDict["city"] = city
-        childDict["firstname"] = firstname
-        childDict["lastname"] = lastname
-        childDict["postalCode"] = postalCode
-        childDict["socialSecurityNumber"] = ssn
-        childDict["street"] = street
-        childDict["streetNumber"] = streetNumber
+        var children: [(childId: String, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: Int?, zipcode: String?, bus: String?, city: String?)] = existingChildren
         
-        var payloadDict: [String:AnyObject?] = ["children":childDict]
+        var childDictArray: [NSMutableDictionary] = [[:]]
+        
+        for child in children {
+            var childDict: NSMutableDictionary = [:]
+            childDict["childId"] = child.childId
+            childDict["birthday"] = child.birthday
+            childDict["bus"] = child.bus
+            childDict["city"] = child.city
+            childDict["firstname"] = child.firstname
+            childDict["lastname"] = child.lastname
+            childDict["postalCode"] = child.zipcode
+            childDict["socialSecurityNumber"] = child.socialSecurityNumber
+            childDict["street"] = child.street
+            childDict["streetNumber"] = child.streetNumber
+            childDictArray.append(childDict)
+        }
+        
+        var childDictTmp: NSMutableDictionary = [:]
+        childDictTmp["birthday"] = birthday
+        childDictTmp["bus"] = bus
+        childDictTmp["city"] = city
+        childDictTmp["firstname"] = firstname
+        childDictTmp["lastname"] = lastname
+        childDictTmp["postalCode"] = postalCode
+        childDictTmp["socialSecurityNumber"] = ssn
+        childDictTmp["street"] = street
+        childDictTmp["streetNumber"] = streetNumber
+        
+        childDictArray.append(childDictTmp)
+        
+        println(children)
+        println("-------------")
+        println(childDictArray)
+        
+        var payloadDict: [String:AnyObject?] = ["children":childDictArray]
         var payload = JSON.toJSON(payloadDict)
+        println("bkfbskbdsq   3")
         
         return request("PUT", appendage: "api/users/\(id)", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
             data in
-            //do something
+            completionHandler(token)
         }
     }
     

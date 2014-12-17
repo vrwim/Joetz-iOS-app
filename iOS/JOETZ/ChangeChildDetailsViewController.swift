@@ -10,7 +10,7 @@ import UIKit
 
 class ChangeChildDetailsViewController: FormViewController, FormViewControllerDelegate
 {
-    var child: (childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)?
+    var child: (childId: String, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: Int?, zipcode: String?, bus: String?, city: String?)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
         row.value = street
         sectionAddress.addRow(row)
         
-        let streetNumber = child!.streetNumber ?? ""
+        let streetNumber = "\(child!.streetNumber)" ?? ""
         row = FormRowDescriptor(tag: "streetNumber", rowType: .Number, title: "Nummer")
         row.value = streetNumber
         sectionAddress.addRow(row)
@@ -89,11 +89,6 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
         let socialSecurityNumber = child!.socialSecurityNumber ?? ""
         row = FormRowDescriptor(tag: "ssn", rowType: .Text, title: "Rijksregisternummer")
         row.value = socialSecurityNumber
-        sectionNumbers.addRow(row)
-        
-        let isMemberOfSocialMutuality = child!.isMemberOfSocialMutuality ?? false
-        row = FormRowDescriptor(tag: "isMemberMutuality", rowType: .BooleanSwitch, title: "Lid van mutualiteit")
-        row.value = isMemberOfSocialMutuality
         sectionNumbers.addRow(row)
         
         form.sections = [sectionPersonalia, sectionAddress, sectionNumbers]
