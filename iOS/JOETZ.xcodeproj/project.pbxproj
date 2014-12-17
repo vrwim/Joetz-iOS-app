@@ -77,6 +77,7 @@
 		AB3C88971A3E70CC004BBF9F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */; };
 		AB3C88991A3F4FE4004BBF9F /* LocksmithLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C88981A3F4FE4004BBF9F /* LocksmithLogin.swift */; };
 		AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4C15E51A01948B0018876A /* LoginViewController.swift */; };
+		AB9CAD271A4106E300934BD2 /* EnrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9CAD261A4106E300934BD2 /* EnrollViewController.swift */; };
 		AB9FAA9B1A1E241100B857CE /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9FAA9A1A1E241100B857CE /* MapCell.swift */; };
 		ABB11A831A0CEE5300BE6A88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */; };
 		ABB339831A053CF100518CA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB138EE819F51B74007DB692 /* Main.storyboard */; };
@@ -182,6 +183,7 @@
 		AB3C88961A3E70CC004BBF9F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AB3C88981A3F4FE4004BBF9F /* LocksmithLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocksmithLogin.swift; sourceTree = "<group>"; };
 		AB4C15E51A01948B0018876A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AB9CAD261A4106E300934BD2 /* EnrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollViewController.swift; sourceTree = "<group>"; };
 		AB9FAA9A1A1E241100B857CE /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		ABB11A821A0CEE5300BE6A88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				3D182AB71A0A828300E3E59F /* ParentTripController.swift */,
 				872F6E581A39194800949C8A /* ParentSplitViewController.swift */,
 				3D7E547E1A2535DE00185BF5 /* TripImageTabViewController.swift */,
+				AB9CAD261A4106E300934BD2 /* EnrollViewController.swift */,
 			);
 			name = ParentTrip;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				AB0BB5D71A0D563500CB9F6F /* ParentTripCell.swift in Sources */,
 				8746144F1A3E8A7C00162CD1 /* LogoutViewController.swift in Sources */,
 				3D7E547D1A25325000185BF5 /* ParentTripTabVC.swift in Sources */,
+				AB9CAD271A4106E300934BD2 /* EnrollViewController.swift in Sources */,
 				3D16EC621A3EE4F2004C008D /* FormViewController.swift in Sources */,
 				AB4C15E61A01948B0018876A /* LoginViewController.swift in Sources */,
 				87554E5C1A3D3F140093E1A4 /* NewsSplitViewController.swift in Sources */,

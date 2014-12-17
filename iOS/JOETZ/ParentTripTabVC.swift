@@ -26,4 +26,26 @@ class ParentTripTabVC: UITabBarController
             sidebar?.dismissPopoverAnimated(false)//this should be without animation but strangly only works with animation
         }
     }
+    
+    @IBAction func onClickEnroll(sender: UIBarButtonItem) {
+        var u = UserService.getDetailsLoggedInUser()
+        let token = u["token"]
+        if token == nil {
+            var alert = UIAlertController(title: "Niet ingelogd", message: "U dient ingelogd te zijn om in te schrijven", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            connectionService.getUserData(token!) {
+                user in
+                let enrollViewController = self.storyboard?.instantiateViewControllerWithIdentifier("enrollVC") as EnrollViewController
+                println(user)
+                println(self.trip)
+                enrollViewController.user = user
+                enrollViewController.trip = self.trip
+                enrollViewController.setupForm()
+                let newTopViewController = UINavigationController(rootViewController: enrollViewController)
+                self.slidingViewController().topViewController = newTopViewController
+                }.resume()
+        }
+    }
 }

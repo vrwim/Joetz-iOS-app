@@ -38,8 +38,8 @@ class FormViewController : UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        assert(form != nil, "self.form property MUST be assigned!")
-        navigationItem.title = form.title
+        // assert(form != nil, "self.form property MUST be assigned!")
+        // navigationItem.title = form.title
     }
     
     /// MARK: Public interface

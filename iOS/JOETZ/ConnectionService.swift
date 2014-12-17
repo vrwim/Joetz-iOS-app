@@ -123,7 +123,7 @@ class ConnectionService {
             }
     }
     
-    func enroll(isReservation: Bool, tripId: String, contactPerson: (bus: String, city: String, email: String, firstname: String, lastname: String, gsm: String, phone: String, postalCode: String, socialMutualityNumber: String, codeGerechtige: String, socialSecurityNumber: String, street: String, streetNumber: Int), extraSocialMutualityNumber: String, payingUser: (bus: String, city: String, email: String, firstname: String, lastname: String, gsm: String, phone: String, postalCode: String, socialSecurityNumber: String, street: String, streetNumber: Int), child: (id: String, birthday: NSDate, bus: String, city: String, firstname: String, lastname: String, postalCode: String, socialSecurityNumber: String, street: String, streetNumber: Int), emergencyContacts: [(email: String, firstname: String, lastname: String, gsm: String, phone: String)], extraInfo: String, token: String) -> NSURLSessionTask {
+    func enroll(isReservation: Bool, tripId: String, contactPerson: (bus: String?, city: String?, email: String, firstname: String?, lastname: String?, gsm: String, phone: String?, postalCode: String?, socialMutualityNumber: String?, codeGerechtige: String?, socialSecurityNumber: String?, street: String?, streetNumber: Int?), extraSocialMutualityNumber: String?, payingUser: (bus: String?, city: String?, email: String, firstname: String, lastname: String, gsm: String, phone: String?, postalCode: String?, socialSecurityNumber: String?, street: String?, streetNumber: Int?), childId: String, emergencyContacts: [(email: String, firstname: String, lastname: String, gsm: String, phone: String)], extraInfo: String?, token: String) -> NSURLSessionTask {
         
         // Turning tuples into dictionaries here to avoid having to send them over in a Dictionary containing "Any" objects; somewhat unstable, causes random segfaults.
         var contactPersonDict: NSMutableDictionary = [:]
@@ -155,16 +155,7 @@ class ConnectionService {
         payingUserDict["streetNumber"] = payingUser.streetNumber
         
         var childDict: NSMutableDictionary = [:]
-        childDict["id"] = child.id
-        childDict["birthday"] = child.birthday
-        childDict["bus"] = child.bus
-        childDict["city"] = child.city
-        childDict["firstname"] = child.firstname
-        childDict["lastname"] = child.lastname
-        childDict["postalCode"] = child.postalCode
-        childDict["socialSecurityNumber"] = child.socialSecurityNumber
-        childDict["street"] = child.street
-        childDict["streetNumber"] = child.streetNumber
+        childDict["id"] = childId
         
         var emergencyContactDicts: [NSMutableDictionary] = []
         for emergencyContact in emergencyContacts {
