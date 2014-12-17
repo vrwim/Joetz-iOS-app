@@ -17,12 +17,13 @@ class ParentTripTabVC: UITabBarController
         if trip != nil {
             sidebar?.dismissPopoverAnimated(true)
         }
+        UITabBar.appearance().tintColor = UIColor.redColor()
     }
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         super.didRotateFromInterfaceOrientation(fromInterfaceOrientation)
         if trip != nil {
-            sidebar?.dismissPopoverAnimated(true)//this should be without animation but strangly only works with animation
+            sidebar?.dismissPopoverAnimated(false)//this should be without animation but strangly only works with animation
         }
     }
 }

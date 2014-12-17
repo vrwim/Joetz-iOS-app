@@ -66,18 +66,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="B37-gy-e2U">
-                                <rect key="frame" x="22" y="36" width="557" height="288"/>
+                                <rect key="frame" x="34" y="36" width="533" height="276"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B37-gy-e2U" secondAttribute="height" multiplier="284:147" id="Qi4-80-EaY"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="650" id="j5A-9C-qs8"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vh-kF-oS8">
-                                <rect key="frame" x="284" y="368" width="32" height="30"/>
+                                <rect key="frame" x="283" y="369" width="35" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EYj-vI-e08"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Kind">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -90,11 +92,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9P-KT-gw0">
-                                <rect key="frame" x="279" y="406" width="43" height="30"/>
+                                <rect key="frame" x="277" y="410" width="48" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="cbW-hJ-Quc"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Ouder">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -107,30 +111,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deze app gebruiken als:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAp-EK-qIc">
-                                <rect key="frame" x="208" y="340" width="185" height="20"/>
+                                <rect key="frame" x="208" y="328" width="185" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="mSY-3n-QXe"/>
+                                    <constraint firstAttribute="height" constant="33" id="mSY-3n-QXe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-os-A9J">
-                                <rect key="frame" x="227" y="562" width="147" height="30"/>
+                                <rect key="frame" x="218" y="559" width="165" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Ik heb al een account">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KSp-yA-yC2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3H-cD-Rge">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LzM-Wm-1ZR"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccS-6h-D4g">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="qf4-pu-qnQ"/>
@@ -150,7 +156,7 @@
                             <constraint firstAttribute="centerX" secondItem="ccS-6h-D4g" secondAttribute="centerX" id="Pko-2U-3zc"/>
                             <constraint firstItem="7vh-kF-oS8" firstAttribute="top" secondItem="QAp-EK-qIc" secondAttribute="bottom" constant="8" symbolic="YES" id="SUu-DI-5EJ"/>
                             <constraint firstItem="D3H-cD-Rge" firstAttribute="height" secondItem="ccS-6h-D4g" secondAttribute="height" id="XaW-rc-WLN"/>
-                            <constraint firstAttribute="centerY" secondItem="QAp-EK-qIc" secondAttribute="centerY" constant="-50" id="Xnf-2u-ycO"/>
+                            <constraint firstAttribute="centerY" secondItem="QAp-EK-qIc" secondAttribute="centerY" multiplier="0.87" id="Xnf-2u-ycO"/>
                             <constraint firstAttribute="centerX" secondItem="QAp-EK-qIc" secondAttribute="centerX" id="Y3B-zS-3jF"/>
                             <constraint firstAttribute="centerX" secondItem="B37-gy-e2U" secondAttribute="centerX" id="cXI-ge-EIW"/>
                             <constraint firstItem="B37-gy-e2U" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="e7x-l5-hcx"/>
@@ -190,6 +196,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azI-QY-ENv">
                                 <rect key="frame" x="281" y="274" width="38" height="30"/>
                                 <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -213,6 +220,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFS-2p-cAJ">
                                 <rect key="frame" x="325" y="310" width="98" height="30"/>
                                 <state key="normal" title="registreer hier!">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -244,6 +252,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="PQm-Sc-sD2">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="Pm2-Sw-OFa">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="wjM-pD-5ff" id="vmI-Kr-BcT"/>
                             </connections>
@@ -281,6 +290,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Registreer" id="MHM-g8-nwy">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="1kE-xN-VlC">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="OnClickDone:" destination="vXx-5E-T34" id="abM-UX-qRV"/>
                             </connections>
@@ -306,6 +316,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Kdu-7D-Oe2">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="lgc-H4-UZ4">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="TVY-J9-5jP" id="vnG-71-LBx"/>
                             </connections>
@@ -450,6 +461,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Vakanties" id="K2f-u7-eV7">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="ueZ-4u-kod">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="z6g-GB-oRL" id="ebf-ru-FDA"/>
                             </connections>
@@ -765,6 +777,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Instellingen" id="P48-lB-cZx">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="afl-cD-aDP">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="HEz-hn-edv" id="u1s-GV-Wmx"/>
                             </connections>
@@ -865,6 +878,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Nieuws" id="ZbE-xH-OyX">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="7Aw-jZ-hi7">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="XYP-48-Odw" id="FAL-ei-dmh"/>
                             </connections>
@@ -1046,11 +1060,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="7QC-Nu-Tqc">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="OZl-v5-K0e">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="DDK-cA-2fH" id="F1s-Wu-a3k"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Afmelden" id="SKF-rO-SWB">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logOut:" destination="DDK-cA-2fH" id="Ymm-cf-3uv"/>
                                 <segue destination="TcZ-Fe-TR7" kind="show" id="WwG-2r-zwN"/>
@@ -1085,11 +1101,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Wachtwoord wijzigen" id="RPd-QD-Lxh">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wtM-2O-jRi">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtn:" destination="xFf-bN-jjR" id="WE2-6S-4wD"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="x8e-6U-Vm4">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="savePassword:" destination="xFf-bN-jjR" id="C9V-Pc-Qzj"/>
                             </connections>
@@ -1122,7 +1140,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Planning" id="nrf-qb-AVz">
-                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="nzD-3c-eDY"/>
+                        <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="nzD-3c-eDY">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emi-RZ-s3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1152,11 +1172,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Account gegevens" id="wRI-Jm-mke">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kBp-tD-523">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtn:" destination="3gh-GO-VVR" id="MVr-qz-Bde"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ddg-sE-qfc">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveAccountDetails:" destination="3gh-GO-VVR" id="c42-SI-A3D"/>
                             </connections>
@@ -1193,6 +1215,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kinderen" id="VIT-UY-CzO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hAD-T0-h9n">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="kXZ-ob-yKT" kind="show" id="rHa-88-v6E"/>
                             </connections>
@@ -1226,11 +1249,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Voeg kind toe" id="bxP-w6-Dhu">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OPZ-j2-njv">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancenBtn:" destination="kXZ-ob-yKT" id="MU9-sZ-LBT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="p9z-if-FOV">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveChild:" destination="kXZ-ob-yKT" id="BfZ-Qu-ztE"/>
                             </connections>
@@ -1264,11 +1289,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kind" id="3ZV-T3-Ob2">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GRe-vq-SkY">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelBtn:" destination="C8p-rV-Ogq" id="Mwp-vE-iyC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="XMy-np-ci1">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveChildDetails:" destination="C8p-rV-Ogq" id="b5h-Nh-x1l"/>
                             </connections>
@@ -1388,6 +1415,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mH-C4-mhq">
                                 <rect key="frame" x="268" y="301" width="65" height="30"/>
                                 <state key="normal" title="Afmelden">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1405,6 +1433,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Afmelden" id="jXz-Rz-Whw">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="RO9-oT-AxR">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="TcZ-Fe-TR7" id="jsC-1R-12V"/>
                             </connections>
@@ -1474,6 +1503,7 @@
                                 <rect key="frame" x="390" y="410" width="117" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Tel. 02 515 02 52">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1490,6 +1520,7 @@
                                 <rect key="frame" x="402" y="474" width="92" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="info@joetz.be">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1511,6 +1542,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwl-tV-jzW">
                                 <rect key="frame" x="104" y="410" width="117" height="30"/>
                                 <state key="normal" title="Tel. 09 333 55 00">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1520,6 +1552,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBj-Do-iEV">
                                 <rect key="frame" x="78" y="474" width="170" height="30"/>
                                 <state key="normal" title="vragen@bondmoyson.be">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1529,6 +1562,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh6-d3-R1q">
                                 <rect key="frame" x="400" y="512" width="97" height="30"/>
                                 <state key="normal" title="Website Joetz">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1538,6 +1572,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khK-eV-Grm">
                                 <rect key="frame" x="86" y="512" width="155" height="30"/>
                                 <state key="normal" title="Website Bond Moyson">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1588,6 +1623,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="ptQ-gI-vCf">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="F6E-Se-xz0">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="menuButton:" destination="hWt-Wg-mwB" id="ZTa-0T-XkS"/>
                             </connections>
@@ -1662,6 +1698,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Monitoren" id="uAg-KU-99f">
                         <barButtonItem key="leftBarButtonItem" image="MenuIcon" id="xEb-c2-xg1">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onClickMenuButton:" destination="6cQ-f4-tbN" id="cmB-Qv-MXe"/>
                             </connections>
@@ -1717,8 +1754,8 @@
         <image name="PictureIcon" width="33" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wOB-9A-cAt"/>
         <segue reference="OVq-ed-ygA"/>
-        <segue reference="WwG-2r-zwN"/>
+        <segue reference="wOB-9A-cAt"/>
+        <segue reference="scz-6H-REj"/>
     </inferredMetricsTieBreakers>
 </document>
