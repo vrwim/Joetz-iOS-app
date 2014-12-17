@@ -22,6 +22,7 @@ class NewsViewController: MenuSetupUITableViewController, UISearchBarDelegate, U
         queue.addOperationWithBlock(){
             self.news = cacheService.updateNews()
             NSOperationQueue.mainQueue().addOperationWithBlock(){
+                println(self.news)
                 self.tableView.reloadData()
             }
         }

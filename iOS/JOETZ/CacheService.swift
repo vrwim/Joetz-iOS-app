@@ -194,8 +194,8 @@ class CacheService {
         var cache = getCache("Trip")
         var normalData = [Trip]()
         for item in cache{
-            var priceNames: [String] = item.valueForKey("priceNames") as [String]
-            var priceValues: [Float] = item.valueForKey("priceValues") as [Float]
+            var priceNames: [String] = item.valueForKey("priceNames")? as [String]
+            var priceValues: [Float] = item.valueForKey("priceValues")? as [Float]
             var prices = [(String, Float)]()
             for var i = 0; i < priceNames.count; i += 1 {
                 prices.append((priceNames[i] as String, priceValues[i] as Float))
@@ -232,7 +232,7 @@ class CacheService {
             normalData.append(Monitor(
                 name: item.valueForKeyPath("name") as String,
                 gsm: item.valueForKeyPath("gsm") as? String,
-                email: item.valueForKeyPath("email") as String
+                email: item.valueForKeyPath("email") as? String
                 )
             )
         }

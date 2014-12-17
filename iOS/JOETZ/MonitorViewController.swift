@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
-class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate, UISearchDisplayDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
     
     var monitors = [Monitor]()
     var filteredMonis = [Monitor]()
@@ -48,7 +49,7 @@ class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate
                     self.tableView.reloadData()
                 }
             }
-            //tableView.setContentOffset(CGPointMake(0,44), animated: true)
+            tableView.setContentOffset(CGPointMake(0,44), animated: true)
         }
     }
     
@@ -56,7 +57,7 @@ class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate
         self.filteredMonis = self.monitors.filter({(moni: Monitor) -> Bool in
             let nameMatch = moni.name.lowercaseString.rangeOfString(searchText.lowercaseString)
             let gsmMatch = moni.gsm?.lowercaseString.rangeOfString(searchText.lowercaseString)
-            let emailMatch = moni.email.lowercaseString.rangeOfString(searchText.lowercaseString)
+            let emailMatch = moni.email?.lowercaseString.rangeOfString(searchText.lowercaseString)
             return (nameMatch != nil || gsmMatch != nil || emailMatch != nil)
         })
     }
@@ -94,33 +95,13 @@ class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate
         }
 
         cell.monitor = monitor
+        cell.table = self
         return cell
     }
     
-    /*override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let monitor = monitors[indexPath.row]
-        
-        var alert = UIAlertController(title: "Contacteer", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        if let gsm = monitor.gsm {
-            alert.addAction(UIAlertAction(title: "SMS", style: .Default) {
-                _ in
-                var url = NSURL(string: "sms:\(gsm)")
-                UIApplication.sharedApplication().openURL(url!)
-                })
-            alert.addAction(UIAlertAction(title: "Bellen", style: .Default) {
-                _ in
-                var url = NSURL(string: "tel://\(gsm)")
-                UIApplication.sharedApplication().openURL(url!)
-                })
-        }
-        alert.addAction(UIAlertAction(title: "e-mail", style: .Default) {
-            _ in
-            var url = NSURL(string: "mailto:\(monitor.email)")
-            UIApplication.sharedApplication().openURL(url!)
-            })
-        alert.addAction(UIAlertAction(title: "Annuleer", style: .Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }*/
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 104
+    }
     
     @IBAction func refresh(sender: UIRefreshControl) {
         if token != "" {
@@ -138,4 +119,25 @@ class MonitorViewController: MenuSetupUITableViewController, UISearchBarDelegate
     @IBAction func onClickMenuButton(sender: UIBarButtonItem) {
         setupMenuButton()
     }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Mail sent failure: %@", [error.localizedDescription])
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }

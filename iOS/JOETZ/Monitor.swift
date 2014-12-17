@@ -10,9 +10,9 @@ class Monitor {
     
     let name: String
     let gsm: String?
-    let email: String
+    let email: String?
     
-    init(name: String, gsm: String?, email: String) {
+    init(name: String, gsm: String?, email: String?) {
         self.name = name
         self.gsm = gsm
         self.email = email

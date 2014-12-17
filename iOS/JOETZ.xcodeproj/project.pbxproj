@@ -52,6 +52,7 @@
 		3DF675EC1A20CDBD00B8387A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675EB1A20CDBD00B8387A /* MenuViewController.swift */; };
 		3DF675EE1A20CEBB00B8387A /* MenuSetupUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */; };
 		3DF675F01A20CF0300B8387A /* MenuSetupUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */; };
+		87096DB61A41286F00AA1634 /* jens.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87096DB51A41286F00AA1634 /* jens.jpg */; };
 		872F6E591A39194800949C8A /* ParentSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872F6E581A39194800949C8A /* ParentSplitViewController.swift */; };
 		874113AD1A1E7D600032BC6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874113AC1A1E7D600032BC6B /* MapKit.framework */; };
 		8746144F1A3E8A7C00162CD1 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */; };
@@ -151,6 +152,7 @@
 		3DF675EB1A20CDBD00B8387A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		3DF675ED1A20CEBB00B8387A /* MenuSetupUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUITableViewController.swift; sourceTree = "<group>"; };
 		3DF675EF1A20CF0300B8387A /* MenuSetupUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSetupUIViewController.swift; sourceTree = "<group>"; };
+		87096DB51A41286F00AA1634 /* jens.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jens.jpg; sourceTree = "<group>"; };
 		872F6E581A39194800949C8A /* ParentSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentSplitViewController.swift; sourceTree = "<group>"; };
 		874113AC1A1E7D600032BC6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8746144E1A3E8A7C00162CD1 /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				AB138EE819F51B74007DB692 /* Main.storyboard */,
 				AB138EED19F51B74007DB692 /* LaunchScreen.xib */,
 				AB138EEB19F51B74007DB692 /* Images.xcassets */,
+				87096DB51A41286F00AA1634 /* jens.jpg */,
 				8798D7D21A2284CC0085C06F /* JOETZ.xcdatamodeld */,
 				AB138EE219F51B74007DB692 /* Supporting Files */,
 				ABB11A811A0CA23300BE6A88 /* Bridge-Header.h */,
@@ -571,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB339831A053CF100518CA2 /* Main.storyboard in Resources */,
+				87096DB61A41286F00AA1634 /* jens.jpg in Resources */,
 				3DF675E91A20CC3D00B8387A /* menuButton.png in Resources */,
 				AB138EEF19F51B74007DB692 /* LaunchScreen.xib in Resources */,
 				AB138EEC19F51B74007DB692 /* Images.xcassets in Resources */,
