@@ -169,14 +169,15 @@ class JSON {
         let street = jsonData["street"] as String?
         let streetNumber = jsonData["streetNumber"] as Int?
         
-        var children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)] = []
+        var children: [(childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)] = []
         var tripsHistory: [(childId: String, tripId: String)] = []
-        var reservations: [( childId: String, tripId: String, registrationId: String)] = []
+        var reservations: [(childId: String, tripId: String, registrationId: String)] = []
         
         let jsonChildren = jsonData["children"] as NSArray?
         if let jsonChildren = jsonChildren {
             for jsonChild in jsonChildren {
-                children.append(isMemberOfSocialMutuality: jsonData["isMemberOfSocialMutuality"] as Bool, firstname: jsonData["firstname"] as String, lastname: jsonData["lastname"] as String, socialSecurityNumber: jsonData["socialSecurityNumber"] as String, birthday: jsonData["birthday"] as NSDate, street: jsonData["street"] as String, streetNumber: jsonData["streetNumber"] as String, zipcode: jsonData["zipcode"] as String, bus: jsonData["bus"] as String, city: jsonData["city"] as String)
+                let childBirthday = isoDateParser(jsonChild["birthday"] as String)
+                children.append(childId: jsonChild["childId"] as String, isMemberOfSocialMutuality: jsonChild["isMemberOfSocialMutuality"] as Bool?, firstname: jsonChild["firstname"] as String, lastname: jsonChild["lastname"] as String, socialSecurityNumber: jsonChild["socialSecurityNumber"] as String, birthday: childBirthday as String, street: jsonChild["street"] as String?, streetNumber: jsonChild["streetNumber"] as String?, zipcode: jsonChild["zipcode"] as String?, bus: jsonChild["bus"] as String?, city: jsonChild["city"] as String?)
             }
         }
         

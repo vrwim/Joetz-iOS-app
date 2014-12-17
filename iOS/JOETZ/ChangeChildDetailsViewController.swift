@@ -10,6 +10,7 @@ import UIKit
 
 class ChangeChildDetailsViewController: FormViewController, FormViewControllerDelegate
 {
+    var child: (childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +35,20 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
         let sectionPersonalia = FormSectionDescriptor()
         sectionPersonalia.headerTitle = "Personalia"
         
+        let firstname = child!.firstname ?? ""
         var row = FormRowDescriptor(tag: "firstName", rowType: .Name, title: "Voornaam")
+        row.value = firstname
         sectionPersonalia.addRow(row)
         
+        let lastname = child!.lastname ?? ""
         row = FormRowDescriptor(tag: "lastName", rowType: .Name, title: "Familienaam")
+        row.value = lastname
         sectionPersonalia.addRow(row)
         
+        var birthday = child!.birthday ?? ""
+        let birthdayDate = dateConverter(birthday)
         row = FormRowDescriptor(tag: "birthday", rowType: .Date, title: "Geboortedatum")
+        row.value = birthdayDate
         sectionPersonalia.addRow(row)
         
         // Address
@@ -48,19 +56,29 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
         let sectionAddress = FormSectionDescriptor()
         sectionAddress.headerTitle = "Adres"
         
+        let street = child!.street ?? ""
         row = FormRowDescriptor(tag: "street", rowType: .Name, title: "Straat")
+        row.value = street
         sectionAddress.addRow(row)
         
+        let streetNumber = child!.streetNumber ?? ""
         row = FormRowDescriptor(tag: "streetNumber", rowType: .Number, title: "Nummer")
+        row.value = streetNumber
         sectionAddress.addRow(row)
         
+        let bus = child!.bus ?? ""
         row = FormRowDescriptor(tag: "bus", rowType: .Name, title: "Bus")
+        row.value = bus
         sectionAddress.addRow(row)
         
+        let postalCode = child!.zipcode ?? ""
         row = FormRowDescriptor(tag: "postalCode", rowType: .Number, title: "Postcode")
+        row.value = postalCode
         sectionAddress.addRow(row)
         
+        let city = child!.city ?? ""
         row = FormRowDescriptor(tag: "city", rowType: .Name, title: "Stad")
+        row.value = city
         sectionAddress.addRow(row)
         
         // Numbers
@@ -68,7 +86,14 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
         let sectionNumbers = FormSectionDescriptor()
         sectionNumbers.headerTitle = "Sociale nummers"
         
+        let socialSecurityNumber = child!.socialSecurityNumber ?? ""
         row = FormRowDescriptor(tag: "ssn", rowType: .Text, title: "Rijksregisternummer")
+        row.value = socialSecurityNumber
+        sectionNumbers.addRow(row)
+        
+        let isMemberOfSocialMutuality = child!.isMemberOfSocialMutuality ?? false
+        row = FormRowDescriptor(tag: "isMemberMutuality", rowType: .BooleanSwitch, title: "Lid van mutualiteit")
+        row.value = isMemberOfSocialMutuality
         sectionNumbers.addRow(row)
         
         form.sections = [sectionPersonalia, sectionAddress, sectionNumbers]
@@ -89,5 +114,20 @@ class ChangeChildDetailsViewController: FormViewController, FormViewControllerDe
     
     @IBAction func cancelBtn(sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    private func dateConverter(date: String) -> NSDate? {
+        var birthday = ""
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        let tmpDate = dateFormatter.dateFromString(date)!
+        dateFormatter.dateStyle = .LongStyle
+        dateFormatter.timeStyle = .NoStyle
+        birthday = dateFormatter.stringFromDate(tmpDate)
+        
+        var birthdayDate = dateFormatter.dateFromString(birthday)
+        
+        return birthdayDate
     }
 }
