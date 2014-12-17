@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Groep 3D07. All rights reserved.
 //
 
+//SplitViewController for newsviews, except for the difference noted in the code, it is exactly the same as ParentSplitViewController
 class NewsSplitViewController: UISplitViewController, UISplitViewControllerDelegate
 {
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class NewsSplitViewController: UISplitViewController, UISplitViewControllerDeleg
         orientationCheck()
     }
     
+    //as NewsViewController instead of as ParentTripsController
     func splitViewController(svc: UISplitViewController, popoverController pc: UIPopoverController, willPresentViewController aViewController: UIViewController) {
         (svc.viewControllers[0].topViewController as NewsViewController).sidebar = pc
     }

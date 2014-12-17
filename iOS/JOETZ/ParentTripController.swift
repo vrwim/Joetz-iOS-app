@@ -14,6 +14,7 @@ class ParentTripController: MenuSetupUITableViewController
     
     var trip: Trip!
     var images: [String : UIImage] = [:]
+    var cellHeight =  CGFloat()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +78,29 @@ class ParentTripController: MenuSetupUITableViewController
         }
     }
     
-    /*override func tableView(derp: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat { //todo fix mapcell resizing
+    override func tableView(derp: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat { //todo fix mapcell resizing
         switch indexPath.section {
-        case 0,1: return 44
-        case 2: return 54
+        case 0: 
+            if indexPath.row == 7 {
+                return cellHeight
+            } else {
+                return 44
+            }
+        case 1,2: return 54
         case 3: return 320.5
         default: return 44
         }
-    }*/
+    }
+    
+    func sizeOfString (string: NSString, constrainedToWidth width: CGFloat) -> CGSize {
+        var label = UILabel()
+        label.text = string
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        var maxSize = CGSizeMake(width, 9999)
+        return label.sizeThatFits(maxSize)
+    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
@@ -111,6 +127,8 @@ class ParentTripController: MenuSetupUITableViewController
                 cell.textLabel!.text = trip.promo
                 cell.textLabel!.lineBreakMode = .ByWordWrapping
                 cell.textLabel!.numberOfLines = 0
+                cellHeight = sizeOfString(trip.promo! as NSString, constrainedToWidth: cell.contentView.bounds.size.width).height
+                println(cellHeight)
             default:
                 println("Error: Asking for content of cell \(indexPath.row) in section \(indexPath.section)")
             }

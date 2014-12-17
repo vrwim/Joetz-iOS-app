@@ -22,7 +22,7 @@ class MonitorCell: UITableViewCell {
             nameLabel.text = monitor.name
             gsmLabel.text = monitor.gsm ?? "Privé"
             emailLabel.text = monitor.email
-            moniPic.image = UIImage(named: "jens.jpg")
+            moniPic.image = UIImage(named: "test.jpg")
         }
     }
     
