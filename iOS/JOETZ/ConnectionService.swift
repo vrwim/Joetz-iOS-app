@@ -219,7 +219,7 @@ class ConnectionService {
                 let response = response as NSHTTPURLResponse
                 println("\tRequest succeeded: \(response.statusCode)")
                 //check other numbers...
-                if response.statusCode == 200 {
+                if response.statusCode >= 200 && response.statusCode < 300 {
                     dispatch_async(dispatch_get_main_queue()) { // dispatch naar main thread (main_queue is thread# van main thread van app)
                         completionHandler(data)
                     }
