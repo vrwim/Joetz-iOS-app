@@ -188,6 +188,51 @@ class ConnectionService {
         }
     }
     
+    func changeChildDetails(id: String, token: String, childId: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?, isMemberMutuality: Bool?, completionHandler: String -> Void) -> NSURLSessionTask {
+        
+        var childDict: NSMutableDictionary = [:]
+        childDict["id"] = childId
+        childDict["birthday"] = birthday
+        childDict["bus"] = bus
+        childDict["city"] = city
+        childDict["firstname"] = firstname
+        childDict["lastname"] = lastname
+        childDict["postalCode"] = postalCode
+        childDict["socialSecurityNumber"] = ssn
+        childDict["street"] = street
+        childDict["streetNumber"] = streetNumber
+        
+        var payloadDict: [String:AnyObject?] = ["children":childDict]
+        var payload = JSON.toJSON(payloadDict)
+        
+        return request("PUT", appendage: "api/users/\(id)", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
+            data in
+            //do something
+        }
+    }
+    
+    func addChildToParent(id: String, token: String, firstname: String, lastname: String, birthday: NSDate, ssn: String, street: String?, streetNumber: Int?, bus: String?, postalCode: String?, city: String?, isMemberMutuality: Bool?, completionHandler: String -> Void) -> NSURLSessionTask {
+        
+        var childDict: NSMutableDictionary = [:]
+        childDict["birthday"] = birthday
+        childDict["bus"] = bus
+        childDict["city"] = city
+        childDict["firstname"] = firstname
+        childDict["lastname"] = lastname
+        childDict["postalCode"] = postalCode
+        childDict["socialSecurityNumber"] = ssn
+        childDict["street"] = street
+        childDict["streetNumber"] = streetNumber
+        
+        var payloadDict: [String:AnyObject?] = ["children":childDict]
+        var payload = JSON.toJSON(payloadDict)
+        
+        return request("PUT", appendage: "api/users/\(id)", values: ["Authorization":"Bearer \(token)"], payload: payload, onFail: nil) {
+            data in
+            //do something
+        }
+    }
+    
     private func request(httpMethod: String, appendage: String, values: [String: String]?, payload: String?, onFail: ((UIAlertController, NSData?) -> Void)?, completionHandler: NSData! -> Void) -> NSURLSessionTask {
         
         // TODO check if internetconnection

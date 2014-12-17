@@ -14,7 +14,7 @@ class User {
     let email: String
     let role: String?
     let token: String?
-    let children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)]
+    let children: [(childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)]
     let tripsHistory: [(childId: String, tripId: String)]
     let reservations: [( childId: String, tripId: String, registrationId: String)]
     let birthday: String?
@@ -31,7 +31,7 @@ class User {
     let streetNumber: Int?
     
     
-    init(id: String, provider: String?, name: String?, email: String, role: String?, token: String?, children: [(isMemberOfSocialMutuality: Bool, firstname: String, lastname: String, socialSecurityNumber: String, birthday: NSDate, street: String, streetNumber: String, zipcode: String, bus: String, city: String)], tripsHistory: [(childId: String, tripId: String)], reservations: [( childId: String, tripId: String, registrationId: String)], birthday: String?, bus: String?, city: String?, firstname: String?, lastname: String?, gsm: String?, phone: String?, postalCode: String?, socialMutualityNumber: String?, socialSecurityNumber: String?, street: String?, streetNumber: Int?) {
+    init(id: String, provider: String?, name: String?, email: String, role: String?, token: String?, children: [(childId: String, isMemberOfSocialMutuality: Bool?, firstname: String, lastname: String, socialSecurityNumber: String, birthday: String, street: String?, streetNumber: String?, zipcode: String?, bus: String?, city: String?)], tripsHistory: [(childId: String, tripId: String)], reservations: [( childId: String, tripId: String, registrationId: String)], birthday: String?, bus: String?, city: String?, firstname: String?, lastname: String?, gsm: String?, phone: String?, postalCode: String?, socialMutualityNumber: String?, socialSecurityNumber: String?, street: String?, streetNumber: Int?) {
         self.id = id
         self.provider = provider
         self.name = name

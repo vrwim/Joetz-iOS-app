@@ -182,7 +182,7 @@ class ChangeAccountDetailsViewController: FormViewController, FormViewController
                 let birthday = fv["birthday"] as? NSDate
                 let smn = fv["smn"] as? String
                 let ssn = fv["ssn"] as? String
-                let role = fv["role"] as? String
+                
                 let user = UserService.getDetailsLoggedInUser()
                 let id = user["id"]
                 let token = user["token"]
